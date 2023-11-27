@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <?php echo $websiteName; ?></title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: green;
+            padding: 10px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-login {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            font-size: 14px;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .logo {
+            width: 100px; /* Sesuaikan ukuran logo sesuai kebutuhan Anda */
+            height: auto;
+        }
+
+        .website-name {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+
+        .features {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .feature {
+            display: inline-block;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Selamat Datang di <?php echo $websiteName; ?> </h1>
+        <div class="profile-login">
+            <a href="#">Profil</a> |
+            <a href="#">Login</a>
+        </div>
+    </header>
+
+    <div class="logo-container">
+        <img class="logo" src="path/to/your/logo.png" alt="Logo <?php echo $websiteName; ?>">
+        <div class="website-name"><?php echo $websiteName; ?></div>
+    </div>
+
+    <div class="features">
+        <?php foreach ($features as $feature): ?>
+            <div class="feature"><?php echo $feature; ?></div>
+        <?php endforeach; ?>
+    </div>
+
+    <!-- Isi konten website Anda akan ditempatkan di sini -->
+
+</body>
+</html>
