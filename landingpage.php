@@ -36,7 +36,6 @@
 
         .logo {
             width: 80px;
-            /* Sesuaikan ukuran logo sesuai kebutuhan Anda */
             height: auto;
         }
 
@@ -63,17 +62,14 @@
             background-color: rgba(0, 173, 181, 1);
             color: white;
             padding: 10px;
-            /* tambahkan padding untuk memberi ruang di sekitar teks */
+           
         }
 
         .user {
             width: 20px;
             height: 20px;
-            /* Atur sesuai kebutuhan Anda */
             border-radius: 50%;
-            /* Agar gambarnya menjadi lingkaran */
             margin-right: 5px;
-            /* Atur sesuai kebutuhan Anda */
         }
     </style>
 </head>
@@ -99,9 +95,6 @@
         <div class="feature"> <a href="fitur/repository.php">Repository</a></div>
         <div class="feature"><a href="fitur/peraturan.php">Peraturan</a></div>
     </div>
-
-    <!-- Isi konten website Anda akan ditempatkan di sini -->
-
 </body>
 
 </html>
