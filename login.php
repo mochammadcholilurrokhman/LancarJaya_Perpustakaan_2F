@@ -72,7 +72,7 @@
             if ($username === $validUsername && $password === $validPassword) {
                 // Login berhasil
                 $_SESSION["username"] = $username;
-                header("Location: dashboard.php");
+                header("Location: user/dashboard.php");
                 exit();
             } else {
                 // Login gagal, tampilkan pesan kesalahan

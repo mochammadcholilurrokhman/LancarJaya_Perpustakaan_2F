@@ -8,7 +8,7 @@ body {
 }
 
 header {
-  background-color: rgba(0, 173, 181, 1);
+  background-color: rgba(11, 36, 71, 1);
   padding: 10px;
   color: white;
   display: flex;
@@ -29,6 +29,7 @@ header h1 {
 .profile-login {
   display: flex;
   align-items: center;
+  color: white;
 }
 
 .login-link {
