@@ -1,0 +1,49 @@
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .logo {
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+  }
+
+  .website-names {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .website-name {
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  .website-name1 {
+    font-size: 40px;
+    color: #555;
+  }
+
+  .features {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+
+  .feature-container {
+    border: 2px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    width: 150px; 
+    background-color: rgba(0, 173, 181, 1);
+  }
+
+  .feature-container a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
