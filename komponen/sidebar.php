@@ -61,9 +61,7 @@
         <a href="../fitur/rules.php">Rules</a>
       </div>
       <div class="grid place-items-center ml-auto justify-self-end">
-        <div class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-blue-500/20 text-blue-900 py-1 px-2 text-xs rounded-full" style="opacity: 1;">
-          <span class="">14</span>
-        </div>
+        <div class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-blue-500/20 text-blue-900 py-1 px-2 text-xs rounded-full" style="opacity: 1;">        </div>
       </div>
   </div>
   </nav>

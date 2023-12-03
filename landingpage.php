@@ -13,13 +13,12 @@
 
 <body>
 
-<?php include('komponen/header.php'); ?>
+<?php include("komponen/header.php"); ?>
 
   <div class="logo-container">
     <img class="logo" src="img/logo.png" alt="Logo Website">
   </div>
   <div class="website-names">
-    <div class="website-name">Dashboard</div>
     <div class="website-name1">Ruang Baca</div>
   </div>
 

@@ -1,4 +1,3 @@
-<style>
 
             .book-item {
                 text-align: center; 
@@ -31,9 +30,6 @@
                 margin-right: 20px; 
                 flex-basis: 75%; 
             }
-
-            
-
             .pagination {
             margin-top: 20px;
             display: flex;

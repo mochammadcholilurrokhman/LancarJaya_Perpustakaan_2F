@@ -14,6 +14,7 @@
   .website-names {
     text-align: center;
     margin-bottom: 40px;
+    margin-top: 40px;
   }
 
   .website-name {
@@ -39,7 +40,7 @@
     text-align: center;
     border-radius: 10px;
     width: 150px; 
-    background-color: rgba(0, 173, 181, 1);
+    background-color: rgba(11, 36, 71, 1);
   }
 
   .feature-container a {
