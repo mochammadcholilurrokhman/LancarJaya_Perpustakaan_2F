@@ -37,7 +37,44 @@
                 <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full">Login</button>
             </form>
 
+<<<<<<< HEAD
         </div>
+=======
+        // Proses login jika formulir dikirim
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $validUsername = "admin";
+            $validPassword = "admin123";
+
+            $username = $_POST["username"];
+            $password = $_POST["password"];
+
+            // Verifikasi kredensial
+            if ($username === $validUsername && $password === $validPassword) {
+                // Login berhasil
+                $_SESSION["username"] = $username;
+                header("Location: user/dashboard.php");
+                exit();
+            } else {
+                // Login gagal, tampilkan pesan kesalahan
+                $error = "Username atau password salah!";
+            }
+        }
+        ?>
+
+        <?php if (isset($error)) : ?>
+            <div class="error"><?php echo $error; ?></div>
+        <?php endif; ?>
+
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <label for="username">Username:</label>
+            <input type="text" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+>>>>>>> 7e804616f428cce431339e1a28b361e1f5b65ed6
     </div>
 
 </body>

@@ -11,7 +11,11 @@
     </head>
 
     <body>
+<<<<<<< HEAD
         <?php
+=======
+        <?php 
+>>>>>>> 7e804616f428cce431339e1a28b361e1f5b65ed6
         include('../komponen/header.php');
         ?>
 
@@ -40,7 +44,11 @@
                         "BelajarC++",
                     );
 
+<<<<<<< HEAD
                     $booksPerPage = 10;
+=======
+                    $booksPerPage = 8;
+>>>>>>> 7e804616f428cce431339e1a28b361e1f5b65ed6
                     $page = isset($_GET['page']) ? $_GET['page'] : 1;
                     $startIndex = ($page - 1) * $booksPerPage;
                     $currentBooks = array_slice($books, $startIndex, $booksPerPage);
