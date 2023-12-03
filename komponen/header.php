@@ -12,7 +12,6 @@
             <a href="login.php" class="login-link">Login</a>
 
             <?php
-            $currentPage = basename($_SERVER['PHP_SELF']);
 
             $imageUrl = ($currentPage === 'landingpage.php') ? 'img/user.png' : '../img/user.png';
             ?>
