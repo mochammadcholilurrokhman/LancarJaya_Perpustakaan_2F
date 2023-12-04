@@ -8,12 +8,12 @@
   <link rel="stylesheet" href="style/header.css">
 
   <title>Ruang Baca</title>
-  
+
 </head>
 
 <body>
 
-<?php include("komponen/header.php"); ?>
+  <?php include("komponen/header.php"); ?>
 
   <div class="logo-container">
     <img class="logo" src="img/logo.png" alt="Logo Website">
@@ -28,6 +28,7 @@
     <div class="feature-container"><a href="fitur/tentangkami.php">Tentang Kami</a></div>
     <div class="feature-container"><a href="fitur/peraturan.php">Peraturan</a></div>
   </div>
+  <?php include('fitur/aboutUs.php'); ?>
 
 </body>
 
