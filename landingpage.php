@@ -25,7 +25,6 @@
   <div class="features">
     <div class="feature-container"><a href="fitur/katalog.php">Katalog</a></div>
     <div class="feature-container"><a href="fitur/repository.php">Repository</a></div>
-    <div class="feature-container"><a href="fitur/tentangkami.php">Tentang Kami</a></div>
     <div class="feature-container"><a href="fitur/peraturan.php">Peraturan</a></div>
   </div>
   <?php include('fitur/aboutUs.php'); ?>
