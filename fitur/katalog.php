@@ -11,11 +11,7 @@
     </head>
 
     <body>
-<<<<<<< HEAD
         <?php
-=======
-        <?php 
->>>>>>> 7e804616f428cce431339e1a28b361e1f5b65ed6
         include('../komponen/header.php');
         ?>
 
