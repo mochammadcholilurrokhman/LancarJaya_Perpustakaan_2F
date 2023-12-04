@@ -12,7 +12,7 @@
 
 <body>
     <?php
-    include('../komponen/header.php');
+    include('../komponen/headeruser.php');
     ?>
 
     <div class="content">

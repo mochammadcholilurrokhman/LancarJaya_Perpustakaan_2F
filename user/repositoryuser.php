@@ -10,7 +10,7 @@
 
 <body>
     <?php
-    include('../komponen/header.php');
+    include('../komponen/headeruser.php');
     $journals = array(
         array("Pembuatan Mesin Pengupas Kulit Jagung Kapasitas 150 kg/jam
         ", "Theo Sakti Yudistira"),

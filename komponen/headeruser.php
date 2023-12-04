@@ -19,10 +19,10 @@
             background-color: #0aa5ff;
             color: white;
         }
+
         .user {
             margin-right: 10px;
         }
-     
     </style>
 </head>
 
@@ -42,9 +42,13 @@
             <?php
 
             $imageUrl = ($currentPage === 'landingpage.php') ? '../img/user1.png' : '../img/user1.png';
+
             ?>
 
             <a href="#"><img class="user" src="<?php echo $imageUrl; ?>" alt="User"></a>
+
+            <!-- Tambahkan gambar cart di samping ikon profil -->
+            <a href="../login.php"><img class="user" src="../img/cart.png" alt="Cart"></a>
 
         </div>
 
