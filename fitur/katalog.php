@@ -83,8 +83,11 @@
                 echo '</div>';
                 echo '</div>';
                 ?>
-
+                <div class="tambah-buku-container">
+                    <a href="tambah_buku.php" class="tambah-buku-button">Tambah Buku</a>
+                </div>
             </div>
+
         </div>
     </div>
 </body>

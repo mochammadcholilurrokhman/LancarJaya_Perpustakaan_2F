@@ -65,6 +65,26 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
+        .tambah-buku-container {
+            margin-top: 20px;
+        }
+        
+        .tambah-buku-button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #4CAF50; 
+            color: #fff; 
+            border: 2px solid #4CAF50; 
+            border-radius: 5px; 
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .tambah-buku-button:hover {
+            background-color: #fff; 
+            color: #4CAF50; 
+        }
         /*repository*/
         .journal-box1,.journal-box2,.journal-box3,.journal-box4,.journal-box5  {
             border: 1px solid #ccc;
