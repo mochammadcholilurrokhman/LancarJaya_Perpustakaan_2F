@@ -40,6 +40,7 @@
                     <br> <br>
                 </span>
                 <span> <b>Social Media: </b>
+                
                     <br> instagram
                     <br> facebook
                     <br> twitter
