@@ -1,10 +1,16 @@
+<?php
+session_start(); 
+
+include('../Connection.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <link rel="stylesheet" href="../style/header.css">
     <style>
-        .login-link {
+         .login-link {
             font-weight: normal;
             padding: 10px 10px;
             background-color: transparent;
@@ -19,9 +25,9 @@
             background-color: #0aa5ff;
             color: white;
         }
-
         .user {
-            margin-right: 10px;
+            margin-right: 5px;
+            margin-left: 10px;
         }
     </style>
 </head>
@@ -36,23 +42,19 @@
             if ($currentPage === 'landingpage.php') {
                 echo '<a href="login.php" class="login-link">Login</a>';
             } else {
-                echo '<a href="../login.php" class="login-link">Login</a>';
+                if (isset($_SESSION['username'])) {
+                    echo $_SESSION['username'];
+                    $imageUrl = '../img/user1.png';
+                } else {
+                    header("Location: login.php");
+                    exit();
+                }
             }
-            ?>
-            <?php
-
-            $imageUrl = ($currentPage === 'landingpage.php') ? '../img/user1.png' : '../img/user1.png';
-
             ?>
 
             <a href="#"><img class="user" src="<?php echo $imageUrl; ?>" alt="User"></a>
-
-            <!-- Tambahkan gambar cart di samping ikon profil -->
-            <a href="../login.php"><img class="user" src="../img/cart.png" alt="Cart"></a>
-
+            <a href="#"><img class="user" src="../img/cart.png"></a>
         </div>
-
-        <div class="header"></div>
     </header>
 </body>
 
