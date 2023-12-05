@@ -41,7 +41,7 @@
             ?>
             <?php
 
-            $imageUrl = ($currentPage === 'landingpage.php') ? '../img/user1.png' : '../img/user1.png';
+            $imageUrl = ($currentPage === 'landingpage.php') ? 'img/user1.png' : '../img/user1.png';
             ?>
 
             <a href="#"><img class="user" src="<?php echo $imageUrl; ?>" alt="User"></a>
