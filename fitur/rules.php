@@ -15,13 +15,13 @@
     include('../komponen/header.php');
     ?>
 
-    <div class="content">
+    <div class="content p-0">
         <div id="sidebar">
             <?php
             include('../komponen/sidebar.php');
             ?>
 
-            <div class="isiTeks">
+            <div class="isiTeks ">
                 <h1>Rules Ruang Baca JTI</h1>
 
             </div>

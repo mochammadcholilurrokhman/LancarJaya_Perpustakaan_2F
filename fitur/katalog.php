@@ -6,19 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katalog Perpustakaan</title>
     <link rel="stylesheet" href="../style/fitur.css">
+
 </head>
 
 <body>
     <?php
     include('../komponen/header.php');
     ?>
-    <div class="content">
+    <div class="content p-0">
         <div id="sidebar">
             <?php
             include('../komponen/sidebar.php');
             ?>
 
-            <div class="isi">
+            <div class="isi m-auto">
                 <form method="GET" action="">
                     <input type="text" name="search" class="search-box" placeholder="Cari buku..." value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
                     <button type="submit" class="search-button">Search</button>
@@ -84,7 +85,7 @@
                 echo '</div>';
                 ?>
                 <div class="tambah-buku-container">
-                    <a href="tambah_buku.php" class="tambah-buku-button">Tambah Buku</a>
+                    <a href="../fungsi/tambah.php" class="tambah-buku-button">Tambah Buku</a>
                 </div>
             </div>
 

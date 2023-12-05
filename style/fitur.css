@@ -3,113 +3,118 @@
                 text-align: center; 
             }
 
-            .book-title {
-                margin-top: 5px; 
-                font-weight: bold;
-            }
+.book-title {
+  margin-top: 5px;
+  font-weight: bold;
+}
 
 
-            .sidebar {
-                width: 250px;
-                height: 100%;
-                background-color: #333;
-                padding-top: 60px;
-                transition: 0.5s;
-            }
+ .sidebar {
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  padding-top: 60px;
+  transition: 0.5s;
+} 
 
-            .content {
-                flex: 1;
-                display: flex;
-                padding: 20px;
-            }
-            
-            .isi {
-                padding: 20px; 
-                background-color: #f2f2f2; 
-                border-radius: 10px; 
-                margin-right: 20px; 
-                flex-basis: 75%; 
-            }
-            .pagination {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center; 
-        }
-        .pagination a {
-            margin: 0 5px;
-            text-decoration: none;
-            color: #fff; 
-            background-color: #007BFF; 
-            padding: 8px 12px; 
-            border-radius: 5px; 
-            font-weight: bold;
-        }
-        .pagination a.active {
-            background-color: #0056b3; 
-        }
+.content {
+  flex: 1;
+  display: flex;
+}
 
-        .pagination a:hover {
-            background-color: #0056b3; 
-        }
-        /*katalog*/
-        .gambar-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            padding: 20px;
-        }
+.isi {
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  margin-left: 3rem;
+  flex-basis: 75%;
+}
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.pagination a {
+  margin: 0 5px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.pagination a.active {
+  background-color: #0056b3;
+}
 
-        .gambar-container img {
-            width: 180px; 
-            height: auto; 
-            border-radius: 5px;
-            cursor: pointer;
-        }
+.pagination a:hover {
+  background-color: #0056b3;
+}
+/*katalog*/
+.gambar-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+}
 
-        .tambah-buku-container {
-            margin-top: 20px;
-        }
-        
-        .tambah-buku-button {
-            display: inline-block;
-            padding: 10px 20px;
-            text-decoration: none;
-            background-color: #4CAF50; 
-            color: #fff; 
-            border: 2px solid #4CAF50; 
-            border-radius: 5px; 
-            transition: background-color 0.3s, color 0.3s;
-        }
-        
-        .tambah-buku-button:hover {
-            background-color: #fff; 
-            color: #4CAF50; 
-        }
-        /*repository*/
-        .journal-box1,.journal-box2,.journal-box3,.journal-box4,.journal-box5  {
-            border: 1px solid #ccc;
-            gap: 10px;
-            padding: 10px;
-            margin-top : 20px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-            background-color: white;
-            border-color: white;
-        }
-        /*aboutUS & rules*/
-        .isiTeks {
-            padding: 20px; 
-            background-color: #f2f2f2; 
-            border-radius: 10px; 
-            margin-right: 20px; 
-            flex-basis: 75%; 
-            text-align : center;
-        }
+.gambar-container img {
+  width: 180px;
+  height: auto;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-        .info-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 1px;
-            
-        }
+.tambah-buku-container {
+  margin-top: 20px;
+}
+
+.tambah-buku-button {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: #4caf50;
+  color: #fff;
+  border: 2px solid #4caf50;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tambah-buku-button:hover {
+  background-color: #fff;
+  color: #4caf50;
+}
+/*repository*/
+.journal-box1,
+.journal-box2,
+.journal-box3,
+.journal-box4,
+.journal-box5 {
+  border: 1px solid #ccc;
+  gap: 10px;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  background-color: white;
+  border-color: white;
+}
+/*aboutUS & rules*/
+.isiTeks {
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  flex-basis: 75%;
+  text-align: center;
+  margin: auto;
+}
+
+.info-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1px;
+}
+
+
+

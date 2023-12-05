@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog Perpustakaan</title>
+    <title>Repository Perpustakaan</title>
     <link rel="stylesheet" href="../style/fitur.css">
 </head>
 
@@ -32,13 +32,13 @@
     $currentPageJournals = array_slice($journals, $startIndex, $itemsPerPage);
     ?>
 
-    <div class="content">
+    <div class="content p-0">
         <div id="sidebar">
             <?php
             include('../komponen/sidebar.php');
             ?>
 
-            <div class="isi">
+            <div class="isi m-auto">
                 <input type="text" class="search-box" placeholder="Cari jurnal...">
                 <button class="search-button">Search</button>
                 <?php
