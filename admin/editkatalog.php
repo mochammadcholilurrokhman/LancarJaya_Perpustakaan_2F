@@ -79,7 +79,7 @@
 
 <body>
     <?php
-    include('../komponen/headeradmin.php');
+    include('../komponen/headeruser.php');
     ?>
     <div class="content">
         <div id="sidebar">

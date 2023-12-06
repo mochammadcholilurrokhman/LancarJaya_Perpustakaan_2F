@@ -24,14 +24,13 @@
 
   .website-name1 {
     font-size: 40px;
-    color: #555;
+    color: brown;
   }
 
   .features {
     display: flex;
     justify-content: space-around;
     padding: 20px;
-    background-color: #f9f9f9;
   }
 
   .feature-container {
@@ -48,3 +47,4 @@
     color: white;
     font-weight: bold;
   }
+  

@@ -10,7 +10,6 @@ body {
 header {
   background-color: rgba(11, 36, 71, 1);
   padding: 10px;
-  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,6 +21,7 @@ header h1 {
   font-size: 40px;
   margin: 0;
   font-weight: bold;
+  color: white;
 }
 .header {
   font-size: 24px;
