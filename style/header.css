@@ -28,6 +28,12 @@ header h1 {
   cursor: pointer;
   display: none;
 }
+header h1 span{
+  font-size: 40px;
+  margin: 0;
+  font-weight: bold;
+  color: rgba(251, 146, 60, 1);
+}
 
 .profile-login {
   display: flex;

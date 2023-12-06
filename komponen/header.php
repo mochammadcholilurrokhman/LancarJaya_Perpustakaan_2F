@@ -28,7 +28,7 @@
 
 <body>
     <header>
-        <h1>Ruang Baca</h1>
+        <h1>Ruang<span>Baca</span></h1>
         <div class="profile-login">
             <?php
             $currentPage = basename($_SERVER['PHP_SELF']);

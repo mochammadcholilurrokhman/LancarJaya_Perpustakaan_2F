@@ -9,16 +9,40 @@
   <title>Ruang Baca</title>
 
   <style>
-  .hero {
-    min-height: 80vh;
-    align-items: center;
-    background-image: url("img/about-us.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-color: white;
-    position: relative;
-  }
+ .hero {
+  min-height: 80vh;
+  align-items: center;
+  background-image: url("img/about-us.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(1, 1, 3, 1) 5%,
+    rgba(255, 255, 255, 0) 10%
+  );
+}
+.hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 95%;
+      background: linear-gradient(rgba(255, 255, 255, 0) 5%, rgba(255, 255, 255, 1)5%);
+      filter: blur(10px);
+      z-index: 1;
+    }
+
   </style>
 
 </head>
