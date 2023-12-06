@@ -24,3 +24,10 @@
     text-align: left;
     margin-top: 1px;
 }
+
+.gambar {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+

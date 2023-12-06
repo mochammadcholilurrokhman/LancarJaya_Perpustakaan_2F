@@ -9,7 +9,11 @@
 </head>
 
 <body>
+    <div class="gambar">
+        <img style="height: 350px  ; width: auto;" src="img/gambar landingpage.jpg">
+    </div>
     <div class="content">
+        
         <div class="isiTeks">
             <h1>Ruang baca JTI</h1>
             <p> Merupakan salah satu sarana prasarana <br>
