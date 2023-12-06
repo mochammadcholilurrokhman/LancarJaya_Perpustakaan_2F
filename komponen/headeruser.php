@@ -45,15 +45,18 @@ include('../Connection.php');
                 if (isset($_SESSION['username'])) {
                     echo $_SESSION['username'];
                     $imageUrl = '../img/user1.png';
+                      echo '<a href="#"><img class="user" src="'.$imageUrl.'" alt="User"></a>';
+                    if ($_SESSION['posisi'] === 'admin') {
+                        echo '<a href="#"><img class="user" src="../img/bell.png" alt="Bell"></a>';
+                    } else {
+                        echo '<a href="#"><img class="user" src="../img/cart.png" alt="Bell"></a>';
+                    }
                 } else {
-                    header("Location: login.php");
+                   header("Location:../admin/dashboardadmin.php");
                     exit();
-                }
+                }         
             }
             ?>
-
-            <a href="#"><img class="user" src="<?php echo $imageUrl; ?>" alt="User"></a>
-            <a href="#"><img class="user" src="../img/cart.png"></a>
         </div>
     </header>
 </body>

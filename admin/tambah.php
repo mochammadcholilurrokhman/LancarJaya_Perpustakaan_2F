@@ -22,7 +22,7 @@
     ?>
     <h3>Form Tambah Data Buku</h3>
 
-    <form action="proses_input.php" method="post">
+    <form action="proses_tambah.php" method="post">
         <label for="judul">Judul Buku:</label>
         <input type="text" name="judul_buku" required><br>
 
