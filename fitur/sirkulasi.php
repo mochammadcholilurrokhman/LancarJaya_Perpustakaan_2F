@@ -1,5 +1,4 @@
 <?php
-// Koneksi ke database
 $koneksi = mysqli_connect("localhost", "root", "", "perpustakaan");
 
 function getPeminjaman()
@@ -29,7 +28,6 @@ function getPeminjaman()
 
 $peminjaman = getPeminjaman();
 
-// Add a new function to handle the search by id user
 function searchPeminjamanByIdUser($id_user) {
     global $koneksi;
 
@@ -55,7 +53,6 @@ function searchPeminjamanByIdUser($id_user) {
     return $peminjaman;
 }
 
-// Modify the existing code to call the new function when id_user is provided
 if (isset($_GET['id_user'])) {
     $id_userSearch = $_GET['id_user'];
     $peminjaman = searchPeminjamanByIdUser($id_userSearch);
