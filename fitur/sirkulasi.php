@@ -78,6 +78,15 @@ if (isset($_GET['id_user'])) {
     <input type="text" name="id_user" id="id_user">
     <button type="submit">Cari</button>
 </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <h1>Today's Transaction</h1>
+</head>
+<body>
+    
+</body>
+</html>
 
 <?php if (!empty($peminjaman)): ?>
 
@@ -86,11 +95,11 @@ if (isset($_GET['id_user'])) {
         <tr>
             <th>No</th>
             <th>NIM/NIP</th>
-            <th>Nama</th>
-            <th>Id Buku</th>
-            <th>Judul Buku</th>
-            <th>Tanggal Peminjaman</th>
-            <th>Tanggal Pengembalian</th>
+            <th>Name</th>
+            <th>Id Book</th>
+            <th>The Book Title</th>
+            <th>Loan Date</th>
+            <th>Return Date</th>
             <th>Status</th>
         </tr>
     </thead>
