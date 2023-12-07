@@ -1,21 +1,24 @@
-
-            .book-item {
-                text-align: center; 
-            }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.book-item {
+  text-align: center;
+}
 
 .book-title {
   margin-top: 5px;
   font-weight: bold;
 }
 
-
- .sidebar {
+.sidebar {
   width: 250px;
   height: 100%;
   background-color: #333;
   padding-top: 60px;
   transition: 0.5s;
-} 
+}
 
 .content {
   flex: 1;
@@ -116,5 +119,39 @@
   margin-top: 1px;
 }
 
+/* historyUser */
 
+.history-container {
+  display: flex;
+  align-items: center;
+}
 
+.history-item {
+  display: flex;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 100%;
+}
+
+.book-info img {
+  max-width: 100px;
+  margin-right: 20px;
+}
+
+.user-info {
+  flex-grow: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #000;
+  padding: 10px;
+  text-align: center;
+}

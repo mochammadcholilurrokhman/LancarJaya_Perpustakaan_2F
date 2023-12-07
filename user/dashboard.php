@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Perpustakaan</title>
     <link rel="stylesheet" href="../style/fitur.css">
+
 </head>
 
 <body>
@@ -28,7 +29,7 @@
                                 <p>Total Koleksi</p>
                                 <h2 class="text-4xl font-bold text-gray-600">1.500</h2>
                             </div>
-                            <img src="https://www.emprenderconactitud.com/img/Wallet.png" alt="wallet" class="h-24 md:h-20 w-38">
+                            <img src="../img/logo.png" alt="wallet" class="h-24 md:h-20 w-38">
                         </div>
                     </div>
 

@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+session_start();
 
 include('../Connection.php');
 ?>
@@ -9,8 +9,9 @@ include('../Connection.php');
 
 <head>
     <link rel="stylesheet" href="../style/header.css">
+
     <style>
-         .login-link {
+        .login-link {
             font-weight: normal;
             padding: 10px 10px;
             background-color: transparent;
@@ -25,6 +26,7 @@ include('../Connection.php');
             background-color: #0aa5ff;
             color: white;
         }
+
         .user {
             margin-right: 5px;
             margin-left: 10px;
@@ -45,20 +47,23 @@ include('../Connection.php');
                 if (isset($_SESSION['username'])) {
                     echo $_SESSION['username'];
                     $imageUrl = '../img/user1.png';
-                      echo '<a href="#"><img class="user" src="'.$imageUrl.'" alt="User"></a>';
+                    echo '<a href="#"><img class="user" src="' . $imageUrl . '" alt="User"></a>';
                     if ($_SESSION['posisi'] === 'admin') {
                         echo '<a href="#"><img class="user" src="../img/bell.png" alt="Bell"></a>';
                     } else {
                         echo '<a href="#"><img class="user" src="../img/cart.png" alt="Bell"></a>';
                     }
                 } else {
-                   header("Location:../admin/dashboardadmin.php");
+                    header("Location:../admin/dashboardadmin.php");
                     exit();
-                }         
+                }
             }
             ?>
+
         </div>
     </header>
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
 </body>
 
 </html>
