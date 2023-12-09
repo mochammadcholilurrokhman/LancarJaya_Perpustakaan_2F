@@ -79,6 +79,7 @@
 
 <body>
     <?php
+    include "../Connection.php";
     include('../komponen/headeruser.php');
     ?>
     <div class="content">
@@ -94,39 +95,49 @@
                 </form>
 
                 <button class="add-btn"> + Add the Book</button>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>The Title</th>
-                <th>The Author</th>
-                <th>Year Publication</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-             <?php
-    include "../Connection.php";
-    $query_mysql = mysqli_query($connection, "SELECT * FROM buku") or die(mysqli_error($connection));
-    $idbuku = 1;
-    while ($databuku = mysqli_fetch_array($query_mysql)) {
-    ?>
-        <tr>
-            <td><?php echo $idbuku++; ?></td>
-            <td><?php echo $databuku['judul_buku']; ?></td>
-            <td><?php echo $databuku['pengarang']; ?></td>
-            <td><?php echo $databuku['tahun_terbit']; ?></td>
-            <td><?php echo $databuku['status_buku']; ?></td>
-            <td>
-               <a href="detailsbuku.php?id=1" class="details-btn">Details</a>
-                    <a href="editbuku.php?id=1" class="edit-btn">Edit</a>
-                    <button class="delete-btn">Delete</button>
-            </td>
-        </tr>
-    <?php } ?>
-        </tbody>
-    </table>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>The Title</th>
+                            <th>The Author</th>
+                            <th>Year Publication</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+
+                        // Check if the search parameter is set
+                        if (isset($_GET['search'])) {
+                            $search = mysqli_real_escape_string($connection, $_GET['search']);
+                            $query = "SELECT * FROM buku WHERE judul_buku LIKE '%$search%'";
+                        } else {
+                            $query = "SELECT * FROM buku";
+                        }
+
+                        $query_mysql = mysqli_query($connection, $query) or die(mysqli_error($connection));
+                        $idbuku = 1;
+                        while ($databuku = mysqli_fetch_array($query_mysql)) {
+                        ?>
+                            <tr>
+                                <td><?php echo $idbuku++; ?></td>
+                                <td><?php echo $databuku['judul_buku']; ?></td>
+                                <td><?php echo $databuku['pengarang']; ?></td>
+                                <td><?php echo $databuku['tahun_terbit']; ?></td>
+                                <td><?php echo $databuku['status_buku']; ?></td>
+                                <td>
+                                    <a href="detailsbuku.php?id=1" class="details-btn">Details</a>
+                                    <a href="editbuku.php?id=1" class="edit-btn">Edit</a>
+                                    <button class="delete-btn">Delete</button>
+                                </td>
+                            </tr>
+
+                        <?php } ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
