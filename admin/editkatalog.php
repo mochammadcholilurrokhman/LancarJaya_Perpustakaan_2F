@@ -79,7 +79,7 @@
 
 <body>
     <?php
-    include('../komponen/headeradmin.php');
+    include('../komponen/headeruser.php');
     ?>
     <div class="content">
         <div id="sidebar">
@@ -106,20 +106,25 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Isi tabel akan diisi dengan data buku -->
-            <tr>
-            <td>1</td>
-                <td><img src="../img/belajarC++.jpeg" alt="Book Cover" class="book-cover">Belajar C++</td>
-                <td>John Doe</td>
-                <td>2023</td>
-                <td>Available</td>
-                <td>
-                    <a href="detailsbuku.php?id=1" class="details-btn">Details</a>
+             <?php
+    include "../Connection.php";
+    $query_mysql = mysqli_query($connection, "SELECT * FROM buku") or die(mysqli_error($connection));
+    $idbuku = 1;
+    while ($databuku = mysqli_fetch_array($query_mysql)) {
+    ?>
+        <tr>
+            <td><?php echo $idbuku++; ?></td>
+            <td><?php echo $databuku['judul_buku']; ?></td>
+            <td><?php echo $databuku['pengarang']; ?></td>
+            <td><?php echo $databuku['tahun_terbit']; ?></td>
+            <td><?php echo $databuku['status_buku']; ?></td>
+            <td>
+               <a href="detailsbuku.php?id=1" class="details-btn">Details</a>
                     <a href="editbuku.php?id=1" class="edit-btn">Edit</a>
                     <button class="delete-btn">Delete</button>
-                </td>
-            </tr>
-            <!-- Tambahkan baris-baris data buku sesuai kebutuhan -->
+            </td>
+        </tr>
+    <?php } ?>
         </tbody>
     </table>
             </div>
