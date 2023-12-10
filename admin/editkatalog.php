@@ -32,9 +32,14 @@
             cursor: pointer;
             margin-right: auto;
         }
+        .content .isi .add-btn {
+            margin-left: 1000px;
+            font-size: 13px;
+            text-align: center;
+        }
 
         .details-btn {
-          background-color: #1336CA;
+            background-color: #1336CA;
             color: white;
             border: none;
             padding: 5px 10px;
