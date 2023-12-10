@@ -64,10 +64,6 @@
             <td><?php echo $databuku['tahun_terbit']; ?></td>
             <td><?php echo $databuku['sinopsis']; ?></td>
             <td><?php echo $databuku['status_buku']; ?></td>
-            <td>
-                <a class="edit" href="editdata.php?id=<?php echo $databuku['id']; ?>">Edit</a>
-                <a class="hapus" href="hapusdata.php?id=<?php echo $databuku['id']; ?>">Hapus</a>
-            </td>
         </tr>
     <?php } ?>
     </div>
