@@ -44,9 +44,15 @@
             max-width: 400px;
         }
 
+        .book-details {
+            flex: 1;
+            text-align: left;
+        }
+
         .modal img {
             max-width: 100%;
             height: auto;
+            margin: 0 auto;
         }
 
         .close {
@@ -72,11 +78,14 @@
     <div id="myModal" class="modal" style="display: none;">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="bookTitle"></h2>
-            <p id="bookInfo"></p>
-            <br>
-            <button onclick="addToWishlist()">Add to Cart</button>
-            <button onclick="borrowBook()">Borrow</button>
+            <img class="modal-image" id="bookImage" alt="Book Image">
+            <div class="book-details">
+                <h2 id="bookTitle"></h2>
+                <p id="bookInfo"></p>
+                <br>
+                <button onclick="addToWishlist()">Add to Cart</button>
+                <button onclick="borrowBook()">Borrow</button>
+            </div>
         </div>
     </div>
 
@@ -161,27 +170,27 @@
             bookImages.forEach(function(image) {
                 image.addEventListener('click', function(event) {
                     var bookTitle = image.alt;
+                    var bookImageUrl = image.src;
+                    var bookAuthor = "John Doe";
+                    var bookYear = 2022;
 
-                    openModal(bookTitle, event);
+                    openModal(bookTitle, bookImageUrl, bookAuthor, bookYear);
                 });
             });
         });
 
-
-
-        function openModal(bookTitle, event) {
+        function openModal(bookTitle, bookImageUrl, bookAuthor, bookYear) {
             var modal = document.getElementById("myModal");
+            var modalImage = document.getElementById("bookImage");
             var modalTitle = document.getElementById("bookTitle");
             var modalInfo = document.getElementById("bookInfo");
-            if (event.target.classList.contains('book-image')) {
-                if (modal.style.display !== "flex") {
-                    modalTitle.innerHTML = "Book Title  : " + bookTitle;
-                    var penulis = "John Doe";
-                    var tahunTerbit = 2022;
-                    modalInfo.innerHTML = "Penulis : " + penulis + "<br> Tahun Terbit : " + tahunTerbit;
 
-                    modal.style.display = "flex";
-                }
+            if (modal.style.display !== "flex") {
+                modalImage.src = bookImageUrl;
+                modalTitle.innerHTML = "<br>Title : " + bookTitle;
+                modalInfo.innerHTML = "Author : " + bookAuthor + "<br>Year : " + bookYear;
+
+                modal.style.display = "flex";
             }
         }
 

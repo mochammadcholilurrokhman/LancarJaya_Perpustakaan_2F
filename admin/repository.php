@@ -81,7 +81,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog Perpustakaan</title>
+    <title>Repository Perpustakaan</title>
     <link rel="stylesheet" href="../style/fitur.css">
 </head>
 
@@ -98,11 +98,11 @@
 
             <div class="isi">
                 <form method="GET" action="">
-                    <input type="text" name="search" class="search-box" placeholder="Cari buku..." value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+                    <input type="text" name="search" class="search-box" placeholder="Cari jurnal    ..." value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
                     <button type="submit" class="search-button">Search</button>
                 </form>
                 <br>
-                <a href="tambah.php" class="add-btn"> + Add The Book</a>
+                <a href="formBuku.php" class="add-btn"> + Add Journal</a>
                 <table>
                     <thead>
                         <tr>
@@ -110,7 +110,7 @@
                             <th>The Title</th>
                             <th>The Author</th>
                             <th>Year Publication</th>
-                            <th>Status</th>
+                            <th>Key Words</th>
                             <th>Action</th>
                         </tr>
                     </thead>

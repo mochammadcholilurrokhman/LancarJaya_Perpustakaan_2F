@@ -13,7 +13,8 @@
             margin-top: 20px;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: center;
@@ -29,7 +30,7 @@
         }
 
         .back-btn {
-          background-color: #1336CA;
+            background-color: #1336CA;
             color: white;
             border: none;
             padding: 5px 10px;
@@ -54,14 +55,12 @@
         .center-text {
             text-align: center;
         }
-
-
     </style>
 </head>
 
 
 <body>
-    
+
     <?php
     include('../komponen/headeruser.php');
     ?>
@@ -75,36 +74,34 @@
                 <img src="../img/BelajarC++.jpeg" alt="Book Cover">
                 <br>
                 <h1 class="center-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam ipsam tenetur voluptatum velit nihil sunt omnis consequuntur. Quas porro modi accusamus soluta. Suscipit aliquid quidem consectetur, doloribus provident repellendus sapiente!</h1>
-                
-                <table>
-        <tbody>
-            <tr>
-                <td>Id</td>
-                <td>00011</td>
-            </tr>
-            <tr>
-                <td>The Title</td>
-                <td>Belajar C++</td>
-            </tr>
-            <tr>
-                <td>The Author</td>
-                <td>Abima Fadricho</td>
-            </tr>
-            <tr>
-                <td>Year Publication</td>
-                <td>2015</td>
-            </tr>
-            <tr>
-                <td>Status</td>
-                <td>Available</td>
-            </tr>
-        </tbody>
-    </table>
-    <br>
-    <div> <a href="katalog.php?id=1" class="back-btn">Back</a></div>
-        </div>
 
-            
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Id</td>
+                            <td>00011</td>
+                        </tr>
+                        <tr>
+                            <td>The Title</td>
+                            <td>Belajar C++</td>
+                        </tr>
+                        <tr>
+                            <td>The Author</td>
+                            <td>Abima Fadricho</td>
+                        </tr>
+                        <tr>
+                            <td>Year Publication</td>
+                            <td>2015</td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>Available</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <div> <a href="katalog.php?id=1" class="back-btn">Back</a></div>
+            </div>
         </div>
     </div>
 </body>
