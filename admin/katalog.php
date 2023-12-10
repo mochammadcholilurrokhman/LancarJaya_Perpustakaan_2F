@@ -1,80 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        .book-cover {
-            max-width: 50px;
-            max-height: 70px;
-        }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
 
-        .add-btn {
-            background-color: #008CBA; /* Blue */
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            margin-right: auto;
-        }
-        .content .isi .add-btn {
-            margin-left: 1000px;
-            font-size: 13px;
-            text-align: center;
-        }
+    th,
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
 
-        .details-btn {
-            background-color: #1336CA;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            margin: 2px 2px;
-            cursor: pointer;
-        }
-        .edit-btn {
-            background-color: #FB923C;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            margin: 2px 2px;
-            cursor: pointer;
-        }
-        .delete-btn {
-            background-color: #CA1313;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            margin: 2px 2px;
-            cursor: pointer;
-        }
-    </style>
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .book-cover {
+        max-width: 50px;
+        max-height: 70px;
+    }
+
+    .add-btn {
+        background-color: #008CBA;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        margin-right: auto;
+    }
+
+
+    .details-btn {
+        background-color: #1336CA;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 2px 2px;
+        cursor: pointer;
+    }
+
+    .edit-btn {
+        background-color: #FB923C;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 2px 2px;
+        cursor: pointer;
+    }
+
+    .delete-btn {
+        background-color: #CA1313;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 2px 2px;
+        cursor: pointer;
+    }
+</style>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,7 +101,8 @@
                     <input type="text" name="search" class="search-box" placeholder="Cari buku..." value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
                     <button type="submit" class="search-button">Search</button>
                 </form>
-                <a href="tambah.php" class="add-btn"> + Add The Book</a>
+                <br>
+                <a href="formBuku.php" class="add-btn"> + Add The Book</a>
                 <table>
                     <thead>
                         <tr>
