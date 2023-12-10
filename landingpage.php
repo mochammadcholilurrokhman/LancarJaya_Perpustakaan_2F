@@ -9,7 +9,7 @@
 
   <style>
   .hero {
-  min-height: 80vh;
+  min-height: 90vh;
   align-items: center;
   background-image: url("img/page.jpg");
   background-repeat: no-repeat;
@@ -17,8 +17,9 @@
   background-position: center;
   position: relative;
 }
-.features {
+ .features {
   background: none;
+  padding: 30px;
 }
 .hero::before {
   content: "";
@@ -29,7 +30,7 @@
   bottom: 0;
   background: linear-gradient(
     0deg,
-    rgba(1, 1, 3, 1) 8%,
+    rgba(255, 255, 255, 0) 50%,
     rgba(255, 255, 255, 0) 10%
   );
 }
@@ -43,7 +44,7 @@
   <?php include("komponen/header.php"); ?>
 <section class="hero">
   <div class="logo-container">
-    <img class="logo" src="img/logo.png" alt="Logo Website">
+    <img class="logo" src="img/logo1.png" alt="Logo Website">
   </div>
   <div class="website-names">
     <div class="website-name1">Ruang Baca</div>
