@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Katalog</title>
-        <link rel="stylesheet" href="../style/fitur.css">
+    <link rel="stylesheet" href="../style/fitur.css">
 
 </head>
 
 <body>
     <?php
-     include "../Connection.php";
+    include "../Connection.php";
     include('../komponen/headeruser.php');
     ?>
     <?php
@@ -33,7 +33,7 @@
      ?>   
     <h3>Form Tambah Data Buku</h3>
 
-    <form action="proses_tambah.php" method="post">
+    <form action="prosestambah.php" method="post">
         <label for="judul">Judul Buku:</label>
         <input type="text" name="judul_buku" required><br>
 
@@ -64,6 +64,7 @@
             <td><?php echo $databuku['tahun_terbit']; ?></td>
             <td><?php echo $databuku['sinopsis']; ?></td>
             <td><?php echo $databuku['status_buku']; ?></td>
+
         </tr>
     <?php } ?>
     </div>
