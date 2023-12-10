@@ -98,9 +98,7 @@
                     <input type="text" name="search" class="search-box" placeholder="Cari buku..." value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
                     <button type="submit" class="search-button">Search</button>
                 </form>
-
-                <button class="add-btn"> + Add the Book</button>
-
+                <a href="tambah.php" class="add-btn"> + Add The Book</a>
                 <table>
                     <thead>
                         <tr>

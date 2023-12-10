@@ -34,6 +34,12 @@ include('../Connection.php');
         header span{
         color: #FB923C;
         }
+        .user1 {
+            margin-right: 5px;
+            margin-left: 10px;
+            width: 30px;
+            height: auto;
+        }
     </style>
 </head>
 
@@ -54,7 +60,7 @@ include('../Connection.php');
                     if ($_SESSION['posisi'] === 'admin') {
                         echo '<a href="#"><img class="user" src="../img/bell.png" alt="Bell"></a>';
                     } else {
-                        echo '<a href="#"><img class="user" src="../img/cart.png" alt="Bell"></a>';
+                        echo '<a href="../user/cart.php"><img class="user1" src="../img/cart.png" alt="Cart"></a>';
                     }
                 } else {
                     header("Location:../admin/dashboardadmin.php");

@@ -5,9 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Katalog</title>
+        <link rel="stylesheet" href="../style/fitur.css">
+
 </head>
 
 <body>
+    <?php
+     include "../Connection.php";
+    include('../komponen/headeruser.php');
+    ?>
     <?php
     if (isset($_GET['pesan'])) {
         $pesan = $_GET['pesan'];
@@ -20,6 +26,11 @@
         }
     }
     ?>
+    <div class="content">
+        <div id="sidebar">
+    <?php
+        include('../komponen/sidebaradmin.php');
+     ?>   
     <h3>Form Tambah Data Buku</h3>
 
     <form action="proses_tambah.php" method="post">
@@ -42,7 +53,6 @@
     </form>
 
     <?php
-    include "../Connection.php";
     $query_mysql = mysqli_query($connection, "SELECT * FROM buku") or die(mysqli_error($connection));
     $idbuku = 1;
     while ($databuku = mysqli_fetch_array($query_mysql)) {
@@ -60,6 +70,9 @@
             </td>
         </tr>
     <?php } ?>
+    </div>
+</div>
+
 </body>
 
 </html>
