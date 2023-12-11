@@ -120,9 +120,9 @@
                         // Check if the search parameter is set
                         if (isset($_GET['search'])) {
                             $search = mysqli_real_escape_string($connection, $_GET['search']);
-                            $query = "SELECT * FROM buku WHERE judul_buku LIKE '%$search%'";
+                            $query = "SELECT * FROM repository WHERE Judul_Repo LIKE '%$search%'";
                         } else {
-                            $query = "SELECT * FROM buku";
+                            $query = "SELECT * FROM repository";
                         }
 
                         $query_mysql = mysqli_query($connection, $query) or die(mysqli_error($connection));
@@ -131,10 +131,10 @@
                         ?>
                             <tr>
                                 <td><?php echo $idbuku++; ?></td>
-                                <td><?php echo $databuku['judul_buku']; ?></td>
+                                <td><?php echo $databuku['Judul_Repo']; ?></td>
                                 <td><?php echo $databuku['pengarang']; ?></td>
-                                <td><?php echo $databuku['tahun_terbit']; ?></td>
-                                <td><?php echo $databuku['status_buku']; ?></td>
+                                <td><?php echo $databuku['Kata_Kunci']; ?></td>
+                                <td><?php echo $databuku['Tahun_Terbit']; ?></td>
                                 <td>
                                     <a href="detailsbuku.php?id=1" class="details-btn">Details</a>
                                     <a href="editbuku.php?id=1" class="edit-btn">Edit</a>
