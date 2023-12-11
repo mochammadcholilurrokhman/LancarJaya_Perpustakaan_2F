@@ -133,8 +133,8 @@
                                 <td><?php echo $idbuku++; ?></td>
                                 <td><?php echo $databuku['Judul_Repo']; ?></td>
                                 <td><?php echo $databuku['pengarang']; ?></td>
-                                <td><?php echo $databuku['Kata_Kunci']; ?></td>
                                 <td><?php echo $databuku['Tahun_Terbit']; ?></td>
+                                <td><?php echo $databuku['Kata_Kunci']; ?></td>
                                 <td>
                                     <a href="detailsbuku.php?id=1" class="details-btn">Details</a>
                                     <a href="editbuku.php?id=1" class="edit-btn">Edit</a>
