@@ -104,7 +104,7 @@
                     <input type="text" id="tahun_terbit" name="tahun_terbit" value="<?php echo $dataBuku['tahun_terbit']; ?>" required>
 
                     <label for="sinopsis">Sinopsis:</label>
-    <textarea name="sinopsis" required><?php echo $dataBuku['sinopsis']; ?></textarea><br>
+                    <textarea name="sinopsis" required><?php echo $dataBuku['sinopsis']; ?></textarea><br>
 
 
                     <label for="status">Status:</label>
