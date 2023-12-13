@@ -6,7 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Katalog</title>
     <link rel="stylesheet" href="../style/fitur.css">
+  <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
 
+        .content {
+            display: flex;
+        }
+
+        .isi {
+            border: 1px solid black;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 0.5px solid black;
+        }
+
+        .isi .form-title {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .tambah {
+            background-color: #4CAF50;
+            border: 1.5px solid black;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: antiquewhite;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,10 +81,11 @@
         <div id="sidebar">
     <?php
         include('../komponen/sidebaradmin.php');
-     ?>   
+     ?>  
+     <div class="isi">
     <h3>Form Tambah Data Buku</h3>
 
-    <form action="prosestambah.php" method="post">
+    <form action="proses.php?aksi=tambah" method="post">
         <label for="judul">Judul Buku:</label>
         <input type="text" name="judul_buku" required><br>
 
@@ -49,24 +101,9 @@
         <label for="status_buku">Status Buku:</label>
         <input type="text" name="status_buku" required><br>
 
-        <button type="submit">Tambah Data</button>
+        <button type="submit" class="tambah">Tambah Data</button>
     </form>
-
-    <?php
-    $query_mysql = mysqli_query($connection, "SELECT * FROM buku") or die(mysqli_error($connection));
-    $idbuku = 1;
-    while ($databuku = mysqli_fetch_array($query_mysql)) {
-    ?>
-        <tr>
-            <td><?php echo $idbuku++; ?></td>
-            <td><?php echo $databuku['judul_buku']; ?></td>
-            <td><?php echo $databuku['pengarang']; ?></td>
-            <td><?php echo $databuku['tahun_terbit']; ?></td>
-            <td><?php echo $databuku['sinopsis']; ?></td>
-            <td><?php echo $databuku['status_buku']; ?></td>
-
-        </tr>
-    <?php } ?>
+</div>
     </div>
 </div>
 

@@ -120,9 +120,9 @@
                         // Check if the search parameter is set
                         if (isset($_GET['search'])) {
                             $search = mysqli_real_escape_string($connection, $_GET['search']);
-                            $query = "SELECT * FROM buku WHERE judul_buku LIKE '%$search%'";
+                            $query = "SELECT * FROM buku1 WHERE judul_buku LIKE '%$search%'";
                         } else {
-                            $query = "SELECT * FROM buku";
+                            $query = "SELECT * FROM buku1";
                         }
 
                         $query_mysql = mysqli_query($connection, $query) or die(mysqli_error($connection));
@@ -137,8 +137,8 @@
                                 <td><?php echo $databuku['status_buku']; ?></td>
                                 <td>
                                     <a href="detailsbuku.php?id=1" class="details-btn">Details</a>
-                                    <a href="editbuku.php?id=1" class="edit-btn">Edit</a>
-                                    <button class="delete-btn">Delete</button>
+                                    <a href="edit.php?id=<?=$row["id"]?>" class="edit-btn">Edit</a>
+                                    <a href="delete.php" class="delete-btn">Delete</a>
                                 </td>
                             </tr>
 
