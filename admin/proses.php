@@ -22,7 +22,7 @@ $status = $_POST['status_buku'];
         if (isset($_POST['id'])){
             $id = $_POST['id'];
 
-            $query = "UPDATE buku1 SET judul_buku='$judul_buku', pengarang='$pengarang', tahun_terbit= '$tahun_terbit', sinopsis='$sinopsis' , status_buku = '$status WHERE id = $id";
+            $query = "UPDATE buku1 SET judul_buku='$judul_buku', pengarang='$pengarang', tahun_terbit= '$tahun_terbit', sinopsis='$sinopsis' , status_buku = '$status' WHERE id = $id";
             if (mysqli_query($connection, $query)) {
                 header("Location: katalog.php");
                 exit();

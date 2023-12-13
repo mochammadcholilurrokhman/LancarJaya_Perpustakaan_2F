@@ -1,11 +1,11 @@
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Buku</title>
-  <link rel="stylesheet" href="../style/fitur.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Katalog</title>
+    <link rel="stylesheet" href="../style/fitur.css">
   <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -46,7 +46,7 @@
             margin-bottom: 10px;
         }
 
-        .update-button {
+        .tambah {
             background-color: #4CAF50;
             border: 1.5px solid black;
             padding: 10px 15px;
@@ -61,48 +61,60 @@
 </head>
 
 <body>
-  <?php
-  include "../komponen/headeruser.php";
-  include ("../Connection.php");
+    <?php
+    include "../Connection.php";
+    include('../komponen/headeruser.php');
+     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        $query = "SELECT * FROM buku1 where id = $id";
+
+        // Query untuk mendapatkan data buku berdasarkan id
+        $query = "SELECT * FROM buku1 WHERE id = $id";
         $result = mysqli_query($connection, $query);
-        $row = mysqli_fetch_assoc($result);
-        mysqli_close($connection);
-  ?>
 
-  <div class="content">
-    <div id="sidebar">
-      <?php
-      include('../komponen/sidebaradmin.php');
-      ?>
+        if ($result) {
+            $dataBuku = mysqli_fetch_assoc($result);
+        } else {
+            echo "Error fetching book data: " . mysqli_error($connection);
+            exit();
+        }
+    } else {
+        echo "Invalid ID";
+        exit();
+    }
+    ?>
+    <div class="content">
+        <div id="sidebar">
+            <?php
+            include('../komponen/sidebaradmin.php');
+            ?>
+
+            <div class="isi">
+                <h2>Edit Buku</h2>
+
+                <form action="proses.php?aksi=ubah" method="post">
+                    <input type="hidden" name="id" value="<?php echo $dataBuku['id']; ?>">
+
+                    <label for="judul">The Title:</label>
+                    <input type="text" id="judul_buku" name="judul_buku" value="<?php echo $dataBuku['judul_buku']; ?>" required>
+
+                    <label for="pengarang">The Author:</label>
+                    <input type="text" id="pengarang" name="pengarang" value="<?php echo $dataBuku['pengarang']; ?>" required>
+
+                    <label for="tahun_terbit">Year Publication:</label>
+                    <input type="text" id="tahun_terbit" name="tahun_terbit" value="<?php echo $dataBuku['tahun_terbit']; ?>" required>
+
+                    <label for="sinopsis">Sinopsis:</label>
+    <textarea name="sinopsis" required><?php echo $dataBuku['sinopsis']; ?></textarea><br>
+
+
+                    <label for="status">Status:</label>
+                    <input type="text" id="status_buku" name="status_buku" value="<?php echo $dataBuku['status_buku']; ?>" required>
+
+                    <button type="submit">Update</button>
+                </form>
+            </div>
+        </div>
     </div>
-
-    <div class="isi">
-      <h3>Form Edit Data Buku</h3>
-
-      <form action="proses.php?aksi=ubah" method="post">
-        <input type="hidden" name="id_buku" value="<?php echo $row['id']; ?>">
-
-        <label for="judul">Judul Buku:</label>
-        <input type="text" name="judul_buku" value="<?php echo $row['judul_buku']; ?>" required>
-
-        <label for="pengarang">Pengarang:</label>
-        <input type="text" name="pengarang" value="<?php echo $row['pengarang']; ?>" required>
-
-        <label for="tahun_terbit">Tahun Terbit:</label>
-        <input type="number" name="tahun_terbit" value="<?php echo $row['tahun_terbit']; ?>" required>
-
-        <label for="sinopsis">Sinopsis:</label>
-        <textarea name="sinopsis" value="<?php echo  $sinopsis; ?>" required></textarea><br>
-
-        <label for="status_buku">Status Buku:</label>
-        <input type="text" name="status_buku" value="<?php echo $row ['status_buku']; ?>" required><br>
-
-        <button type="submit" class="tambah">Edit Data</button>
-      </form>
-    </div>
-  </div>
 
 </body>
 
