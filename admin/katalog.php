@@ -138,8 +138,7 @@
                                 <td>
                                     <a href="detailsbuku.php?id=1" class="details-btn">Details</a>
                                     <a href="edit.php?id=<?=$row["id"]?>" class="edit-btn">Edit</a>
-                                    <a href="delete.php" class="delete-btn">Delete</a>
-                                </td>
+                                    <a href="#" onclick="confirmDelete(<?php echo $databuku['id']; ?>)" class="delete-btn">Delete</a>                                </td>
                             </tr>
 
                         <?php } ?>
@@ -148,6 +147,17 @@
             </div>
         </div>
     </div>
+    <script>
+    function confirmDelete($id) {
+        var r = confirm("Are you sure you want to delete this book?");
+        if (r == true) {
+            // User clicked "OK", perform the delete action
+            window.location.href = "proses.php?aksi=hapus&id=" + $id;
+        } else {
+            // User clicked "Cancel", do nothing
+        }
+    }
+</script>
 </body>
 
 </html>

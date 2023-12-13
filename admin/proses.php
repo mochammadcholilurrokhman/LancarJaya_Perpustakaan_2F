@@ -35,9 +35,9 @@ $status = $_POST['status_buku'];
     } else if ($aksi = 'hapus') {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
-            $query = "DELETE FROM anggota WHERE id = $id";
-            if (mysqli_query($koneksi, $query)) {
-                header("Location: index.php");
+            $query = "DELETE FROM buku1 WHERE id = $id";
+            if (mysqli_query($connection, $query)) {
+                header("Location: katalog.php");
                 exit();
             } else {
                 echo "Gagal menghapus data : " . mysqli_error($connection);
@@ -46,6 +46,6 @@ $status = $_POST['status_buku'];
             echo "ID tidak valid";
         }
     } else {
-        header("Location: index.php");
+        header("Location: katalog.php");
     }
-    mysqli_close($koneksi);
+    mysqli_close($connection);

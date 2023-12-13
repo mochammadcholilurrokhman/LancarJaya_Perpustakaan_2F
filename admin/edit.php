@@ -74,7 +74,6 @@
   <div class="content">
     <div id="sidebar">
       <?php
-     
       include('../komponen/sidebaradmin.php');
       ?>
     </div>
@@ -94,7 +93,6 @@
         <label for="tahun_terbit">Tahun Terbit:</label>
         <input type="number" name="tahun_terbit" value="<?php echo $row['tahun_terbit']; ?>" required>
 
-        
         <label for="sinopsis">Sinopsis:</label>
         <textarea name="sinopsis" value="<?php echo  $sinopsis; ?>" required></textarea><br>
 
