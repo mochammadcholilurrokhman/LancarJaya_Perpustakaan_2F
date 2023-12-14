@@ -102,7 +102,7 @@
                     <button type="submit" class="search-button">Search</button>
                 </form>
                 <br>
-                <a href="formBuku.php" class="add-btn"> + Add Journal</a>
+                <a  href="tambahrepo.php" class="add-btn"> + Add Journal</a>
                 <table>
                     <thead>
                         <tr>
@@ -126,19 +126,19 @@
                         }
 
                         $query_mysql = mysqli_query($connection, $query) or die(mysqli_error($connection));
-                        $idbuku = 1;
-                        while ($databuku = mysqli_fetch_array($query_mysql)) {
+                        $idrepo = 1;
+                        while ($dataRepo = mysqli_fetch_array($query_mysql)) {
                         ?>
                             <tr>
-                                <td><?php echo $idbuku++; ?></td>
-                                <td><?php echo $databuku['Judul_Repo']; ?></td>
-                                <td><?php echo $databuku['pengarang']; ?></td>
-                                <td><?php echo $databuku['tahun_terbit']; ?></td>
-                                <td><?php echo $databuku['Kata_Kunci']; ?></td>
+                                <td><?php echo $idrepo++; ?></td>
+                                <td><?php echo $dataRepo['Judul_Repo']; ?></td>
+                                <td><?php echo $dataRepo['pengarang']; ?></td>
+                                <td><?php echo $dataRepo['tahun_terbit']; ?></td>
+                                <td><?php echo $dataRepo['Kata_Kunci']; ?></td>
                                 <td>
-                                    <a href="detailsbuku.php?id=1" class="details-btn">Details</a>
-                                    <a href="editbuku.php?id=1" class="edit-btn">Edit</a>
-                                    <button class="delete-btn">Delete</button>
+                                   <a href="detailsrepo.php?id=<?php echo $dataRepo['id_repo']; ?>" class="details-btn">Details</a>
+                                    <a href="editrepo.php?id=<?php echo $dataRepo['id_repo']; ?>" class="edit-btn">Edit</a>
+                                    <a href="#" onclick="confirmDelete(<?php echo $dataRepo['id_repo']; ?>)" class="delete-btn">Delete</a></td>
                                 </td>
                             </tr>
 
@@ -148,6 +148,17 @@
             </div>
         </div>
     </div>
+     <script>
+    function confirmDelete($id) {
+        var r = confirm("Are you sure you want to delete this book?");
+        if (r == true) {
+            // User clicked "OK", perform the delete action
+            window.location.href = "prosesrepo.php?aksi=hapus&id_repo=" + $id;
+        } else {
+            // User clicked "Cancel", do nothing
+        }
+    }
+</script>
 </body>
 
 </html>

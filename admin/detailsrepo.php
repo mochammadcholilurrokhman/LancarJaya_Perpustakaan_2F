@@ -6,7 +6,7 @@
     <title>Details Buku</title>
     <link rel="stylesheet" href="../style/fitur.css">
     <style>
-           body {
+   body {
             font-family: 'Arial', sans-serif;
             margin: 20px;
         }
@@ -56,8 +56,7 @@
         button:hover {
             background-color: antiquewhite;
         }
-    </style>
-    </style>
+    </style>    </style>
 </head>
 
 <body>
@@ -68,11 +67,11 @@
     // Periksa apakah parameter 'id' terkirim
     if (isset($_GET['id'])) {
     $id = mysqli_real_escape_string($connection, $_GET['id']);
-    $query = "SELECT * FROM buku1 WHERE id = $id";
+    $query = "SELECT * FROM repository1 WHERE id_repo = $id";
     $result = mysqli_query($connection, $query);
 
         if ($result) {
-            $databuku = mysqli_fetch_assoc($result);
+            $dataRepo = mysqli_fetch_assoc($result);
     ?>
 
     <div class="content">
@@ -84,42 +83,46 @@
     <h1>Details Buku</h1>
     <table>
         <tbody>
-            <?php if(isset($databuku['sinopsis'])) 
-            echo $databuku ['sinopsis']?>
-            <?php if (isset($databuku['id'])) : ?>
+            <?php if (isset($dataRepo['id_repo'])) : ?>
                 <tr>
                     <td>ID</td>
-                    <td><?php echo $databuku['id']; ?></td>
+                    <td><?php echo $dataRepo['id_repo']; ?></td>
                 </tr>
             <?php endif; ?>
-            <?php if (isset($databuku['judul_buku'])) : ?>
+            <?php if (isset($dataRepo['Judul_Repo'])) : ?>
                 <tr>
                     <td>The Title</td>
-                    <td><?php echo $databuku['judul_buku']; ?></td>
+                    <td><?php echo $dataRepo['Judul_Repo']; ?></td>
                 </tr>
             <?php endif; ?>
-            <?php if (isset($databuku['pengarang'])) : ?>
+            <?php if (isset($dataRepo['pengarang'])) : ?>
                 <tr>
                     <td>The Author</td>
-                    <td><?php echo $databuku['pengarang']; ?></td>
+                    <td><?php echo $dataRepo['pengarang']; ?></td>
                 </tr>
             <?php endif; ?>
-            <?php if (isset($databuku['tahun_terbit'])) : ?>
+            <?php if (isset($dataRepo['tahun_terbit'])) : ?>
                 <tr>
                     <td>Year Publication</td>
-                    <td><?php echo $databuku['tahun_terbit']; ?></td>
+                    <td><?php echo $dataRepo['tahun_terbit']; ?></td>
                 </tr>
             <?php endif; ?>
-            <?php if (isset($databuku['status_buku'])) : ?>
+              <?php if (isset($dataRepo['Kata_Kunci'])) : ?>
+                <tr>
+                    <td>Key Words</td>
+                    <td><?php echo $dataRepo['Kata_Kunci']; ?></td>
+                </tr>
+            <?php endif; ?>
+           <?php if (isset($dataRepo['status_repo'])) : ?>
                 <tr>
                     <td>Status</td>
-                    <td><?php echo $databuku['status_buku']; ?></td>
+                    <td><?php echo $dataRepo['status_repo']; ?></td>
                 </tr>
             <?php endif; ?>
         </tbody>
     </table>
     <br>
-    <a href="katalog.php" class="back-btn">Back</a>
+    <a href="repository.php" class="back-btn">Back</a>
 </div>
 
         </div>
