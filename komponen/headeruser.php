@@ -40,6 +40,29 @@ include('../Connection.php');
             width: 30px;
             height: auto;
         }
+          .shopping-cart {
+            display: none;
+            position: absolute;
+            top: 50px; /* Adjust as needed */
+            right: 10px; /* Adjust as needed */
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            height: 500px; /* Adjust the height as needed */
+            overflow-y: auto; /* Add scroll if content exceeds height */
+        }
+        .shopping-cart .cart-item {
+    margin: 2rem o;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #666;
+    position: relative;
+}
+
     </style>
 </head>
 
@@ -60,7 +83,7 @@ include('../Connection.php');
                     if ($_SESSION['posisi'] === 'admin') {
                         echo '<a href="#"><img class="user" src="../img/bell.png" alt="Bell"></a>';
                     } else {
-                        echo '<a href="../user/cart.php"><img class="user1" src="../img/cart.png" alt="Cart"></a>';
+                        echo '<a href="#" id="cartIcon"><img class="user1" src="../img/cart.png" alt="Cart"></a>';
                     }
                 } else {
                     header("Location:../admin/dashboardadmin.php");
@@ -72,6 +95,34 @@ include('../Connection.php');
         </div>
     </header>
     </div>
+   <div class="shopping-cart" id="shoppingCart">
+     <div class="cart-item">
+          <img src="img/produk1.jpg" alt="Pdoduk 1">
+          <div class="item-detail">
+            <h3>Product 1</h3>
+            <div class="item-price">IDR 30K</div>
+          </div>
+          <i data-feather="trash-2" class="remove-item"></i>
+        </div>
+    </div>
+
+    <script>
+        var cartIcon = document.getElementById('cartIcon');
+        var shoppingCart = document.getElementById('shoppingCart');
+
+        cartIcon.addEventListener('click', function (event) {
+            // Show the shopping cart when the cart icon is clicked
+            shoppingCart.style.display = 'block';
+
+            // Prevent the click event from propagating to document
+            event.stopPropagation();
+        });
+
+        document.addEventListener('click', function () {
+            // Hide the shopping cart when clicking outside
+            shoppingCart.style.display = 'none';
+        });
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
 </body>
 
