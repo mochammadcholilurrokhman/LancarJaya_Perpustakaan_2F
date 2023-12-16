@@ -147,10 +147,6 @@ class FormHandler
     }
 }
 
-// Membuat objek koneksi
-$connection = new Connection("localhost", "root", "", "perpustakaan");
-$conn = $connection->getConnection();
-
 class buku {};
 // Membuat objek buku
 $buku = new Buku ($conn);

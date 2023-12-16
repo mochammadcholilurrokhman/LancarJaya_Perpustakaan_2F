@@ -22,9 +22,6 @@ class Buku {
     }
 }
 
-// Membuat objek koneksi
-$connection = new Connection("localhost", "root", "", "perpustakaan");
-$conn = $connection->getConnection();
 
 // Membuat objek buku
 $buku = new Buku($conn);
@@ -76,7 +73,7 @@ if (isset($_GET['id'])) {
 
         .back-btn {
             display: inline-block;
-            background-color: #4CAF50;
+            background-color: black;
             color: white;
             padding: 10px 20px;
             text-align: center;
@@ -98,39 +95,29 @@ if (isset($_GET['id'])) {
             <div class="isi">
                 <h1>Details Buku</h1>
                     <?php echo $databuku['sinopsis'];?>
-
                 <table>
                     <tbody>
-                        <?php if (isset($databuku['id'])) : ?>
-                            <tr>
-                                <td>ID</td>
-                                <td><?php echo $databuku['id']; ?></td>
-                            </tr>
-                        <?php endif; ?>
-                        <?php if (isset($databuku['judul_buku'])) : ?>
-                            <tr>
-                                <td>The Title</td>
-                                <td><?php echo $databuku['judul_buku']; ?></td>
-                            </tr>
-                        <?php endif; ?>
-                        <?php if (isset($databuku['pengarang'])) : ?>
-                            <tr>
-                                <td>The Author</td>
-                                <td><?php echo $databuku['pengarang']; ?></td>
-                            </tr>
-                        <?php endif; ?>
-                        <?php if (isset($databuku['tahun_terbit'])) : ?>
-                            <tr>
-                                <td>Year Publication</td>
-                                <td><?php echo $databuku['tahun_terbit']; ?></td>
-                            </tr>
-                        <?php endif; ?>
-                        <?php if (isset($databuku['status_buku'])) : ?>
-                            <tr>
-                                <td>Status</td>
-                                <td><?php echo $databuku['status_buku']; ?></td>
-                            </tr>
-                        <?php endif; ?>
+                        <tr>
+                        <td>ID</td>
+                        <td><?php echo $databuku['id'] ?? ''; ?></td>
+                    </tr>
+                    <tr>
+                        <td>The Title</td>
+                        <td><?php echo $databuku['judul_buku'] ?? ''; ?></td>
+                    </tr>
+                    <tr>
+                        <td>The Author</td>
+                        <td><?php echo $databuku['pengarang'] ?? ''; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Year Publication</td>
+                        <td><?php echo $databuku['tahun_terbit'] ?? ''; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td><?php echo $databuku['status_buku'] ?? ''; ?></td>
+                    </tr>
+
                     </tbody>
                 </table>
                 <br>
