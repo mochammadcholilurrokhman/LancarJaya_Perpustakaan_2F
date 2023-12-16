@@ -62,19 +62,19 @@
 
 <body>
     <?php
-    include "../Connection.php";
+    require_once "../Connection.php";
     include('../komponen/headeruser.php');
      if (isset($_GET['id'])) {
         $id = $_GET['id'];
 
         // Query untuk mendapatkan data buku berdasarkan id
         $query = "SELECT * FROM repository1 WHERE id_repo = $id";
-        $result = mysqli_query($connection, $query);
+        $result = mysqli_query($conn, $query);
 
         if ($result) {
             $dataRepo = mysqli_fetch_assoc($result);
         } else {
-            echo "Error fetching book data: " . mysqli_error($connection);
+            echo "Error fetching book data: " . mysqli_error($conn);
             exit();
         }
     } else {

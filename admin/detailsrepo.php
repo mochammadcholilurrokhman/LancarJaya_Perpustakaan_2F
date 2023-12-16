@@ -61,14 +61,14 @@
 
 <body>
     <?php
-    include "../Connection.php";
+    require_once '../Connection.php';
     include('../komponen/headeruser.php');
 
     // Periksa apakah parameter 'id' terkirim
     if (isset($_GET['id'])) {
-    $id = mysqli_real_escape_string($connection, $_GET['id']);
+    $id = mysqli_real_escape_string($conn, $_GET['id']);
     $query = "SELECT * FROM repository1 WHERE id_repo = $id";
-    $result = mysqli_query($connection, $query);
+    $result = mysqli_query($conn, $query);
 
         if ($result) {
             $dataRepo = mysqli_fetch_assoc($result);
@@ -130,7 +130,7 @@
 
     <?php
         } else {
-            echo "Error fetching book details: " . mysqli_error($connection);
+            echo "Error fetching book details: " . mysqli_error($conn);
         }
     } else {
         echo "Invalid book ID.";

@@ -1,35 +1,64 @@
 <?php
-// mengaktifkan session php
-session_start();
+require_once('connection.php');
 
-// menghubungkan dengan koneksi
-include 'Connection.php';
+class Login {
+    private $conn;
 
-// menangkap data yang dikirim dari form
-$username = $_POST['username'];
-$psw = $_POST['password'];
+    public function __construct($conn) {
+        $this->conn = $conn;
+    }
 
-// menyeleksi data admin dengan username dan password yang sesuai
-$data = mysqli_query($connection, "SELECT * FROM user1 WHERE username='$username' AND password='$psw'");
+    public function loginUser($username, $password) {
+        // Query untuk memeriksa keberadaan data pengguna di database
+        $query = "SELECT * FROM user1 WHERE username='$username' AND password='$password'";
+        $result = $this->conn->query($query);
 
-// menghitung jumlah data yang ditemukan
-$cek = mysqli_num_rows($data);
+        // Memeriksa hasil query
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
 
-if ($cek > 0) {
-    $row = mysqli_fetch_assoc($data);
-    if ($row['posisi'] == "admin") {
-        // Admin login
+            // Cek posisi pengguna (admin atau user)
+            if ($row['posisi'] == "admin") {
+                $this->handleAdminLogin($username);
+            } else {
+                $this->handleUserLogin($username);
+            }
+        } else {
+            echo "Login gagal. Periksa kembali username dan password Anda.";
+        }
+    }
+
+    private function handleAdminLogin($username) {
+        session_start();
         $_SESSION['username'] = $username;
         $_SESSION['posisi'] = "admin";
         $_SESSION['status'] = "login";
-        header("location:admin/dashboardadmin.php");
-    } else {
-        // Regular user login
+        header("location: admin/dashboardadmin.php");
+    }
+
+    private function handleUserLogin($username) {
+        session_start();
         $_SESSION['username'] = $username;
         $_SESSION['posisi'] = "user";
         $_SESSION['status'] = "login";
-        header("location:user/dashboard.php");
+        header("location: user/dashboard.php");
     }
-} else {
-    header("location:login.php?pesan=gagal");
 }
+
+// Membuat objek koneksi
+$connection = new Connection("localhost", "root", "", "perpustakaan");
+$conn = $connection->getConnection();
+
+// Membuat objek login
+$login = new Login($conn);
+
+// Memeriksa apakah form login telah dikirim
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Mengambil data dari form login (contoh, Anda dapat menyesuaikan dengan form Anda)
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Memanggil metode loginUser
+    $login->loginUser($username, $password);
+}
+?>

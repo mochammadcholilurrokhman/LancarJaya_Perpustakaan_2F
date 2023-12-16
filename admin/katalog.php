@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <style>
@@ -87,7 +88,7 @@
 
 <body>
     <?php
-    include "../Connection.php";
+    require_once "../Connection.php";
     include('../komponen/headeruser.php');
     ?>
     <div class="content">
@@ -119,13 +120,13 @@
 
                         // Check if the search parameter is set
                         if (isset($_GET['search'])) {
-                            $search = mysqli_real_escape_string($connection, $_GET['search']);
+                            $search = mysqli_real_escape_string($conn, $_GET['search']);
                             $query = "SELECT * FROM buku1 WHERE judul_buku LIKE '%$search%'";
                         } else {
                             $query = "SELECT * FROM buku1";
                         }
 
-                        $query_mysql = mysqli_query($connection, $query) or die(mysqli_error($connection));
+                        $query_mysql = mysqli_query($conn, $query) or die(mysqli_error($conn));
                         $idbuku = 1;
                         while ($databuku = mysqli_fetch_array($query_mysql)) {
                         ?>

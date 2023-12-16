@@ -12,24 +12,25 @@
 <body>
     <?php
     include('../komponen/headeruser.php');
+    require_once '../Connection.php';
     ?>
     <div class="content">
         <div id="sidebar">
             <?php
             include('../komponen/sidebaradmin.php');
              //Jumlah Buku
-            $query_total_books = mysqli_query($connection, "SELECT COUNT(*) AS total_books FROM buku1");
+            $query_total_books = mysqli_query($conn, "SELECT COUNT(*) AS total_books FROM buku1");
             $total_books_data = mysqli_fetch_assoc($query_total_books);
             $total_books = $total_books_data['total_books'];
 
             // Jumlah Anggota
 
-            $query_total_anggota = mysqli_query($connection, "SELECT COUNT(*) AS total_anggota FROM user1");
+            $query_total_anggota = mysqli_query($conn, "SELECT COUNT(*) AS total_anggota FROM user1");
             $total_anggota_data = mysqli_fetch_assoc($query_total_anggota);
             $total_anggota = $total_anggota_data['total_anggota'];
 
             //Repository
-            $query_total_repo = mysqli_query($connection, "SELECT COUNT(*) AS total_repo FROM repository1");
+            $query_total_repo = mysqli_query($conn, "SELECT COUNT(*) AS total_repo FROM repository1");
             $total_repo_data = mysqli_fetch_assoc($query_total_repo);
             $total_repo = $total_repo_data['total_repo'];
 

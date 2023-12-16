@@ -62,7 +62,7 @@
 
 <body>
     <?php
-    include "../Connection.php";
+    require_once "../Connection.php";
     include('../komponen/headeruser.php');
     ?>
     <?php
