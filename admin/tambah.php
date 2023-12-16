@@ -26,10 +26,10 @@ class FormHandler
 
     public function renderForm()
     {
-        ?>
+?>
         <!DOCTYPE html>
         <html lang="en">
-        
+
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,26 +40,26 @@ class FormHandler
                     font-family: 'Arial', sans-serif;
                     margin: 20px;
                 }
-        
+
                 .content {
                     display: flex;
                 }
-        
+
                 .isi {
                     border: 1px solid black;
                     margin-left: auto;
                     margin-right: auto;
                 }
-        
+
                 form {
                     width: 100%;
                 }
-        
+
                 label {
                     display: block;
                     margin-bottom: 8px;
                 }
-        
+
                 input,
                 select,
                 textarea {
@@ -69,12 +69,12 @@ class FormHandler
                     box-sizing: border-box;
                     border: 0.5px solid black;
                 }
-        
+
                 .isi .form-title {
                     font-size: 2em;
                     margin-bottom: 10px;
                 }
-        
+
                 .tambah {
                     background-color: #4CAF50;
                     border: 1.5px solid black;
@@ -82,14 +82,14 @@ class FormHandler
                     border-radius: 4px;
                     cursor: pointer;
                 }
-        
+
                 button:hover {
                     background-color: antiquewhite;
                 }
             </style>
         </head>
-        
-       <body>
+
+        <body>
             <?php
             include('../komponen/headeruser.php');
             $this->displayMessage();
@@ -102,21 +102,21 @@ class FormHandler
                     <div class="isi">
                         <h3>Form Tambah Data Buku</h3>
                         <form action="proses.php?aksi=tambah" method="post">
-                            <label for="judul">Judul Buku:</label>
+                            <label for="judul">Book Title :</label>
                             <input type="text" name="judul_buku" required><br>
 
-                            <label for="pengarang">Pengarang:</label>
+                            <label for="pengarang">Author :</label>
                             <input type="text" name="pengarang" required><br>
 
-                            <label for="tahun_terbit">Tahun Terbit:</label>
+                            <label for="tahun_terbit">Year Publication :</label>
                             <input type="text" name="tahun_terbit" required><br>
 
-                            <label for="sinopsis">Sinopsis:</label>
+                            <label for="sinopsis">Synopsis :</label>
                             <textarea name="sinopsis" required></textarea><br>
 
-                            <label for="status_buku">Status Buku:</label>
+                            <label for="status_buku">Book Status :</label>
                             <input type="text" name="status_buku" required><br>
-
+                            <br>
                             <button type="submit" class="tambah">Tambah Data</button>
                         </form>
                     </div>
@@ -125,7 +125,7 @@ class FormHandler
         </body>
 
         </html>
-        <?php
+<?php
     }
 
     public function handleFormSubmission()
@@ -147,9 +147,11 @@ class FormHandler
     }
 }
 
-class buku {};
+class buku
+{
+};
 // Membuat objek buku
-$buku = new Buku ($conn);
+$buku = new Buku($conn);
 // Membuat objek FormHandler
 $formHandler = new FormHandler($buku);
 

@@ -35,7 +35,7 @@ class EditBukuForm
 
     public function renderForm()
     {
-        ?>
+?>
         <!DOCTYPE html>
         <html lang="en">
 
@@ -109,26 +109,25 @@ class EditBukuForm
                     ?>
 
                     <div class="isi">
-                        <h2>Edit Buku</h2>
+                        <h2>Edit Book Details</h2>
 
                         <form action="proses.php?aksi=ubah" method="post">
                             <input type="hidden" name="id" value="<?php echo $this->dataBuku['id']; ?>">
 
-                            <label for="judul">The Title:</label>
-                            <input type="text" id="judul_buku" name="judul_buku" value="<?php echo $this->dataBuku['judul_buku']; ?>" required>
+                            <label for="judul">The Title :</label>
+                            <input type="text" id="judul_buku" name="judul_buku" value="<?php echo $this->dataBuku['judul_buku']; ?>" required><br>
 
-                            <label for="pengarang">The Author:</label>
-                            <input type="text" id="pengarang" name="pengarang" value="<?php echo $this->dataBuku['pengarang']; ?>" required>
+                            <label for="pengarang">Author :</label>
+                            <input type="text" id="pengarang" name="pengarang" value="<?php echo $this->dataBuku['pengarang']; ?>" required><br>
 
-                            <label for="tahun_terbit">Year Publication:</label>
+                            <label for="tahun_terbit">Year Publication :</label>
                             <input type="text" id="tahun_terbit" name="tahun_terbit" value="<?php echo $this->dataBuku['tahun_terbit']; ?>" required>
 
-                            <label for="sinopsis">Sinopsis:</label>
+                            <label for="sinopsis">Synopsis :</label>
                             <textarea name="sinopsis" required><?php echo $this->dataBuku['sinopsis']; ?></textarea><br>
-
                             <label for="status">Status:</label>
                             <input type="text" id="status_buku" name="status_buku" value="<?php echo $this->dataBuku['status_buku']; ?>" required>
-
+                            <br><br>
                             <button type="submit">Update</button>
                         </form>
                     </div>
@@ -139,7 +138,7 @@ class EditBukuForm
 
         </html>
 <?php
-}
+    }
 
     public function updateBuku($judul, $pengarang, $sinopsis, $tahun_terbit, $status)
     {
@@ -147,7 +146,9 @@ class EditBukuForm
     }
 }
 
-class buku{};
+class buku
+{
+};
 // Membuat objek buku
 $buku = new Buku($conn);
 

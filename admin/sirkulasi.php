@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <style>
-        /* Add your CSS styles here */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -26,7 +25,6 @@
             margin-left: 5px;
         }
 
-        /* Add other styles as needed */
     </style>
 <head>
 <title>Data Sirkulasi</title>
