@@ -216,6 +216,10 @@
                 modal.style.display = "none";
             }
         }
+         document.addEventListener('DOMContentLoaded', function() {
+            // Memulihkan keranjang belanja dari localStorage saat halaman dimuat
+            restoreCart();
+        });
     function addToCart() {
     // Mendapatkan informasi buku yang akan ditambahkan ke keranjang
     var bookTitle = document.getElementById("bookTitle").innerText;
@@ -247,8 +251,21 @@
     parent.updateCartView();
         alert ("buku")
     // Menutup modal setelah menambahkan ke keranjang
+        saveCartToLocalStorage();
+
     closeModal();
 };
+function saveCartToLocalStorage() {
+            var cartItems = document.getElementById("shoppingCart").innerHTML;
+            localStorage.setItem("cart", cartItems);
+        }
+
+        function restoreCart() {
+            var savedCartItems = localStorage.getItem("cart");
+            if (savedCartItems) {
+                document.getElementById("shoppingCart").innerHTML = savedCartItems;
+            }
+        }
 
     </script>
 
