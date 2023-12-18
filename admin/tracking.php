@@ -66,53 +66,93 @@ if (isset($_GET['book_title'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+<title>Tracking Buku</title>
+<link rel="stylesheet" href="../style/fitur.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+        .search-box {
+        background-color: #A5D7E8; 
+        color: white; 
+        padding: 10px 15px; 
+        border: none;
+        border-radius: 30px; 
+        cursor: pointer;
+        }
+        .search-button {
+        background-color: #A5D7E8; 
+        color: black; 
+        padding: 10px 15px; 
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    
-</body>
-</html>
-<form action="" method="GET">
-    <label for="book_title">Cari berdasarkan judul buku:</label>
-    <input type="text" name="book_title" id="book_title">
-    <button type="submit">Cari</button>
-</form>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <h1>Tracking Buku</h1>
-</head>
-<body>
-    
+<?php
+    include('../komponen/header.php');
+    ?>
+
+    <div class="content">
+            <div id="sidebar">
+                <?php
+                include('../komponen/sidebaradmin.php');
+                ?>
+
+                <div class="isi">
+                    <form action="" method="GET">
+                        <label for="book_title"></label>
+                        <input type="text" name="book_title" class="search-box" id="book_title" placeholder="Judul Buku">
+                        <button type="submit" class="search-button">Search</button>
+                    </form>
+                    <br>
+
+                    <?php if (!empty($peminjaman)): ?>
+
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Id Buku</th>
+                                <th>Judul Buku</th>
+                                <th>Status</th>
+                                <th>Id Anggota</th>
+                                <th>Nama Anggota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($peminjaman as $index => $data): ?>
+                                <tr>
+                                    <td><?= $index + 1 ?></td>
+                                    <td><?= $data['id_buku'] ?></td>
+                                    <td><?= $data['judul_buku'] ?></td>
+                                    <td><?= $data['status'] ?></td>
+                                    <td><?= $data['id_user'] ?></td>
+                                    <td><?= $data['username'] ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                    <?php else: ?>
+                        <p>Data tidak ditemukan</p>
+                    <?php endif; ?>
+                </div>
+        </div>
+    </div>
 </body>
 </html>
 
-<?php if (!empty($peminjaman)): ?>
 
-<table border="1">
-    <thead>
-        <tr>
-            <th>No</th>
-            <th>Id Buku</th>
-            <th>Judul Buku</th>
-            <th>Status</th>
-            <th>Id Anggota</th>
-            <th>Nama Anggota</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($peminjaman as $index => $data): ?>
-            <tr>
-                <td><?= $index + 1 ?></td>
-                <td><?= $data['id_buku'] ?></td>
-                <td><?= $data['judul_buku'] ?></td>
-                <td><?= $data['status'] ?></td>
-                <td><?= $data['id_user'] ?></td>
-                <td><?= $data['username'] ?></td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
-<?php else: ?>
-    <p>Data tidak ditemukan</p>
-<?php endif; ?>
