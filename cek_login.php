@@ -10,7 +10,7 @@ class Login {
 
     public function loginUser($username, $password) {
         // Query untuk memeriksa keberadaan data pengguna di database
-        $query = "SELECT * FROM user1 WHERE username='$username' AND password='$password'";
+        $query = "SELECT * FROM user WHERE username='$username' AND password='$password'";
         $result = $this->conn->query($query);
 
         // Memeriksa hasil query
@@ -18,7 +18,7 @@ class Login {
             $row = $result->fetch_assoc();
 
             // Cek posisi pengguna (admin atau user)
-            if ($row['posisi'] == "admin") {
+            if ($row['posisi'] == "Admin") {
                 $this->handleAdminLogin($username);
             } else {
                 $this->handleUserLogin($username);
