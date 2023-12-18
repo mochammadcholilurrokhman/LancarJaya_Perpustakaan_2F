@@ -35,11 +35,13 @@ function searchPeminjamanByBookTitle($book_title) {
               FROM peminjaman
               INNER JOIN user ON peminjaman.id_user = user.id_user
               INNER JOIN buku ON peminjaman.id_buku = buku.id_buku
-              WHERE buku.judul_buku = ?
+              WHERE buku.judul_buku like ?
               ORDER BY peminjaman.id_peminjaman DESC";
 
+    $searchTerm = '%' . $book_title . '%';
+
     $stmt = mysqli_prepare($koneksi, $query);
-    mysqli_stmt_bind_param($stmt, "s", $book_title);
+    mysqli_stmt_bind_param($stmt, "s", $searchTerm);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
 
