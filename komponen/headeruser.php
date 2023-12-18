@@ -60,6 +60,9 @@ require_once ('../Connection.php');
     padding-bottom: 1rem;
     border-bottom: 1px dashed #666;
     position: relative;
+} 
+.shopping-cart .cart-item img{
+border-radius: 50%;
 }
 
     </style>
@@ -96,10 +99,8 @@ require_once ('../Connection.php');
     </div>
    <div class="shopping-cart" id="shoppingCart">
      <div class="cart-item">
-          <img src="img/produk1.jpg" alt="Pdoduk 1">
+          <!-- <img src="../img/BelajarC++.jpeg" alt="Pdoduk 1"> -->
           <div class="item-detail">
-            <h3>Product 1</h3>
-            <div class="item-price">IDR 30K</div>
           </div>
           <i data-feather="trash-2" class="remove-item"></i>
         </div>
@@ -121,6 +122,15 @@ require_once ('../Connection.php');
             // Hide the shopping cart when clicking outside
             shoppingCart.style.display = 'none';
         });
+    </script>
+    
+    <script>
+        // Tambahkan skrip JavaScript yang telah dijelaskan sebelumnya
+        function updateCartView() {
+            var cartContainer = document.getElementById("shoppingCart");
+            // Implementasikan logika pembaruan tampilan keranjang belanja sesuai kebutuhan
+            // ...
+        }
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
 </body>

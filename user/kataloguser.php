@@ -83,7 +83,7 @@
                 <h2 id="bookTitle"></h2>
                 <p id="bookInfo"></p>
                 <br>
-                <button onclick="addToWishlist()">Add to Cart</button>
+                <button onclick="addToCart()" >Add to Cart</button>
                 <button onclick="borrowBook()">Borrow</button>
             </div>
         </div>
@@ -215,7 +215,41 @@
             if (event.target === modal) {
                 modal.style.display = "none";
             }
-        };
+        }
+    function addToCart() {
+    // Mendapatkan informasi buku yang akan ditambahkan ke keranjang
+    var bookTitle = document.getElementById("bookTitle").innerText;
+    var bookImageUrl = document.getElementById("bookImage").src;
+    var bookAuthor = "John Doe"; // Ganti dengan informasi penulis buku
+    var bookYear = 2022; // Ganti dengan tahun penerbitan buku
+
+    // Membuat elemen baru untuk produk di keranjang
+    var cartItem = document.createElement("div");
+    cartItem.className = "cart-item";
+
+    // Menambahkan konten ke dalam elemen keranjang
+    cartItem.innerHTML = `
+        <img src="${bookImageUrl}" alt="${bookTitle}">
+        <div class="item-detail">
+            <h3>${bookTitle}</h3>
+            <div class="item-price">IDR 30K</div> <!-- Ganti dengan harga buku -->
+        </div>
+        <i data-feather="trash-2" class="remove-item"></i>
+    `;
+
+    // Menemukan elemen keranjang pada headeruser.php
+    var cartContainer = parent.document.getElementById("shoppingCart");
+
+    // Menambahkan elemen produk ke dalam keranjang
+    cartContainer.appendChild(cartItem);
+
+    // Memperbarui tampilan keranjang pada headeruser.php
+    parent.updateCartView();
+        alert ("buku")
+    // Menutup modal setelah menambahkan ke keranjang
+    closeModal();
+};
+
     </script>
 
 </body>
