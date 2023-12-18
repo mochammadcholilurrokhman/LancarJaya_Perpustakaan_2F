@@ -79,6 +79,23 @@ session_start();
         margin: 2px 2px;
         cursor: pointer;
     }
+
+    .search-box {
+        background-color: #A5D7E8; 
+        color: white; 
+        padding: 10px 15px; 
+        border: none;
+        border-radius: 30px; 
+        cursor: pointer;
+        }
+        .search-button {
+        background-color: #A5D7E8; 
+        color: black; 
+        padding: 10px 15px; 
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        }
 </style>
 
 <head>
@@ -101,7 +118,7 @@ session_start();
 
             <div class="isi">
                 <form method="GET" action="">
-                    <input type="text" name="search" class="search-box" placeholder="Cari jurnal    ..." value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+                    <input type="text" name="search" class="search-box" placeholder="Judul Jurnal" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
                     <button type="submit" class="search-button">Search</button>
                 </form>
                 <br>
