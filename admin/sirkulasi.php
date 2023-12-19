@@ -42,8 +42,8 @@
 
 <body>
     <?php
-    $koneksi = mysqli_connect("localhost", "root", "", "perpustakaan");
-    include('../komponen/header.php');
+    include('../komponen/headeruser.php');
+    require_once '../Connection.php';
     ?>
     <div class="content">
         <div id="sidebar">
