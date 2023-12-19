@@ -27,23 +27,7 @@ class Buku {
 
         return mysqli_query($this->conn, $query);
     }
-
-    public function getDetailBuku($id) {
-        $id = mysqli_real_escape_string($this->conn, $id);
-        $query = "SELECT * FROM buku1 WHERE id = $id";
-        $result = mysqli_query($this->conn, $query);
-
-        if ($result) {
-            return mysqli_fetch_assoc($result);
-        } else {
-            return false;
-        }
-    }
 }
-
-// Membuat objek koneksi
-$connection = new Connection("localhost", "root", "", "perpustakaan");
-$conn = $connection->getConnection();
 
 // Membuat objek buku
 $buku = new Buku($conn);
@@ -90,26 +74,8 @@ if ($aksi == 'tambah') {
     } else {
         echo "ID tidak valid.";
     }
-} elseif ($aksi == 'detail') {
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        $databuku = $buku->getDetailBuku($id);
-
-        if ($databuku) {
-            // Tampilkan detail buku
-            echo "ID: " . $databuku['id'] . "<br>";
-            echo "Judul: " . $databuku['judul_buku'] . "<br>";
-            echo "Pengarang: " . $databuku['pengarang'] . "<br>";
-            echo "Sinopsis: " . $databuku['sinopsis'] . "<br>";
-            echo "Tahun Terbit: " . $databuku['tahun_terbit'] . "<br>";
-            echo "Status: " . $databuku['status_buku'] . "<br>";
-        } else {
-            echo "Gagal mendapatkan detail buku.";
-        }
-    } else {
-        echo "ID tidak valid.";
-    }
-} else {
+} 
+    else {
     header("Location: katalog.php");
 }
 
