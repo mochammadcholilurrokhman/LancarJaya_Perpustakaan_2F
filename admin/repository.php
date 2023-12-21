@@ -137,9 +137,9 @@
                         // Check if the search parameter is set
                         if (isset($_GET['search'])) {
                             $search = mysqli_real_escape_string($conn, $_GET['search']);
-                            $query = "SELECT * FROM repository1 WHERE Judul_repo LIKE '%$search%'";
+                            $query = "SELECT * FROM repository WHERE Judul_repo LIKE '%$search%'";
                         } else {
-                            $query = "SELECT * FROM repository1";
+                            $query = "SELECT * FROM repository";
                         }
 
                         $query_mysql = mysqli_query($conn, $query) or die(mysqli_error($conn));
@@ -148,7 +148,7 @@
                         ?>
                             <tr>
                                 <td><?php echo $idrepo++; ?></td>
-                                <td><?php echo $dataRepo['Judul_Repo']; ?></td>
+                                <td><?php echo $dataRepo['Judul_repo']; ?></td>
                                 <td><?php echo $dataRepo['pengarang']; ?></td>
                                 <td><?php echo $dataRepo['tahun_terbit']; ?></td>
                                 <td><?php echo $dataRepo['Kata_Kunci']; ?></td>

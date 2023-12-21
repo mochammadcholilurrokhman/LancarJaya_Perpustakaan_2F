@@ -18,7 +18,7 @@ class Login {
             $row = $result->fetch_assoc();
 
             // Cek posisi pengguna (admin atau user)
-            if ($row['posisi'] == "admin") {
+            if ($row['posisi'] == "Admin") {
                 $this->handleAdminLogin($username);
             } else {
                 $this->handleUserLogin($username);
@@ -31,7 +31,7 @@ class Login {
     private function handleAdminLogin($username) {
         session_start();
         $_SESSION['username'] = $username;
-        $_SESSION['posisi'] = "admin";
+        $_SESSION['posisi'] = "Admin";
         $_SESSION['status'] = "login";
         header("location: admin/dashboardadmin.php");
     }
