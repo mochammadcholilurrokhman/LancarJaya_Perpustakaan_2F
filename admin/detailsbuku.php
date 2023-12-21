@@ -79,7 +79,7 @@
         public function getDetailBuku($id)
         {
             $id = mysqli_real_escape_string($this->conn, $id);
-            $query = "SELECT * FROM buku1 WHERE id = $id";
+            $query = "SELECT * FROM buku WHERE id_buku = $id";
             $result = mysqli_query($this->conn, $query);
 
             if ($result) {
@@ -106,12 +106,12 @@
                     <?php include('../komponen/sidebaradmin.php'); ?>
                     <div class="isi">
                         <h1>Book Details</h1>
-                        <?php echo $databuku['sinopsis']; ?>
+                        <?php echo $databuku['deskripsi']; ?>
                         <table>
                             <tbody>
                                 <tr>
                                     <td>ID</td>
-                                    <td><?php echo $databuku['id'] ?? ''; ?></td>
+                                    <td><?php echo $databuku['id_buku'] ?? ''; ?></td>
                                 </tr>
                                 <tr>
                                     <td>The Title</td>

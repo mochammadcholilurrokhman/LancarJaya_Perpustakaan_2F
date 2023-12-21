@@ -53,17 +53,17 @@ require_once ('../Connection.php');
             overflow-y: auto; /* Add scroll if content exceeds height */
         }
         .shopping-cart .cart-item {
-    margin: 2rem o;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px dashed #666;
-    position: relative;
-} 
-.shopping-cart .cart-item img{
-border-radius: 50%;
-}
+            margin: 2rem o;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed #666;
+            position: relative;
+        } 
+        .shopping-cart .cart-item img{
+            border-radius: 50%;
+        }
 
     </style>
 </head>
@@ -93,7 +93,6 @@ border-radius: 50%;
                 }
             }
             ?>
-
         </div>
     </header>
     </div>

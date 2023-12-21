@@ -73,6 +73,7 @@
 
 <body>
     <?php
+    require_once '../Connection.php';
     include('../komponen/headeruser.php');
     ?>
     <div id="myModal" class="modal" style="display: none;">
@@ -103,25 +104,10 @@
                 </form>
 
                 <?php
-                $books = array(
-                    "BelajarC++",
-                    "BelajarJava",
-                    "BelajarPython",
-                    "PemrogramanWeb",
-                    "DataScience",
-                    "Algoritma",
-                    "JaringanKomputer",
-                    "MobileDevelopment",
-                    "ArtificialIntelligence",
-                    "CyberSecurity",
-                    "DatabaseManagement",
-                    "MachineLearning",
-                );
-
-                $searchQuery = isset($_GET['search']) ? strtolower($_GET['search']) : '';
-                $filteredBooks = array_filter($books, function ($book) use ($searchQuery) {
-                    return strpos(strtolower($book), $searchQuery) !== false;
-                });
+                $searchQuery = isset($_GET['search']) ? mysqli_real_escape_string($conn, strtolower($_GET['search'])) : '';
+                $query = "SELECT * FROM buku WHERE judul_buku LIKE '%$searchQuery%'";
+                $result = mysqli_query($conn, $query) or die("Gagal: " . mysqli_error($conn));
+                $filteredBooks = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                 $booksPerPage = 8;
                 $page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -129,13 +115,13 @@
                 $currentBooks = array_slice($filteredBooks, $startIndex, $booksPerPage);
 
                 echo '<div class="gambar-container">';
-                foreach ($currentBooks as $key => $book) {
-                    echo '<div class="book-item">';
-                    echo '<img class="book-image" src="../img/' . $book . '.jpeg" alt="' . $book . '">';
-                    echo '<p class="book-title">' . $book . '</p>';
+                foreach ($currentBooks as $key => $rec) {
+                    echo '<div class="book-item" data-pengarang="' . $rec['pengarang'] . '" data-year="' . $rec['tahun_terbit'] . '">';
+                    echo '<img class="book-image" src="' . $rec['image'] . '" alt="' . $rec['judul_buku'] . '">';
+                    echo '<p class="book-title">' . $rec['judul_buku'] . '</p>';
                     echo '</div>';
 
-                    if (($key + 1) % 3 === 0) {
+                    if (($key + 3) % 3 === 0) {
                         echo '<p>';
                     }
                     echo '</p>';
@@ -172,8 +158,8 @@
                 image.addEventListener('click', function(event) {
                     var bookTitle = image.alt;
                     var bookImageUrl = image.src;
-                    var bookAuthor = "John Doe";
-                    var bookYear = 2022;
+                    var bookAuthor = image.parentElement.dataset.pengarang;
+                    var bookYear = image.parentElement.dataset.year;
 
                     openModal(bookTitle, bookImageUrl, bookAuthor, bookYear);
                 });

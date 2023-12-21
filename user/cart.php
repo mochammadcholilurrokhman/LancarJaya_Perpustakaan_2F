@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-         
+    <?php
+    require_once '../Connection.php';
+    ?>
 </body>
 </html>

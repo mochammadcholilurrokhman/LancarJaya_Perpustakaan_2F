@@ -18,7 +18,7 @@ class EditBukuForm
             $id = $_GET['id'];
 
             // Query untuk mendapatkan data buku berdasarkan id
-            $query = "SELECT * FROM buku1 WHERE id = $id";
+            $query = "SELECT * FROM buku WHERE id_buku = $id";
             $result = mysqli_query($this->conn, $query);
 
             if ($result) {
@@ -112,7 +112,7 @@ class EditBukuForm
                         <h2>Edit Book Details</h2>
 
                         <form action="proses.php?aksi=ubah" method="post">
-                            <input type="hidden" name="id" value="<?php echo $this->dataBuku['id']; ?>">
+                            <input type="hidden" name="id" value="<?php echo $this->dataBuku['id_buku']; ?>">
 
                             <label for="judul">The Title :</label>
                             <input type="text" id="judul_buku" name="judul_buku" value="<?php echo $this->dataBuku['judul_buku']; ?>" required><br>
@@ -142,7 +142,7 @@ class EditBukuForm
 
     public function updateBuku($judul, $pengarang, $sinopsis, $tahun_terbit, $status)
     {
-        $this->buku->ubahBuku($this->dataBuku['id'], $judul, $pengarang, $sinopsis, $tahun_terbit, $status);
+        $this->buku->ubahBuku($this->dataBuku['id_buku'], $judul, $pengarang, $sinopsis, $tahun_terbit, $status);
     }
 }
 
@@ -159,7 +159,7 @@ $editBukuForm = new EditBukuForm($conn, $buku);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $judul_buku = isset($_POST['judul_buku']) ? $_POST['judul_buku'] : '';
     $pengarang = isset($_POST['pengarang']) ? $_POST['pengarang'] : '';
-    $sinopsis = isset($_POST['sinopsis']) ? $_POST['sinopsis'] : '';
+    $sinopsis = isset($_POST['deskripsi']) ? $_POST['deskripsi'] : '';
     $tahun_terbit = isset($_POST['tahun_terbit']) ? $_POST['tahun_terbit'] : '';
     $status = isset($_POST['status_buku']) ? $_POST['status_buku'] : '';
 

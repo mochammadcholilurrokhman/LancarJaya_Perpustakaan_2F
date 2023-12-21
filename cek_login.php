@@ -18,7 +18,7 @@ class Login {
             $row = $result->fetch_assoc();
 
             // Cek posisi pengguna (admin atau user)
-            if ($row['posisi'] == "Admin") {
+            if ($row['posisi'] == "admin") {
                 $this->handleAdminLogin($username);
             } else {
                 $this->handleUserLogin($username);

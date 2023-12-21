@@ -9,21 +9,21 @@ class Buku {
     }
 
     public function tambahBuku($judul, $pengarang, $sinopsis, $tahun_terbit, $status) {
-        $query = "INSERT INTO buku1 (judul_buku, pengarang, sinopsis, tahun_terbit, status_buku) 
+        $query = "INSERT INTO buku (judul_buku, pengarang, sinopsis, tahun_terbit, status_buku) 
                   VALUES ('$judul', '$pengarang', '$sinopsis', '$tahun_terbit', '$status')";
 
         return mysqli_query($this->conn, $query);
     }
 
     public function ubahBuku($id, $judul, $pengarang, $sinopsis, $tahun_terbit, $status) {
-        $query = "UPDATE buku1 SET judul_buku='$judul', pengarang='$pengarang', tahun_terbit='$tahun_terbit', 
+        $query = "UPDATE buku SET judul_buku='$judul', pengarang='$pengarang', tahun_terbit='$tahun_terbit', 
                   sinopsis='$sinopsis', status_buku='$status' WHERE id = $id";
 
         return mysqli_query($this->conn, $query);
     }
 
     public function hapusBuku($id) {
-        $query = "DELETE FROM buku1 WHERE id = $id";
+        $query = "DELETE FROM buku WHERE id = $id";
 
         return mysqli_query($this->conn, $query);
     }
