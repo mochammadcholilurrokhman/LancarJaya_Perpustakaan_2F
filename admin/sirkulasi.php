@@ -42,8 +42,8 @@
 
 <body>
     <?php
-    include('../komponen/headeruser.php');
-    require_once '../Connection.php';
+    include('../komponen/header.php');
+    $koneksi = mysqli_connect("localhost", "root", "", "perpustakaan");
     ?>
     <div class="content">
         <div id="sidebar">
@@ -54,7 +54,7 @@
             <div class="isi">
                 <form method="POST" action="">
                     <label for="username"></label>
-                    <input type="text" name="search" class="search-box" placeholder="NIM/NIP" id="username" value="<?php echo isset($_GET['username']) ? $_GET['username'] : ''; ?>">
+                    <input type="text" name="search" class="search-box" placeholder="NIM/NIP" id="username">
                     <button type="submit" class="search-button">Search</button>
                 </form>
                 <br>
@@ -94,11 +94,13 @@
                 FROM peminjaman
                 INNER JOIN user ON peminjaman.id_user = user.id_user
                 INNER JOIN buku ON peminjaman.id_buku = buku.id_buku
-                WHERE user.username = ?
+                WHERE user.username like ?
                 ORDER BY peminjaman.id_peminjaman DESC";
+            
+        $searchId = '%' . $username . '%';
 
         $stmt = mysqli_prepare($koneksi, $query);
-        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_bind_param($stmt, "s", $searchId);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
 
