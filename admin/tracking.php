@@ -56,8 +56,8 @@ function searchPeminjamanByBookTitle($book_title) {
 }
 
 
-if (isset($_GET['book_title'])) {
-    $bookTitleSearch = $_GET['book_title'];
+if (isset($_POST['book_title'])) {
+    $bookTitleSearch = $_POST['book_title'];
     $peminjaman = searchPeminjamanByBookTitle($bookTitleSearch);
 } else {
     $peminjaman = getPeminjaman();
@@ -113,7 +113,7 @@ if (isset($_GET['book_title'])) {
                 ?>
 
                 <div class="isi">
-                    <form action="" method="GET">
+                    <form action="" method="POST">
                         <label for="book_title"></label>
                         <input type="text" name="book_title" class="search-box" id="book_title" placeholder="Judul Buku">
                         <button type="submit" class="search-button">Search</button>
