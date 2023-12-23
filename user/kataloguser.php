@@ -206,54 +206,34 @@
             // Memulihkan keranjang belanja dari localStorage saat halaman dimuat
             restoreCart();
         });
+
     function addToCart() {
-    // Mendapatkan informasi buku yang akan ditambahkan ke keranjang
-    var bookTitle = document.getElementById("bookTitle").innerText;
-    var bookImageUrl = document.getElementById("bookImage").src;
-    var bookAuthor = "John Doe"; // Ganti dengan informasi penulis buku
-    var bookYear = 2022; // Ganti dengan tahun penerbitan buku
+    var bookTitle = document.getElementById("bookTitle").innerText.trim();
+    var bookImage = document.getElementById("bookImage").src;
+    var bookAuthor = document.querySelector(".book-details").getAttribute("data-pengarang");
+    var bookYear = document.querySelector(".book-details").getAttribute("data-year");
 
-    // Membuat elemen baru untuk produk di keranjang
-    var cartItem = document.createElement("div");
-    cartItem.className = "cart-item";
-
-    // Menambahkan konten ke dalam elemen keranjang
-    cartItem.innerHTML = `
-        <img src="${bookImageUrl}" alt="${bookTitle}">
-        <div class="item-detail">
-            <h3>${bookTitle}</h3>
-            <div class="item-price">IDR 30K</div> <!-- Ganti dengan harga buku -->
-        </div>
-        <i data-feather="trash-2" class="remove-item"></i>
-    `;
-
-    // Menemukan elemen keranjang pada headeruser.php
-    var cartContainer = parent.document.getElementById("shoppingCart");
-
-    // Menambahkan elemen produk ke dalam keranjang
-    cartContainer.appendChild(cartItem);
-
-    // Memperbarui tampilan keranjang pada headeruser.php
-    parent.updateCartView();
-        alert ("buku")
-    // Menutup modal setelah menambahkan ke keranjang
-        saveCartToLocalStorage();
-
-    closeModal();
-};
-function saveCartToLocalStorage() {
-            var cartItems = document.getElementById("shoppingCart").innerHTML;
-            localStorage.setItem("cart", cartItems);
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", 'addToCart.php', true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var response = xhr.responseText;
+            alert(response);
+            closeModal();
         }
+    };
 
-        function restoreCart() {
-            var savedCartItems = localStorage.getItem("cart");
-            if (savedCartItems) {
-                document.getElementById("shoppingCart").innerHTML = savedCartItems;
-            }
-        }
+    var data =
+        "bookTitle=" + encodeURIComponent(bookTitle) +
+        "&bookImage=" + encodeURIComponent(bookImage) +
+        "&bookAuthor=" + encodeURIComponent(bookAuthor) +
+        "&bookYear=" + encodeURIComponent(bookYear);
 
-    </script>
+    xhr.send(data);
+}
+
+</script>
 
 </body>
 
