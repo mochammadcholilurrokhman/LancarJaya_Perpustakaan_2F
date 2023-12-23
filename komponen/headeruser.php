@@ -82,10 +82,10 @@ require_once ('../Connection.php');
                     echo $_SESSION['username'];
                     $imageUrl = '../img/user1.png';
                     echo '<a href="#"><img class="user" src="' . $imageUrl . '" alt="User"></a>';
-                    if ($_SESSION['posisi'] === 'admin') {
-                        echo '<a href="#"><img class="user" src="../img/bell.png" alt="Bell"></a>';
+                    if ($_SESSION['posisi'] === 'Admin') {
+                        echo '<a href="#" id=""bellIcon><img class="user" src="../img/bell.png" alt="Bell"></a>';
                     } else {
-                        echo '<a href="#" id="cartIcon"><img class="user1" src="../img/cart.png" alt="Cart"></a>';
+                        echo '<a href="../user/cart.php" id="cartIcon"><img class="user1" src="../img/cart.png" alt="Cart"></a>';
                     }
                 } else {
                     header("Location:../admin/dashboardadmin.php");
@@ -121,6 +121,7 @@ require_once ('../Connection.php');
             // Hide the shopping cart when clicking outside
             shoppingCart.style.display = 'none';
         });
+
     </script>
     
     <script>
