@@ -83,7 +83,7 @@ require_once ('../Connection.php');
                     $imageUrl = '../img/user1.png';
                     echo '<a href="#"><img class="user" src="' . $imageUrl . '" alt="User"></a>';
                     if ($_SESSION['posisi'] === 'Admin') {
-                        echo '<a href="#" id=""bellIcon><img class="user" src="../img/bell.png" alt="Bell"></a>';
+                        echo '<a href="../admin/notifications.php" id=""bellIcon><img class="user" src="../img/bell.png" alt="Bell"></a>';
                     } else {
                         echo '<a href="../user/cart.php" id="cartIcon"><img class="user1" src="../img/cart.png" alt="Cart"></a>';
                     }
