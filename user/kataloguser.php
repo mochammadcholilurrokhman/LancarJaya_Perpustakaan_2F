@@ -207,31 +207,40 @@
             restoreCart();
         });
 
+    function getCartInfo() {
+    var cartInfoElement = document.querySelector(".book-details"); // Menggunakan selector yang sesuai
+
+    if (cartInfoElement) {
+        var id_keranjang = cartInfoElement.getAttribute("data-id-keranjang");
+        var username = cartInfoElement.getAttribute("data-username");
+        var nama_user = cartInfoElement.getAttribute("data-nama-user");
+        var judul_buku = document.getElementById("bookTitle").innerText.trim();
+        var qty = cartInfoElement.getAttribute("data-jumlah-buku");
+
+        return {
+            idKeranjang: id_keranjang,
+            username: username,
+            namaUser: nama_user,
+            judulBuku: judul_buku,
+            jumlahBuku: qty
+        };
+    } else {
+        return null; // Return null jika elemen tidak ditemukan
+    }
+    }
+    
     function addToCart() {
-    var bookTitle = document.getElementById("bookTitle").innerText.trim();
-    var bookImage = document.getElementById("bookImage").src;
-    var bookAuthor = document.querySelector(".book-details").getAttribute("data-pengarang");
-    var bookYear = document.querySelector(".book-details").getAttribute("data-year");
-
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", 'addToCart.php', true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var response = xhr.responseText;
-            alert(response);
-            closeModal();
+        var infoKeranjang = getCartInfo();
+        if (infoKeranjang) {
+            console.log("ID Keranjang:", infoKeranjang.id_keranjang);
+            console.log("Username:", infoKeranjang.username);
+            console.log("Nama User:", infoKeranjang.nama_user);
+            console.log("Judul Buku:", infoKeranjang.judul_buku);
+            console.log("Jumlah Buku:", infoKeranjang.qty);
+            } else {
+            console.log("Informasi keranjang tidak ditemukan.");
         }
-    };
-
-    var data =
-        "bookTitle=" + encodeURIComponent(bookTitle) +
-        "&bookImage=" + encodeURIComponent(bookImage) +
-        "&bookAuthor=" + encodeURIComponent(bookAuthor) +
-        "&bookYear=" + encodeURIComponent(bookYear);
-
-    xhr.send(data);
-}
+    }
 
 </script>
 
