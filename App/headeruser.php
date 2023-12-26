@@ -41,15 +41,15 @@ require_once('../../Config/Connection.php');
           .shopping-cart {
             display: none;
             position: absolute;
-            top: 50px; /* Adjust as needed */
-            right: 10px; /* Adjust as needed */
+            top: 50px; 
+            right: 10px; 
             background-color: #fff;
             border: 1px solid #ccc;
             padding: 10px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            height: 500px; /* Adjust the height as needed */
-            overflow-y: auto; /* Add scroll if content exceeds height */
+            height: 500px; 
+            overflow-y: auto; 
         }
         .shopping-cart .cart-item {
             margin: 2rem o;
@@ -82,7 +82,7 @@ require_once('../../Config/Connection.php');
                     $imageUrl = '../../assets/img/user1.png';
                     echo '<a href="../../Login/logout.php" onclick="return confirm(\'Apakah anda yakin ingin keluar ?\')"><img class="user" src="' . $imageUrl . '" alt="User"></a>';
                     if ($_SESSION['posisi'] === 'Admin') {
-                        echo '<a href="#" id=""bellIcon><img class="user" src="../../assets/img/bell.png" alt="Bell"></a>';
+                        echo '<a href="notif.php" id=""bellIcon><img class="user" src="../../assets/img/bell.png" alt="Bell"></a>';
                     } else {
                         echo '<a href="../User/cart.php" id="cartIcon"><img class="user1" src="../../assets/img/cart.png" alt="Cart"></a>';
                     }

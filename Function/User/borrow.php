@@ -41,10 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_buku'])) {
                     header("Location: ../../App/User/cart.php");
                     exit();
                 } else {
-                    echo "Error updating book status or recording transaction: " . mysqli_error($conn);
+                    echo "<script>alert('Error updating book status or recording transaction: " . mysqli_error($conn) . "');</script>";
                 }
             } else {
-                echo "Error: The book is not available for borrowing.";
+                echo "<script>alert('Error: The book is not available for borrowing. " . mysqli_error($conn) . "');</script>";
             }
         } else {
             echo "Error checking book availability: " . mysqli_error($conn);
