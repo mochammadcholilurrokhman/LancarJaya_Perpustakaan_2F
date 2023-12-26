@@ -5,7 +5,7 @@ function getPeminjaman()
 {
     global $koneksi;
 
-    $query = "SELECT peminjaman.*, user.id_user, user.username, buku.id_buku, buku.judul_buku
+    $query = "SELECT peminjaman.*, user.username, user.nama_user, buku.id_buku, buku.judul_buku
               FROM peminjaman
               INNER JOIN user ON peminjaman.id_user = user.id_user
               INNER JOIN buku ON peminjaman.id_buku = buku.id_buku
@@ -31,7 +31,7 @@ $peminjaman = getPeminjaman();
 function searchPeminjamanByBookTitle($book_title) {
     global $koneksi;
 
-    $query = "SELECT peminjaman.*, user.id_user, user.username, buku.id_buku, buku.judul_buku
+    $query = "SELECT peminjaman.*, user.username, user.nama_user, buku.id_buku, buku.judul_buku
               FROM peminjaman
               INNER JOIN user ON peminjaman.id_user = user.id_user
               INNER JOIN buku ON peminjaman.id_buku = buku.id_buku
@@ -84,20 +84,20 @@ if (isset($_POST['book_title'])) {
             background-color: #f2f2f2;
         }
         .search-box {
-        background-color: #A5D7E8; 
-        color: white; 
-        padding: 10px 15px; 
-        border: none;
-        border-radius: 30px; 
-        cursor: pointer;
+            background-color: #A5D7E8; 
+            color: white; 
+            padding: 10px 15px; 
+            border: none;
+            border-radius: 30px; 
+            cursor: pointer;
         }
         .search-button {
-        background-color: #A5D7E8; 
-        color: black; 
-        padding: 10px 15px; 
-        border: none;
-        border-radius: 30px;
-        cursor: pointer;
+            background-color: #A5D7E8; 
+            color: black; 
+            padding: 10px 15px; 
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -126,11 +126,11 @@ if (isset($_POST['book_title'])) {
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Id Buku</th>
-                                <th>Judul Buku</th>
+                                <th>Id Book</th>
+                                <th>The Book Title</th>
                                 <th>Status</th>
-                                <th>Id Anggota</th>
-                                <th>Nama Anggota</th>
+                                <th>NIM/NIP</th>
+                                <th>Name</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -140,8 +140,8 @@ if (isset($_POST['book_title'])) {
                                     <td><?= $data['id_buku'] ?></td>
                                     <td><?= $data['judul_buku'] ?></td>
                                     <td><?= $data['status'] ?></td>
-                                    <td><?= $data['id_user'] ?></td>
                                     <td><?= $data['username'] ?></td>
+                                    <td><?= $data['nama_user'] ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
