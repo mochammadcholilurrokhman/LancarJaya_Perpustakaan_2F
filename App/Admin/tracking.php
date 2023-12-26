@@ -125,8 +125,7 @@ if (isset($_POST['book_title'])) {
                     <table border="1">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Id Book</th>
+                                <th>Book Id</th>
                                 <th>The Book Title</th>
                                 <th>Status</th>
                                 <th>NIM/NIP</th>
@@ -136,10 +135,9 @@ if (isset($_POST['book_title'])) {
                         <tbody>
                             <?php foreach ($peminjaman as $index => $data): ?>
                                 <tr>
-                                    <td><?= $index + 1 ?></td>
                                     <td><?= $data['id_buku'] ?></td>
                                     <td><?= $data['judul_buku'] ?></td>
-                                    <td><?= $data['status'] ?></td>
+                                    <td><?= $data['status_peminjaman'] ?></td>
                                     <td><?= $data['username'] ?></td>
                                     <td><?= $data['nama_user'] ?></td>
                                 </tr>

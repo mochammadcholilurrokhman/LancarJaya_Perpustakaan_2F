@@ -27,9 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Error menambahkan buku ke keranjang: " . mysqli_error($conn);
         }
     } else {
-        echo 'wpe';
+        echo 'Error';
     }
 } else {
     echo "Invalid request method.";
 }
 ?>
+

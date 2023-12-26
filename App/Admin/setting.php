@@ -1,4 +1,3 @@
-
 <?php
 
 $koneksi = mysqli_connect("localhost", "root", "", "perpustakaan");
@@ -76,8 +75,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } catch (Exception $e) {
         $notification = $e->getMessage();
     }
-
-    
 }
 
 
@@ -85,33 +82,82 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengaturan</title>
-</head>
-<body>
-    <h1>Pengaturan</h1>
+    <link rel="stylesheet" href="../../style/fitur.css">
+    <style>
+         form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
 
-    <?php if ($notification): ?>
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <?php if ($notification) : ?>
         <p style="color: <?= strpos($notification, 'berhasil') !== false ? 'green' : 'red' ?>;"><?= $notification ?></p>
     <?php endif; ?>
+    <?php
+    include('../headeruser.php');
+    ?>
+    <div class="content">
+        <div id="sidebar">
+            <?php
+            include('../sidebaradmin.php');
+            ?>
+            <div class="isi">
+                <br><br><br><br>
+                <form action="" method="POST">
+                    <label for="denda_perhari">Charge / Day (Rp):</label>
+                    <input type="number" step="" name="denda_perhari" id="denda_perhari" value="" required>
+                    <br><br>
 
-    <form action="" method="POST">
-    <label for="denda_perhari">Charge / Day (Rp):</label>
-    <input type="number" step="" name="denda_perhari" id="denda_perhari" value="" required>
-    <br>
+                    <label for="batas_buku">Limited Book to Borrow:</label>
+                    <input type="number" name="batas_buku" id="batas_buku" value="" required>
+                    <br><br>
 
-    <label for="batas_buku">Limited Book to Borrow:</label>
-    <input type="number" name="batas_buku" id="batas_buku" value="" required>
-    <br>
+                    <label for="batas_hari">Limited Day to Borrow:</label>
+                    <input type="number" name="batas_hari" id="batas_hari" value="" required>
+                    <br><br>
 
-    <label for="batas_hari">Limited Day to Borrow:</label>
-    <input type="number" name="batas_hari" id="batas_hari" value="" required>
-    <br>
-
-    <button type="submit" name="simpan_pengaturan" value="tambah">Update</button>
-</form>
-
+                    <button type="submit" name="simpan_pengaturan" value="tambah">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

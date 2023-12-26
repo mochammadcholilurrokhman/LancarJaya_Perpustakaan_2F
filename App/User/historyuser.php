@@ -5,25 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riwayat Peminjaman</title>
-    <link rel="stylesheet" href="../style/fitur.css">
+    <link rel="stylesheet" href="../../style/fitur.css">
     <style>
-
         .history-container {
             display: flex;
             align-items: center;
-        }
-
-        .history-item {
-            display: flex;
             margin-bottom: 20px;
-            border: 1px solid #ddd;
-            padding: 10px;
-            width: 100%;
-        }
-
-        .book-info img {
-            max-width: 100px;
-            margin-right: 20px;
         }
 
         .user-info {
@@ -36,7 +23,8 @@
             margin-top: 20px;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #000;
             padding: 10px;
             text-align: center;
@@ -46,57 +34,81 @@
 
 <body>
     <?php
+    require_once '../../Config/Connection.php';
+    $username = $_SESSION['username'];
+    $userQuery = "SELECT * FROM user WHERE username = $username";
+    $userResult = mysqli_query($conn, $userQuery);
+
+    if ($userResult) {
+        $userData = mysqli_fetch_assoc($userResult);
+    }
+
+    $historyQuery = "SELECT p.id_peminjaman, p.tgl_peminjaman, p.tgl_pengembalian, p.tgl_batas_pengembalian, 
+    p.status_peminjaman, b.judul_buku, b.pengarang 
+    FROM peminjaman p 
+    JOIN buku b ON p.id_buku = b.id_buku JOIn user u on p.id_user = u.id_user 
+    WHERE username = $username";
+
+
+    $historyResult = mysqli_query($conn, $historyQuery);
+    $historyData = [];
+
+    if ($historyResult) {
+        while ($row = mysqli_fetch_assoc($historyResult)) {
+            $historyData[] = $row;
+        }
+    }
+    ?>
+    <?php
     include('../headeruser.php');
     ?>
     <div class="content">
         <div id="sidebar">
             <?php
-            include('../komponen/sidebaruser.php');
+            include('../sidebaruser.php');
             ?>
 
             <div class="isi">
-
-                <div class="history-container">
-                    <div class="history-item">
-                        <div class="book-info">
-                            <img src="../img/BelajarC++.jpeg" alt="BelajarC++">
-                        </div>
+                <?php if (!empty($userData)) : ?>
+                    <div class="history-container">
                         <div class="user-info">
-                            <p><strong>Nama Peminjam:</strong> John Doe</p>
-                            <p><strong>ID Anggota:</strong> 123456</p>
-                            <p><strong>Email:</strong> john.doe@example.com</p>
-                            <p><strong>Tipe Anggota:</strong> Mahasiswa</p>
-            
+                            <p><strong>Nama Peminjam:</strong> <?= $userData['nama_user']; ?></p>
+                            <p><strong>ID Anggota:</strong> <?= $userData['id_user']; ?></p>
+                            <p><strong>Posisi:</strong> <?= $userData['posisi']; ?></p>
                         </div>
                     </div>
-                </div>
+                <?php endif; ?>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID Transaksi</th>
-                            <th>Id Buku</th>
-                            <th>Judul Buku</th>
-                            <th>Tanggal Peminjaman</th>
-                            <th>Tanggal Pengembalian</th>
-                            <th>Keterlambatan (Hari)</th>
-                            <th>Denda</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>000001</td>
-                            <td>Belajar Dasar Pemrograman dengan C++</td>
-                            <td>7-12-2023</td>
-                            <td>14-12-2023</td>
-                            <td></td>
-                            <td></td>
-                            <td>Belum dikembalikan</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <?php if (!empty($historyData)) : ?>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID Peminjaman</th>
+                                <th>Tanggal Peminjaman</th>
+                                <th>Tanggal Pengembalian</th>
+                                <th>Tanggal Batas Pengembalian</th>
+                                <th>Status</th>
+                                <th>Judul Buku</th>
+                                <th>Pengarang</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($historyData as $data) : ?>
+                                <tr>
+                                    <td><?= $data['id_peminjaman']; ?></td>
+                                    <td><?= $data['tgl_peminjaman']; ?></td>
+                                    <td><?= $data['tgl_pengembalian']; ?></td>
+                                    <td><?= $data['tgl_batas_pengembalian']; ?></td>
+                                    <td><?= $data['status_peminjaman']; ?></td>
+                                    <td><?= $data['judul_buku']; ?></td>
+                                    <td><?= $data['pengarang']; ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php else : ?>
+                    <p>Tidak ada data riwayat peminjaman.</p>
+                <?php endif; ?>
             </div>
         </div>
     </div>
