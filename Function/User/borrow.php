@@ -1,6 +1,20 @@
 <?php
 require_once '../../Config/Connection.php';
 
+$querySettings = "SELECT * FROM pengaturan order by id_pengaturan desc LIMIT 1";
+$resultSettings = mysqli_query($conn, $querySettings);
+
+if ($resultSettings && mysqli_num_rows($resultSettings) > 0) {
+    $rowSettings = mysqli_fetch_assoc($resultSettings);
+
+    $dendaPerHari = $rowSettings['denda_perhari'];
+    $batasBuku = $rowSettings['batas_buku'];
+    $batasHari = $rowSettings['batas_hari'];
+} else {
+    // Handle error if settings are not available
+    die("Error fetching settings: " . mysqli_error($conn));
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_buku'])) {
     $bookId = $_GET['id_buku'];
 
@@ -13,7 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_buku'])) {
         $rowUser = mysqli_fetch_assoc($resultUser);
         $userId = $rowUser['id_user'];
         $tglPeminjaman = date('Y-m-d H:i:s');
-        $tglBatasPengembalian = date('Y-m-d H:i:s', strtotime($tglPeminjaman . '+14 days'));
+        
+        // Use the fetched settings
+        $tglBatasPengembalian = date('Y-m-d H:i:s', strtotime($tglPeminjaman . '+ ' . $batasHari . ' days'));
         $statusPeminjaman = 'Pending';
 
         // Cek apakah buku tersedia
@@ -30,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_buku'])) {
                 $resultUpdateBook = mysqli_query($conn, $updateBookQuery);
 
                 // Insert data peminjaman
-                $insertHistoryQuery = "INSERT INTO peminjaman (id_user, id_buku, tgl_peminjaman, tgl_batas_pengembalian, status_peminjaman) 
+                $insertHistoryQuery = "INSERT INTO peminjaman (id_user, id_buku, tgl_peminjaman, tgl_batas_pengembalian, status) 
                       VALUES ('$userId', '$bookId', '$tglPeminjaman','$tglBatasPengembalian', '$statusPeminjaman')";
 
                 $resultInsertHistory = mysqli_query($conn, $insertHistoryQuery);
@@ -55,3 +71,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_buku'])) {
 } else {
     echo "Invalid request method or book ID not provided.";
 }
+
