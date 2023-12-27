@@ -123,8 +123,7 @@
                                 <form method='post' action='../../Function/Admin/approve.php'>
                                 <input type='hidden' name='id_peminjaman' value='" . $row['id_peminjaman'] . "'>
                             <button class='edit-btn'>Approve</button>
-                            <button class='delete-btn'>Delete</button>
-                          </form>
+                            <button onclick=\"confirmDelete(" . $row['id_peminjaman'] . ");\" class='delete-btn'>Delete</button>                          </form>
                           </td>";
                             echo "</tr>";
                         }
@@ -134,6 +133,17 @@
                 </div>
             </div>
         </div>
+         <script>
+    function confirmDelete($id) {
+        var r = confirm("Are you sure you want to delete this book?");
+        if (r == true) {
+            // User clicked "OK", perform the delete action
+            window.location.href = "../../Function/Admin/proses.php?aksi=hapus&id=" + $id;
+        } else {
+            // User clicked "Cancel", do nothing
+        }
+    }
+</script>
     </body>
 
     </html>

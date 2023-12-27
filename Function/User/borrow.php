@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_buku'])) {
         $rowUser = mysqli_fetch_assoc($resultUser);
         $userId = $rowUser['id_user'];
 
-        $checkBorrowedBooksQuery = "SELECT COUNT(*) AS num_borrowed FROM peminjaman WHERE id_user = '$userId' AND status = 'Belum Dikembalikan'";
+        $checkBorrowedBooksQuery = "SELECT COUNT(*) AS num_borrowed FROM peminjaman WHERE id_user = '$userId' AND status_peminjaman = 'Belum Dikembalikan'";
         $resultBorrowedBooks = mysqli_query($conn, $checkBorrowedBooksQuery);
 
         if ($resultBorrowedBooks && mysqli_num_rows($resultBorrowedBooks) > 0) {
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_buku'])) {
         
         } else {
             // Check for overdue books and calculate fines
-            $checkOverdueBooksQuery = "SELECT id_peminjaman, tgl_batas_pengembalian FROM peminjaman WHERE id_user = '$userId' AND status = 'Belum Dikembalikan'";
+            $checkOverdueBooksQuery = "SELECT id_peminjaman, tgl_batas_pengembalian FROM peminjaman WHERE id_user = '$userId' AND status_peminjaman = 'Belum Dikembalikan'";
             $resultOverdueBooks = mysqli_query($conn, $checkOverdueBooksQuery);
 
             while ($rowOverdueBooks = mysqli_fetch_assoc($resultOverdueBooks)) {

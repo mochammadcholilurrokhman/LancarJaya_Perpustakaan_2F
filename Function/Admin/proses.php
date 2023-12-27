@@ -27,6 +27,11 @@ class Buku {
 
         return mysqli_query($this->conn, $query);
     }
+      public function hapusnotif($id) {
+        $query = "DELETE FROM peminjaman WHERE id_peminjaman = $id";
+
+        return mysqli_query($this->conn, $query);
+    }
 }
 
 // Membuat objek buku
@@ -76,7 +81,20 @@ if ($aksi == 'tambah') {
     } else {
         echo "ID tidak valid.";
     }
-} 
+}   
+elseif ($aksi == 'hapusnotif') {
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        if ($buku->hapusnotif($id)) {
+            header("Location: ../../App/Admin/notif.php");
+            exit();
+        } else {
+            echo "Gagal menghapus data.";
+        }
+    } else {
+        echo "ID tidak valid.";
+    }
+}
     else {
     header("Location: katalog.php");
 }
