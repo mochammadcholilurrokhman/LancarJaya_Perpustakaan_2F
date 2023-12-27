@@ -7,9 +7,18 @@
     <title>Katalog Perpustakaan</title>
     <link rel="stylesheet" href="../style/aboutUs.css">
 </head>
+<style>
+    .info-bar {
+        display: flex;
+        text-align: left;
+    }
+    .info-bar span1 {
+        margin-left: 50px;
+    }
+</style>
 
 <body>
-    
+
     <div class="content">
 
         <div class="isiTeks">
@@ -41,11 +50,11 @@
                     <br> Fax: (0XX1) 4XXX20
                     <br> <br>
                 </span>
-                <span> <b>Social Media: </b>
-                    <br> instagram
-                    <br> facebook
-                    <br> twitter
-                </span>
+                <span1> <b>Social Media: </b>
+                    <br> instagram : bacaJTI
+                    <br> facebook : RuangBacaJTI
+                    <br> twitter : JTIruangBaca
+                </span1>
             </div>
         </div>
     </div>

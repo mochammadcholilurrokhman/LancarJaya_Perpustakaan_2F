@@ -17,12 +17,6 @@
   justify-content: center;
   align-items: center;
 }
-.info-bar {
-  display: flex;
-  justify-content: flex-end;
-  text-align: left;
-  margin-top: 1px;
-}
 
 .gambar {
   display: flex;
