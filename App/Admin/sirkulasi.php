@@ -160,12 +160,15 @@
                             <td><?= $data['tgl_pengembalian'] ?></td>
                             <td><?= $data['status_peminjaman'] ?></td>
                             <td>
-                                <button onclick="return confirm('Anda yakin ingin mengembalikan?')"
+                                <?php if ($data['status_peminjaman'] !== 'Dikembalikan'): ?>
+                                 <button onclick="return confirm('Anda yakin ingin mengembalikan?')"
                                     form="form-return-<?= $data['id_peminjaman'] ?>"
                                     class="return-button">Return</button>
 
                                     <form id="form-return-<?= $data['id_peminjaman'] ?>" method="POST" action="">
                                     <input type="hidden" name="return_id" value="<?= $data['id_peminjaman'] ?>">
+                </form>
+            <?php endif; ?>
                 </form>
                             </td>
                         </tr>
