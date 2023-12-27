@@ -6,7 +6,7 @@ function getPengaturanDenda()
 {
     global $koneksi;
 
-    $query = "SELECT * FROM pengaturan LIMIT 1";
+    $query = "SELECT * FROM pengaturan order by id_pengaturan desc LIMIT 1";
 
     $result = mysqli_query($koneksi, $query);
 
@@ -79,7 +79,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

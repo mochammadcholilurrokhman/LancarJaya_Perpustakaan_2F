@@ -72,7 +72,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_buku'])) {
         } else {
             echo "Error checking book availability: " . mysqli_error($conn);
         }
+        
         } else {
+            // Check for overdue books and calculate fines
+            $checkOverdueBooksQuery = "SELECT id_peminjaman, tgl_batas_pengembalian FROM peminjaman WHERE id_user = '$userId' AND status = 'Belum Dikembalikan'";
+            $resultOverdueBooks = mysqli_query($conn, $checkOverdueBooksQuery);
+
+            while ($rowOverdueBooks = mysqli_fetch_assoc($resultOverdueBooks)) {
+                $idPeminjaman = $rowOverdueBooks['id_peminjaman'];
+                $tglBatasPengembalian = $rowOverdueBooks['tgl_batas_pengembalian'];
+
+                // Check if the book is overdue
+                if (strtotime($tglBatasPengembalian) < strtotime(date('Y-m-d H:i:s'))) {
+                    // Calculate the fine based on the denda_perhari setting
+                    $dateDifference = ceil((strtotime(date('Y-m-d H:i:s')) - strtotime($tglBatasPengembalian)) / (60 * 60 * 24));
+                    $jmlDenda = $dateDifference * $dendaPerHari;
+
+                    // Insert the fine information into the denda table
+                    $insertDendaQuery = "INSERT INTO denda (jml_denda, status_pembayaran, tgl_batas_pembayaran, id_peminjaman, id_pengaturan) 
+                        VALUES ('$jmlDenda', 'Belum Dibayar', DATE_ADD(NOW(), INTERVAL 7 DAY), '$idPeminjaman', '{$rowSettings['id_pengaturan']}')";
+
+                    $resultInsertDenda = mysqli_query($conn, $insertDendaQuery);
+
+                    if (!$resultInsertDenda) {
+                        echo "<script>alert('Error inserting fine information: " . mysqli_error($conn) . "');</script>";
+                    }
+                }
+            }
             echo "<script>alert('Error: You have reached the limit for the number of books you can borrow.');</script>";
         }
         } else {
