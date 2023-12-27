@@ -1,5 +1,5 @@
 <?php
-require_once '../Connection.php';
+require_once "../../Config/Connection.php";
 
 class RepositoryDetails
 {
@@ -13,7 +13,7 @@ class RepositoryDetails
     public function getRepositoryDetails($id)
     {
         $id = mysqli_real_escape_string($this->conn, $id);
-        $query = "SELECT * FROM repository1 WHERE id_repo = $id";
+        $query = "SELECT * FROM repository WHERE id_repo = $id";
         $result = mysqli_query($this->conn, $query);
 
         if ($result) {
@@ -24,7 +24,6 @@ class RepositoryDetails
     }
 }
 
-include('../komponen/headeruser.php');
 
 $repositoryDetails = new RepositoryDetails($conn);
 
@@ -37,12 +36,11 @@ if (isset($_GET['id'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Details Repository</title>
-    <link rel="stylesheet" href="../style/fitur.css">
+    <link rel="stylesheet" href="../../style/fitur.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -98,10 +96,13 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
+    <?php
+    include('../headeruser.php');
+    ?>
     <div class="content">
         <div id="sidebar">
             <?php
-            include('../komponen/sidebaradmin.php');
+            include('../sidebaradmin.php');
             ?>
             <div class="isi">
                 <h1>Details Repository</h1>

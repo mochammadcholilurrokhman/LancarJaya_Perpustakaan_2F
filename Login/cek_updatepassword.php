@@ -13,8 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = filter_var($username, FILTER_SANITIZE_STRING);
         $password = filter_var($password, FILTER_SANITIZE_STRING);
 
-        // Check if the username and password match in the database
-        // Replace 'user' with your actual table name
         $query = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
         $result = mysqli_query($conn, $query);
 

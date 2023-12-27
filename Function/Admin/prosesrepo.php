@@ -1,5 +1,5 @@
 <?php
-require_once ('../Connection.php');
+require_once ('../../Config/Connection.php');
 
 class Repository {
     private $conn;
@@ -9,21 +9,21 @@ class Repository {
     }
 
     public function tambahRepository($judul, $pengarang, $tahun_terbit, $kata_kunci, $status) {
-        $query = "INSERT INTO repository1 (Judul_Repo, pengarang, tahun_terbit, Kata_Kunci, status_repo) 
+        $query = "INSERT INTO repository (Judul_Repo, pengarang, tahun_terbit, Kata_Kunci, status_repo) 
                   VALUES ('$judul', '$pengarang', '$tahun_terbit', '$kata_kunci', '$status')";
 
         return mysqli_query($this->conn, $query);
     }
 
     public function ubahRepository($id, $judul, $pengarang, $tahun_terbit, $kata_kunci, $status_repo) {
-        $query = "UPDATE repository1 SET Judul_Repo='$judul', pengarang='$pengarang', tahun_terbit='$tahun_terbit', 
+        $query = "UPDATE repository SET Judul_Repo='$judul', pengarang='$pengarang', tahun_terbit='$tahun_terbit', 
                   Kata_Kunci='$kata_kunci', status_repo='$status_repo' WHERE id_repo = $id";
 
         return mysqli_query($this->conn, $query);
     }
 
     public function hapusRepository($id) {
-        $query = "DELETE FROM repository1 WHERE id_repo = $id";
+        $query = "DELETE FROM repository WHERE id_repo = $id";
 
         return mysqli_query($this->conn, $query);
     }
@@ -45,7 +45,7 @@ $status_repo = isset($_POST['status_repo']) ? $_POST['status_repo'] : '';
 // Melakukan operasi sesuai dengan aksi yang diberikan
 if ($aksi == 'tambah') {
     if ($repository->tambahRepository($judul_repo, $pengarang, $tahun_terbit, $kata_kunci, $status_repo)) {
-        header("Location: repository.php");
+        header("Location: ../../App/Admin/repository.php");
         exit();
     } else {
         echo "Gagal menambahkan data.";
@@ -54,7 +54,7 @@ if ($aksi == 'tambah') {
     if (isset($_POST['id_repo'])) {
         $id = $_POST['id_repo'];
         if ($repository->ubahRepository($id, $judul_repo, $pengarang, $tahun_terbit, $kata_kunci, $status_repo)) {
-            header("Location: repository.php");
+            header("Location: ../../App/Admin/repository.php");
             exit();
         } else {
             echo "Gagal mengubah data.";
@@ -66,7 +66,7 @@ if ($aksi == 'tambah') {
     if (isset($_GET['id_repo'])) {
         $id = $_GET['id_repo'];
         if ($repository->hapusRepository($id)) {
-            header("Location: repository.php");
+            header("Location: ../../App/Admin/repository.php");
             exit();
         } else {
             echo "Gagal menghapus data.";

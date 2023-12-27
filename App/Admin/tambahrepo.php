@@ -1,5 +1,5 @@
 <?php
-require_once "../Connection.php";
+require_once "../../Config/Connection.php";
 
 class RepositoryFormHandler
 {
@@ -34,7 +34,7 @@ class RepositoryFormHandler
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Edit Katalog</title>
-            <link rel="stylesheet" href="../style/fitur.css">
+            <link rel="stylesheet" href="../../style/fitur.css">
             <style>
                 body {
                     font-family: 'Arial', sans-serif;
@@ -91,17 +91,17 @@ class RepositoryFormHandler
 
         <body>
         <?php
-        include('../komponen/headeruser.php');
+        include('../headeruser.php');
         $this->displayMessage();
         ?>
         <div class="content">
             <div id="sidebar">
                 <?php
-                include('../komponen/sidebaradmin.php');
+                include('../sidebaradmin.php');
                 ?>
                 <div class="isi">
                     <h3>Form Tambah Data Buku</h3>
-                    <form action="prosesrepo.php?aksi=tambah" method="post">
+                    <form action="../../Function/Admin/prosesrepo.php?aksi=tambah" method="post">
                         <label for="Judul_Repo">Judul Repository:</label>
                         <input type="text" name="Judul_Repo" required><br>
 

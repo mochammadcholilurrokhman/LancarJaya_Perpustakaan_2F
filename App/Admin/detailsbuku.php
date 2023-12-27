@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Details</title>
-    <link rel="stylesheet" href="../style/fitur.css">
+    <link rel="stylesheet" href="../../style/fitur.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -105,7 +105,10 @@
                 <div id="sidebar">
                     <?php include('../sidebaradmin.php'); ?>
                     <div class="isi">
-                        <h1>Book Details</h1>
+                        <h1>Book Details</h1><?php
+                        $imagePath = '../../assets/img/' . $databuku['image'];
+                        echo '<img src="' . $imagePath . '" alt="Book Cover" style="max-width: 200px;">';
+                        ?>                      
                         <?php echo $databuku['deskripsi']; ?>
                         <table>
                             <tbody>

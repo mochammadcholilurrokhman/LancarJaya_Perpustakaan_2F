@@ -44,7 +44,7 @@
     }
 
     $historyQuery = "SELECT p.id_peminjaman, p.tgl_peminjaman, p.tgl_pengembalian, p.tgl_batas_pengembalian, 
-    p.status_peminjaman, b.judul_buku, b.pengarang 
+    p.status, b.judul_buku, b.pengarang 
     FROM peminjaman p 
     JOIN buku b ON p.id_buku = b.id_buku JOIn user u on p.id_user = u.id_user 
     WHERE username = $username";
@@ -99,7 +99,7 @@
                                     <td><?= $data['tgl_peminjaman']; ?></td>
                                     <td><?= $data['tgl_pengembalian']; ?></td>
                                     <td><?= $data['tgl_batas_pengembalian']; ?></td>
-                                    <td><?= $data['status_peminjaman']; ?></td>
+                                    <td><?= $data['status']; ?></td>
                                     <td><?= $data['judul_buku']; ?></td>
                                     <td><?= $data['pengarang']; ?></td>
                                 </tr>

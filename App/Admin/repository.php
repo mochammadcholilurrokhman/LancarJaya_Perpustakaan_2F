@@ -170,7 +170,7 @@
         var r = confirm("Are you sure you want to delete this book?");
         if (r == true) {
             // User clicked "OK", perform the delete action
-            window.location.href = "prosesrepo.php?aksi=hapus&id_repo=" + $id;
+            window.location.href = "../../Function/Admin/proses.php?aksi=hapus&id=" + $id;
         } else {
             // User clicked "Cancel", do nothing
         }

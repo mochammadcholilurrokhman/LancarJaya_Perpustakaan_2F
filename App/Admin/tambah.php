@@ -141,11 +141,11 @@ class FormHandler
             $tahun_terbit = isset($_POST['tahun_terbit']) ? $_POST['tahun_terbit'] : '';
             $deskripsi = isset($_POST['deskripsi']) ? $_POST['deskripsi'] : '';
             $status = isset($_POST['status_buku']) ? $_POST['status_buku'] : '';
-            $image = isset($_POST['image']) ? $_POST['image'] : '';
-
+            $image = isset($_FILES['image']) ? $_FILES['image'] : '';
+           
             if (!empty($image['name'])) {
                 $imageFileName = uniqid('book_image_') . '.' . pathinfo($image['name'], PATHINFO_EXTENSION);
-                $targetPath = '../App/User/img/' . $imageFileName;
+                $targetPath = '../../assets/img/' . $imageFileName;
 
                 if (move_uploaded_file($image['tmp_name'], $targetPath)) {
                     // File uploaded successfully
@@ -158,13 +158,13 @@ class FormHandler
                 exit();
             }
 
-
-            if ($this->Buku->tambahBuku($judul_buku, $pengarang, $tahun_terbit, $deskripsi,  $status, $image)) {
+            if ($this->Buku->tambahBuku($judul_buku, $pengarang, $tahun_terbit, $deskripsi, $status, $imageFileName)) {
                 header("Location: katalog.php?pesan=input");
                 exit();
             } else {
                 echo "Gagal menambahkan data.";
             }
+
         }
     }
 }

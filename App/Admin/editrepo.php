@@ -1,5 +1,5 @@
 <?php
-require_once "../Connection.php";
+require_once "../../Config/Connection.php";
 
 class EditRepoForm
 {
@@ -12,7 +12,7 @@ class EditRepoForm
 
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
-            $query = "SELECT * FROM repository1 WHERE id_repo = $id";
+            $query = "SELECT * FROM repository WHERE id_repo = $id";
             $result = mysqli_query($this->conn, $query);
 
             if ($result) {
@@ -37,7 +37,7 @@ class EditRepoForm
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Edit Repository</title>
-            <link rel="stylesheet" href="../style/fitur.css">
+            <link rel="stylesheet" href="../../style/fitur.css">
             <style>
                 body {
                     font-family: 'Arial', sans-serif;
@@ -94,12 +94,12 @@ class EditRepoForm
 
         <body>
             <?php
-            include('../komponen/headeruser.php');
+            include('../headeruser.php');
             ?>
             <div class="content">
                 <div id="sidebar">
                     <?php
-                    include('../komponen/sidebaradmin.php');
+                    include('../sidebaradmin.php');
                     ?>
 
                     <div class="isi">
@@ -137,7 +137,7 @@ class EditRepoForm
 
     public function updateRepo($judul, $pengarang, $tahun_terbit, $kata_kunci, $status)
     {
-        $query = "UPDATE repository1 SET Judul_Repo='$judul', pengarang='$pengarang', tahun_terbit='$tahun_terbit', 
+        $query = "UPDATE repository SET Judul_Repo='$judul', pengarang='$pengarang', tahun_terbit='$tahun_terbit', 
                   Kata_Kunci='$kata_kunci', status_repo='$status' WHERE id_repo = {$this->dataRepo['id_repo']}";
 
         return mysqli_query($this->conn, $query);
