@@ -144,7 +144,7 @@
                             <td><?= $data['judul_buku'] ?></td>
                             <td><?= $data['tgl_peminjaman'] ?></td>
                             <td><?= $data['tgl_pengembalian'] ?></td>
-                            <td><?= $data['status'] ?></td>
+                            <td><?= $data['status_peminjaman'] ?></td>
                         </tr>
                     <?php endforeach; ?>
         </tbody>

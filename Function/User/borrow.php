@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_buku'])) {
                 $resultUpdateBook = mysqli_query($conn, $updateBookQuery);
 
                 // Insert data peminjaman
-                $insertHistoryQuery = "INSERT INTO peminjaman (id_user, id_buku, tgl_peminjaman, tgl_batas_pengembalian, status) 
+                $insertHistoryQuery = "INSERT INTO peminjaman (id_user, id_buku, tgl_peminjaman, tgl_batas_pengembalian, status_peminjaman) 
                       VALUES ('$userId', '$bookId', '$tglPeminjaman','$tglBatasPengembalian', '$statusPeminjaman')";
 
                 $resultInsertHistory = mysqli_query($conn, $insertHistoryQuery);

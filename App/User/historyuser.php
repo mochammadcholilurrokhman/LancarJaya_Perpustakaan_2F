@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once '../../Function/admin/pengaturan.php'; ?>  
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,50 +35,52 @@
 <body>
     <?php
     require_once '../../Config/Connection.php';
-    
     $username = $_SESSION['username'];
     $userQuery = "SELECT * FROM user WHERE username = $username";
     $userResult = mysqli_query($conn, $userQuery);
 
     if ($userResult) {
         $userData = mysqli_fetch_assoc($userResult);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     }
 
     $historyQuery = "SELECT p.id_peminjaman, p.tgl_peminjaman, p.tgl_pengembalian, p.tgl_batas_pengembalian, 
-                    p.status, d.jml_denda, b.judul_buku, b.pengarang 
+    p.status_peminjaman, b.judul_buku, b.pengarang 
     FROM peminjaman p 
-    JOIN buku b ON p.id_buku = b.id_buku 
-    JOIN user u on p.id_user = u.id_user 
-    LEFT OUTER JOIN denda d ON p.id_peminjaman = d.id_peminjaman
+    JOIN buku b ON p.id_buku = b.id_buku JOIn user u on p.id_user = u.id_user 
     WHERE username = $username";
 
 
     $historyResult = mysqli_query($conn, $historyQuery);
     $historyData = [];
 
-    $pengaturan = getPengaturanDenda();
-
     if ($historyResult) {
         while ($row = mysqli_fetch_assoc($historyResult)) {
-            // Calculate fine based on settings
-            $fineAmount = $row['jml_denda']; // Get fine from database
-            $fineStatus = 'Belum Dibayar';
-    
-            // If fine is not paid and overdue, calculate based on settings
-            if ($fineStatus === 'Belum Dibayar' && strtotime($row['tgl_batas_pengembalian']) < strtotime(date('Y-m-d H:i:s'))) {
-                $dateDifference = ceil((strtotime(date('Y-m-d H:i:s')) - strtotime($row['tgl_batas_pengembalian'])) / (60 * 60 * 24));
-                $fineAmount = $dateDifference * $pengaturan['denda_perhari'];
-    
-                // Update fine information in the database
-                $updateDendaQuery = "UPDATE denda SET jml_denda = '$fineAmount' WHERE id_peminjaman = '{$row['id_peminjaman']}'";
-                $resultUpdateDenda = mysqli_query($conn, $updateDendaQuery);
-    
-                if (!$resultUpdateDenda) {
-                    echo "<script>alert('Error updating fine information: " . mysqli_error($conn) . "');</script>";
-                }
-            }
-    
-            $row['jml_denda'] = $fineAmount;
             $historyData[] = $row;
         }
     }
@@ -112,7 +114,6 @@
                                 <th>Tanggal Pengembalian</th>
                                 <th>Tanggal Batas Pengembalian</th>
                                 <th>Status</th>
-                                <th>Denda</th>
                                 <th>Judul Buku</th>
                                 <th>Pengarang</th>
                             </tr>
@@ -124,8 +125,7 @@
                                     <td><?= $data['tgl_peminjaman']; ?></td>
                                     <td><?= $data['tgl_pengembalian']; ?></td>
                                     <td><?= $data['tgl_batas_pengembalian']; ?></td>
-                                    <td><?= $data['status']; ?></td>
-                                    <td><?= $data['jml_denda']; ?></td>
+                                    <td><?= $data['status_peminjaman']; ?></td>
                                     <td><?= $data['judul_buku']; ?></td>
                                     <td><?= $data['pengarang']; ?></td>
                                 </tr>

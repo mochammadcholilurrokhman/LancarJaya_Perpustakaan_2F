@@ -75,7 +75,7 @@ if ($aksi == 'tambah') {
         echo "ID tidak valid.";
     }
 } else {
-    header("Location: repository.php");
+    header("Location: ../../App/Admin/repository.php");
 }
 
 // Menutup koneksi
