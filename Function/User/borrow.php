@@ -26,15 +26,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_buku'])) {
     if ($resultUser && mysqli_num_rows($resultUser) > 0) {
         $rowUser = mysqli_fetch_assoc($resultUser);
         $userId = $rowUser['id_user'];
-        $tglPeminjaman = date('Y-m-d H:i:s');
-        
-        // Use the fetched settings
-        $tglBatasPengembalian = date('Y-m-d H:i:s', strtotime($tglPeminjaman . '+ ' . $batasHari . ' days'));
-        $statusPeminjaman = 'Pending';
 
-        // Cek apakah buku tersedia
-        $checkAvailabilityQuery = "SELECT status_buku FROM buku WHERE id_buku = '$bookId'";
-        $resultAvailability = mysqli_query($conn, $checkAvailabilityQuery);
+        $checkBorrowedBooksQuery = "SELECT COUNT(*) AS num_borrowed FROM peminjaman WHERE id_user = '$userId' AND status = 'Belum Dikembalikan'";
+        $resultBorrowedBooks = mysqli_query($conn, $checkBorrowedBooksQuery);
+
+        if ($resultBorrowedBooks && mysqli_num_rows($resultBorrowedBooks) > 0) {
+            $rowBorrowedBooks = mysqli_fetch_assoc($resultBorrowedBooks);
+            $numBorrowedBooks = $rowBorrowedBooks['num_borrowed'];
+
+        if ($numBorrowedBooks < $batasBuku) {
+            $tglPeminjaman = date('Y-m-d H:i:s');
+            $tglBatasPengembalian = date('Y-m-d H:i:s', strtotime($tglPeminjaman . '+ ' . $batasHari . ' days'));
+            $statusPeminjaman = 'Pending';
+
+            // Cek apakah buku tersedia
+            $checkAvailabilityQuery = "SELECT status_buku FROM buku WHERE id_buku = '$bookId'";
+            $resultAvailability = mysqli_query($conn, $checkAvailabilityQuery);
 
         if ($resultAvailability && mysqli_num_rows($resultAvailability) > 0) {
             $rowAvailability = mysqli_fetch_assoc($resultAvailability);
@@ -65,10 +72,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_buku'])) {
         } else {
             echo "Error checking book availability: " . mysqli_error($conn);
         }
-    } else {
-        echo "Error fetching user information: " . mysqli_error($conn);
-    }
+        } else {
+            echo "<script>alert('Error: You have reached the limit for the number of books you can borrow.');</script>";
+        }
+        } else {
+            echo "Error fetching user information: " . mysqli_error($conn);
+        }
 } else {
     echo "Invalid request method or book ID not provided.";
+}
 }
 
