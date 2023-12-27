@@ -80,7 +80,7 @@
           FROM peminjaman 
           JOIN user ON peminjaman.id_user = user.id_user 
           JOIN buku ON peminjaman.id_buku = buku.id_buku
-          WHERE status = 'Pending'";
+          WHERE status_peminjaman = 'Pending'";
 
     $result = mysqli_query($koneksi, $query);
 

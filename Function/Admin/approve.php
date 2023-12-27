@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id_peminjaman = intval($_POST['id_peminjaman']);
 
         // Use prepared statement to prevent SQL injection
-        $update_query = "UPDATE peminjaman SET status = 'Belum dikembalikan' WHERE id_peminjaman = ?";
+        $update_query = "UPDATE peminjaman SET status_peminjaman = 'Belum dikembalikan' WHERE id_peminjaman = ?";
         $stmt = mysqli_prepare($conn, $update_query);
 
         // Bind the parameter

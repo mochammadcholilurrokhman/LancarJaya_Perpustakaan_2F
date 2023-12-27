@@ -137,7 +137,7 @@ if (isset($_POST['book_title'])) {
                                 <tr>
                                     <td><?= $data['id_buku'] ?></td>
                                     <td><?= $data['judul_buku'] ?></td>
-                                    <td><?= $data['status'] ?></td>
+                                    <td><?= $data['status_peminjaman'] ?></td>
                                     <td><?= $data['username'] ?></td>
                                     <td><?= $data['nama_user'] ?></td>
                                 </tr>
