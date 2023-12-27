@@ -37,11 +37,24 @@
         border-radius: 30px;
         cursor: pointer;
         }
+        .return-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.return-button:hover {
+    background-color: #45a049;
+}
     </style>
 </head>
 
 <body>
     <?php
+    include '../../Function/Admin/update.php';
     include('../headeruser.php');
     $koneksi = mysqli_connect("localhost", "root", "", "perpustakaan");
     ?>
@@ -132,6 +145,7 @@
                 <th>Loan Date</th>
                 <th>Return Date</th>
                 <th>Status</th>
+                <th>Actioon</th>
             </tr>
     </thead>    
     <tbody>   
@@ -145,6 +159,15 @@
                             <td><?= $data['tgl_peminjaman'] ?></td>
                             <td><?= $data['tgl_pengembalian'] ?></td>
                             <td><?= $data['status_peminjaman'] ?></td>
+                            <td>
+                                <button onclick="return confirm('Anda yakin ingin mengembalikan?')"
+                                    form="form-return-<?= $data['id_peminjaman'] ?>"
+                                    class="return-button">Return</button>
+
+                                    <form id="form-return-<?= $data['id_peminjaman'] ?>" method="POST" action="">
+                                    <input type="hidden" name="return_id" value="<?= $data['id_peminjaman'] ?>">
+                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
         </tbody>
