@@ -1,3 +1,6 @@
+<?PHP
+require_once '../Config/Connection.php'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,16 +14,14 @@
 <body>
     <?php
     include('../App/header.php');
-    $journals = array(
-        array("Pembuatan Mesin Pengupas Kulit Jagung Kapasitas 150 kg/jam
-        ", "Theo Sakti Yudistira"),
-        array("Judul Jurnal 2", "Penulis Jurnal 2"),
-        array("Judul Jurnal 3", "Penulis Jurnal 3"),
-        array("Judul Jurnal 4", "Penulis Jurnal 4"),
-        array("Judul Jurnal 5", "Penulis Jurnal 5"),
-        array("Judul Jurnal 5", "Penulis Jurnal 5"),
-        array("Judul Jurnal 5", "Penulis Jurnal 5"),
-    );
+    $query = "SELECT Judul_repo, pengarang FROM repository"; // Adjust your_table_name
+    $result = mysqli_query($conn, $query); // Replace $your_db_connection with your actual connection variable
+
+    $journals = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+        $journals[] = array($row['Judul_repo'], $row['pengarang']);
+    }
+    
 
     $itemsPerPage = 5;
     $totalItems = count($journals);
@@ -32,13 +33,13 @@
     $currentPageJournals = array_slice($journals, $startIndex, $itemsPerPage);
     ?>
 
-    <div class="content p-0">
+    <div class="content">
         <div id="sidebar">
             <?php
             include('../App/sidebar.php');
             ?>
 
-            <div class="isi m-auto">
+            <div class="isi">
                 <input type="text" class="search-box" placeholder="Cari jurnal...">
                 <button class="search-button">Search</button>
                 <?php
