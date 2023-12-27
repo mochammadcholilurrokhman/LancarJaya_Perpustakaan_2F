@@ -140,11 +140,6 @@ class EditBukuForm
         </html>
 <?php
     }
-
-    public function updateBuku($judul, $pengarang, $sinopsis, $tahun_terbit, $status)
-    {
-        $this->buku->ubahBuku($this->dataBuku['id_buku'], $judul, $pengarang, $sinopsis, $tahun_terbit, $status);
-    }
 }
 
 class buku
@@ -157,16 +152,6 @@ $buku = new Buku($conn);
 $editBukuForm = new EditBukuForm($conn, $buku);
 
 // Jika ada data yang dikirimkan dari formulir, panggil method updateBuku
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $judul_buku = isset($_POST['judul_buku']) ? $_POST['judul_buku'] : '';
-    $pengarang = isset($_POST['pengarang']) ? $_POST['pengarang'] : '';
-    $sinopsis = isset($_POST['deskripsi']) ? $_POST['deskripsi'] : '';
-    $tahun_terbit = isset($_POST['tahun_terbit']) ? $_POST['tahun_terbit'] : '';
-    $status = isset($_POST['status_buku']) ? $_POST['status_buku'] : '';
-
-    $editBukuForm->updateBuku($judul_buku, $pengarang, $sinopsis, $tahun_terbit, $status);
-}
-
 // Render form
 $editBukuForm->renderForm();
 

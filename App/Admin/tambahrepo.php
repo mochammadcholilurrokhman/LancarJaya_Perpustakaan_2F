@@ -102,8 +102,8 @@ class RepositoryFormHandler
                 <div class="isi">
                     <h3>Form Tambah Data Buku</h3>
                     <form action="../../Function/Admin/prosesrepo.php?aksi=tambah" method="post">
-                        <label for="Judul_Repo">Judul Repository:</label>
-                        <input type="text" name="Judul_Repo" required><br>
+                        <label for="Judul_repo">Judul Repository:</label>
+                        <input type="text" name="Judul_repo" required><br>
 
                         <label for="pengarang">Pengarang:</label>
                         <input type="text" name="pengarang" required><br>
@@ -131,23 +131,9 @@ class RepositoryFormHandler
 
     public function handleFormSubmission()
     {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Handle form submission logic here
-            $judul_repo = isset($_POST['Judul_Repo']) ? $_POST['Judul_Repo'] : '';
-            $pengarang = isset($_POST['pengarang']) ? $_POST['pengarang'] : '';
-            $tahun_terbit = isset($_POST['tahun_terbit']) ? $_POST['tahun_terbit'] : '';
-            $kata_kunci = isset($_POST['Kata_Kunci']) ? $_POST['Kata_Kunci'] : '';
-            $status_repo = isset($_POST['status_repo']) ? $_POST['status_repo'] : '';
-
-            if ($this->repo->tambahRepository($judul_repo, $pengarang, $tahun_terbit, $kata_kunci, $status_repo)) {
-                header("Location: repository.php?pesan=input");
-                exit();
-            } else {
-                echo "Gagal menambahkan data.";
-            }
-        }
     }
-}
+    }
+
 
 
 

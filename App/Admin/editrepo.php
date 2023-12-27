@@ -105,11 +105,11 @@ class EditRepoForm
                     <div class="isi">
                         <h2>Edit Repository</h2>
 
-                        <form action="prosesrepo.php?aksi=ubah" method="post">
+                        <form action="../../Function/Admin/prosesrepo.php?aksi=ubah" method="post">
                             <input type="hidden" name="id_repo" value="<?php echo $this->dataRepo['id_repo']; ?>">
 
-                            <label for="Judul_Repo">The Title:</label>
-                            <input type="text" id="Judul_Repo" name="Judul_repo" value="<?php echo $this->dataRepo['Judul_repo']; ?>" required>
+                            <label for="Judul_repo">The Title:</label>
+                            <input type="text" id="Judul_repo" name="Judul_repo" value="<?php echo $this->dataRepo['Judul_repo']; ?>" required>
 
                             <label for="pengarang">The Author:</label>
                             <input type="text" id="pengarang" name="pengarang" value="<?php echo $this->dataRepo['pengarang']; ?>" required>
@@ -134,31 +134,11 @@ class EditRepoForm
         </html>
     <?php
     }
-
-    public function updateRepo($judul, $pengarang, $tahun_terbit, $kata_kunci, $status)
-    {
-        $query = "UPDATE repository SET Judul_repo='$judul', pengarang='$pengarang', tahun_terbit='$tahun_terbit', 
-                  Kata_Kunci='$kata_kunci', status_repo='$status' WHERE id_repo = {$this->dataRepo['id_repo']}";
-
-        return mysqli_query($this->conn, $query);
-    }
 }
 
 // Membuat objek EditRepoForm
 $editRepoForm = new EditRepoForm($conn);
 
-// Jika ada data yang dikirimkan dari formulir, panggil method updateRepo
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $judul_repo = isset($_POST['Judul_Repo']) ? $_POST['Judul_Repo'] : '';
-    $pengarang = isset($_POST['pengarang']) ? $_POST['pengarang'] : '';
-    $tahun_terbit = isset($_POST['tahun_terbit']) ? $_POST['tahun_terbit'] : '';
-    $kata_kunci = isset($_POST['Kata_Kunci']) ? $_POST['Kata_Kunci'] : '';
-    $status = isset($_POST['status_repo']) ? $_POST['status_repo'] : '';
-
-    $editRepoForm->updateRepo($judul_repo, $pengarang, $tahun_terbit, $kata_kunci, $status);
-}
-
-// Render form
 $editRepoForm->renderForm();
 
 // Menutup koneksi

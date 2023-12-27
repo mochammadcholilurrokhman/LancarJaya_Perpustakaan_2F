@@ -136,11 +136,6 @@ class FormHandler
     public function handleFormSubmission()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $judul_buku = isset($_POST['judul_buku']) ? $_POST['judul_buku'] : '';
-            $pengarang = isset($_POST['pengarang']) ? $_POST['pengarang'] : '';
-            $tahun_terbit = isset($_POST['tahun_terbit']) ? $_POST['tahun_terbit'] : '';
-            $deskripsi = isset($_POST['deskripsi']) ? $_POST['deskripsi'] : '';
-            $status = isset($_POST['status_buku']) ? $_POST['status_buku'] : '';
             $image = isset($_FILES['image']) ? $_FILES['image'] : '';
            
             if (!empty($image['name'])) {
@@ -157,14 +152,6 @@ class FormHandler
                 echo "File gambar tidak ditemukan.";
                 exit();
             }
-
-            if ($this->Buku->tambahBuku($judul_buku, $pengarang, $tahun_terbit, $deskripsi, $status, $imageFileName)) {
-                header("Location: katalog.php?pesan=input");
-                exit();
-            } else {
-                echo "Gagal menambahkan data.";
-            }
-
         }
     }
 }

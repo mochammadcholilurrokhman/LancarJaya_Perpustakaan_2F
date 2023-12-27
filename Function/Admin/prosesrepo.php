@@ -9,14 +9,14 @@ class Repository {
     }
 
     public function tambahRepository($judul, $pengarang, $tahun_terbit, $kata_kunci, $status) {
-        $query = "INSERT INTO repository (Judul_Repo, pengarang, tahun_terbit, Kata_Kunci, status_repo) 
+        $query = "INSERT INTO repository (Judul_repo, pengarang, tahun_terbit, Kata_Kunci, status_repo) 
                   VALUES ('$judul', '$pengarang', '$tahun_terbit', '$kata_kunci', '$status')";
 
         return mysqli_query($this->conn, $query);
     }
 
     public function ubahRepository($id, $judul, $pengarang, $tahun_terbit, $kata_kunci, $status_repo) {
-        $query = "UPDATE repository SET Judul_Repo='$judul', pengarang='$pengarang', tahun_terbit='$tahun_terbit', 
+        $query = "UPDATE repository SET Judul_repo='$judul', pengarang='$pengarang', tahun_terbit='$tahun_terbit', 
                   Kata_Kunci='$kata_kunci', status_repo='$status_repo' WHERE id_repo = $id";
 
         return mysqli_query($this->conn, $query);
@@ -36,7 +36,7 @@ $repository = new Repository($conn);
 $aksi = isset($_GET['aksi']) ? $_GET['aksi'] : '';
 
 // Mendapatkan data dari formulir POST
-$judul_repo = isset($_POST['Judul_Repo']) ? $_POST['Judul_Repo'] : '';
+$judul_repo = isset($_POST['Judul_repo']) ? $_POST['Judul_repo'] : '';
 $pengarang = isset($_POST['pengarang']) ? $_POST['pengarang'] : '';
 $tahun_terbit = isset($_POST['tahun_terbit']) ? $_POST['tahun_terbit'] : '';
 $kata_kunci = isset($_POST['Kata_Kunci']) ? $_POST['Kata_Kunci'] : '';
