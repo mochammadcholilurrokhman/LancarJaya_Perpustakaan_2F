@@ -109,7 +109,7 @@ class EditRepoForm
                             <input type="hidden" name="id_repo" value="<?php echo $this->dataRepo['id_repo']; ?>">
 
                             <label for="Judul_Repo">The Title:</label>
-                            <input type="text" id="Judul_Repo" name="Judul_Repo" value="<?php echo $this->dataRepo['Judul_Repo']; ?>" required>
+                            <input type="text" id="Judul_Repo" name="Judul_repo" value="<?php echo $this->dataRepo['Judul_repo']; ?>" required>
 
                             <label for="pengarang">The Author:</label>
                             <input type="text" id="pengarang" name="pengarang" value="<?php echo $this->dataRepo['pengarang']; ?>" required>
@@ -137,7 +137,7 @@ class EditRepoForm
 
     public function updateRepo($judul, $pengarang, $tahun_terbit, $kata_kunci, $status)
     {
-        $query = "UPDATE repository SET Judul_Repo='$judul', pengarang='$pengarang', tahun_terbit='$tahun_terbit', 
+        $query = "UPDATE repository SET Judul_repo='$judul', pengarang='$pengarang', tahun_terbit='$tahun_terbit', 
                   Kata_Kunci='$kata_kunci', status_repo='$status' WHERE id_repo = {$this->dataRepo['id_repo']}";
 
         return mysqli_query($this->conn, $query);
