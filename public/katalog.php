@@ -122,7 +122,7 @@
                 $result = mysqli_query($conn, $query) or die("Gagal: " . mysqli_error($conn));
                 $filteredBooks = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-                $booksPerPage = 9;
+                $booksPerPage = 6;
                 $page = isset($_GET['page']) ? $_GET['page'] : 1;
                 $startIndex = ($page - 1) * $booksPerPage;
                 $currentBooks = array_slice($filteredBooks, $startIndex, $booksPerPage);
