@@ -20,4 +20,4 @@ Git : Fazzaaaa
 
 Nama : Lilla Nur Wahidiyah
 NIM : 2241720144
-Git LillaNurW
+Git : LillaNurW
