@@ -68,31 +68,33 @@
             text-decoration: none;
             cursor: pointer;
         }
-      .gambar-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
 
-    .book-item {
-        width: 23%; /* Adjust the width based on your preference */
-        margin: 10px;
-        text-align: center;
-    }
+        .gambar-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
 
-    .book-image {
-        max-width: 100%;
-        height: auto;
-        border-radius: 5px;
-        cursor: pointer;
-        position: center;
-        display: flex;
-    }
+        .book-item {
+            width: 23%;
+            /* Adjust the width based on your preference */
+            margin: 10px;
+            text-align: center;
+        }
 
-    .book-title {
-        margin-top: 5px;
-        font-size: 14px;
-    }
+        .book-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            cursor: pointer;
+            position: center;
+            display: flex;
+        }
+
+        .book-title {
+            margin-top: 5px;
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -109,7 +111,7 @@
                 <h2 id="bookTitle"></h2>
                 <p id="bookInfo"></p>
                 <br>
-                <button onclick="addToCart()" >Add to Cart</button>
+                <button onclick="addToCart()">Add to Cart</button>
             </div>
         </div>
     </div>
@@ -117,7 +119,7 @@
     <div class="content">
         <div id="sidebar">
             <?php
-           
+
             include('../sidebaruser.php');
             ?>
 
@@ -133,7 +135,7 @@
                 $result = mysqli_query($conn, $query) or die("Gagal: " . mysqli_error($conn));
                 $filteredBooks = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-                $booksPerPage = 4;
+                $booksPerPage = 9;
                 $page = isset($_GET['page']) ? $_GET['page'] : 1;
                 $startIndex = ($page - 1) * $booksPerPage;
                 $currentBooks = array_slice($filteredBooks, $startIndex, $booksPerPage);
@@ -227,38 +229,37 @@
                 modal.style.display = "none";
             }
         }
-         document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             // Memulihkan keranjang belanja dari localStorage saat halaman dimuat
             restoreCart();
         });
 
-    function addToCart() {
-    var bookTitle = document.getElementById("bookTitle").innerText.trim();
-    var bookImage = document.getElementById("bookImage").src;
-    var bookAuthor = document.querySelector(".book-details").getAttribute("data-pengarang");
-    var bookYear = document.querySelector(".book-details").getAttribute("data-year");
+        function addToCart() {
+            var bookTitle = document.getElementById("bookTitle").innerText.trim();
+            var bookImage = document.getElementById("bookImage").src;
+            var bookAuthor = document.querySelector(".book-details").getAttribute("data-pengarang");
+            var bookYear = document.querySelector(".book-details").getAttribute("data-year");
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", '../../Function/User/addToCart.php', true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var response = xhr.responseText;
-            alert(response);
-            closeModal();
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", '../../Function/User/addToCart.php', true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var response = xhr.responseText;
+                    alert(response);
+                    closeModal();
+                }
+            };
+
+            var data =
+                "bookTitle=" + encodeURIComponent(bookTitle) +
+                "&bookImage=" + encodeURIComponent(bookImage) +
+                "&bookAuthor=" + encodeURIComponent(bookAuthor) +
+                "&bookYear=" + encodeURIComponent(bookYear);
+
+            xhr.send(data);
         }
-    };
-
-    var data =
-        "bookTitle=" + encodeURIComponent(bookTitle) +
-        "&bookImage=" + encodeURIComponent(bookImage) +
-        "&bookAuthor=" + encodeURIComponent(bookAuthor) +
-        "&bookYear=" + encodeURIComponent(bookYear);
-
-    xhr.send(data);
-}
-
-</script>
+    </script>
 
 </body>
 
