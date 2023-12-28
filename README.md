@@ -17,3 +17,7 @@ Git : azkaanasiyya
 Nama : Ahmad Faza Alfan Fashlah  
 NIM : 2241720186
 Git : Fazzaaaa
+
+Nama : Lilla Nur Wahidiyah
+NIM : 2241720144
+Git LillaNurW
