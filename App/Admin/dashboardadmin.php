@@ -18,7 +18,7 @@
     <div class="content">
         <div id="sidebar">
             <?php
-            include('../sidebarAdmin.php');
+            include('../sidebaradmin.php');
             //Jumlah Buku
             $query_total_books = mysqli_query($conn, "SELECT COUNT(*) AS total_books FROM buku");
             $total_books_data = mysqli_fetch_assoc($query_total_books);
