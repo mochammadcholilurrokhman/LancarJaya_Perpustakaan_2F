@@ -127,8 +127,6 @@ require_once('../../Config/Connection.php');
         // Tambahkan skrip JavaScript yang telah dijelaskan sebelumnya
         function updateCartView() {
             var cartContainer = document.getElementById("shoppingCart");
-            // Implementasikan logika pembaruan tampilan keranjang belanja sesuai kebutuhan
-            // ...
         }
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
