@@ -9,10 +9,11 @@
 
   <style>
     .website-name1 {
-      font-size: 40px;
-      color: #e12e2eed;
-      font-weight: bold;
+  font-size: 40px;
+  color: #fff;
+  font-weight: bold;
     }
+
 
     .hero {
       min-height: 90vh;
