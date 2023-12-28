@@ -110,7 +110,6 @@
                 <p id="bookInfo"></p>
                 <br>
                 <button onclick="addToCart()" >Add to Cart</button>
-                <button onclick="borrowBook()">Borrow</button>
             </div>
         </div>
     </div>
