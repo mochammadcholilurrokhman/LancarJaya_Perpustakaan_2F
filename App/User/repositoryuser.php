@@ -1,4 +1,4 @@
-<?PHP
+<?php
 require_once '../../Config/Connection.php'; 
 ?>
 <!DOCTYPE html>
@@ -23,7 +23,15 @@ require_once '../../Config/Connection.php';
     while ($row = mysqli_fetch_assoc($result)) {
         $journals[] = array($row['Judul_repo'], $row['pengarang']);
     }
-    
+
+    // Filter journals based on search input
+    $search = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : '';
+    if (!empty($search)) {
+        $filteredJournals = array_filter($journals, function ($journal) use ($search) {
+            return stripos($journal[0], $search) !== false || stripos($journal[1], $search) !== false;
+        });
+        $journals = $filteredJournals;
+    }
 
     $itemsPerPage = 5;
     $totalItems = count($journals);
@@ -42,8 +50,10 @@ require_once '../../Config/Connection.php';
             ?>
 
             <div class="isi">
-                <input type="text" class="search-box" placeholder="Cari jurnal...">
-                <button class="search-button">Search</button>
+                <form method="GET" action="">
+                    <input type="text" class="search-box" name="search" placeholder="Cari jurnal..." value="<?php echo htmlspecialchars($search); ?>">
+                    <button type="submit" class="search-button">Search</button>
+                </form>
                 <?php
                 foreach ($currentPageJournals as $index => $journal) {
                     $boxClass = "journal-box" . ($index + 1);
@@ -60,15 +70,15 @@ require_once '../../Config/Connection.php';
                 echo '<div class="pagination">';
                 echo '<div class="pagination-container">';
                 if ($page > 1) {
-                    echo '<a href="?page=' . ($page - 1) . '" class="pagination-button">Prev</a>';
+                    echo '<a href="?page=' . ($page - 1) . '&search=' . urlencode($search) . '" class="pagination-button">Prev</a>';
                 }
 
                 for ($i = 1; $i <= $totalPages; $i++) {
-                    echo '<a href="?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
+                    echo '<a href="?page=' . $i . '&search=' . urlencode($search) . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
                 }
 
                 if ($page < $totalPages) {
-                    echo '<a href="?page=' . ($page + 1) . '" class="pagination-button">Next</a>';
+                    echo '<a href="?page=' . ($page + 1) . '&search=' . urlencode($search) . '" class="pagination-button">Next</a>';
                 }
                 echo '</div>';
                 echo '</div>';
