@@ -51,7 +51,7 @@ require_once '../../Config/Connection.php';
 
             <div class="isi">
                 <form method="GET" action="">
-                    <input type="text" class="search-box" name="search" placeholder="Cari jurnal..." value="<?php echo htmlspecialchars($search); ?>">
+                    <input type="text" class="search-box" name="search" placeholder="Enter the Journal Title..." value="<?php echo htmlspecialchars($search); ?>">
                     <button type="submit" class="search-button">Search</button>
                 </form>
                 <?php
