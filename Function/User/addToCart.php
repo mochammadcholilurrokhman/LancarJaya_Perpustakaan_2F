@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = mysqli_query($conn, $insertQuery);
 
         if ($result) {
-            echo "Buku berhasil ditambahkan ke keranjang!";
+            echo "Book successfully added to cart!";
         } else {
             echo "Error menambahkan buku ke keranjang: " . mysqli_error($conn);
         }

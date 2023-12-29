@@ -95,7 +95,7 @@
         <?php
         if (isset($_GET['pesan'])) {
             if ($_GET['pesan'] == "gagal") {
-                echo "<p class='error'>Login gagal! Username dan password salah.</p>";
+                echo "<p class='error'>Login failed! Incorrect username and password.</p>";
             } else if ($_GET['pesan'] == "logout") {
                 echo "<p>Anda telah berhasil logout.</p>";
             } else if ($_GET['pesan'] == "belum_login") {

@@ -161,7 +161,7 @@
                             <td><?= $data['status_peminjaman'] ?></td>
                             <td>
                                 <?php if ($data['status_peminjaman'] !== 'Dikembalikan'): ?>
-                                 <button onclick="return confirm('Anda yakin ingin mengembalikan?')"
+                                 <button onclick="return confirm('Are you sure you want to return the book?')"
                                     form="form-return-<?= $data['id_peminjaman'] ?>"
                                     class="return-button">Return</button>
 

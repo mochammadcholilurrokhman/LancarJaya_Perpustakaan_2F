@@ -145,7 +145,7 @@ if (isset($_POST['book_title'])) {
                         </tbody>
                     </table>
                     <?php else: ?>
-                        <p>Data tidak ditemukan</p>
+                        <p>Data not found</p>
                     <?php endif; ?>
                 </div>
         </div>

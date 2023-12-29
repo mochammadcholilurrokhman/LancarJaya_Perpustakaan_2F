@@ -82,9 +82,9 @@
         <?php
         if (isset($_GET['pesan'])) {
             if ($_GET['pesan'] == "gagal") {
-                echo "<p class='error'>Gagal mengubah password! Username dan password salah!</p>";
+                echo "<p class='error'>Failed to change password! Incorrect username and password!</p>";
             } else if ($_GET['pesan'] == "success") {
-                echo "<p>Password berhasil diubah! Silakan login dengan password baru.</p>";
+                echo "<p>Password changed successfully! Please log in with the new password.</p>";
             } else if ($_GET['pesan'] == "invalid_request") {
                 echo "<p class='error'>Invalid request! Silakan menghubungi administrator.</p>";
             }

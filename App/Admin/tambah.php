@@ -145,7 +145,7 @@ class FormHandler
                 if (move_uploaded_file($image['tmp_name'], $targetPath)) {
                     // File uploaded successfully
                 } else {
-                    echo "Gagal mengupload file.";
+                    echo "Failed to upload file.";
                     exit();
                 }
             } else {

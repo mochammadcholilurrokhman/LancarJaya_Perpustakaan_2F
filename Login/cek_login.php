@@ -24,7 +24,7 @@ class Login {
                 $this->handleUserLogin($username);
             }
         } else {
-            echo "Login gagal. Periksa kembali username dan password Anda.";
+            echo "Login failed. Double check your username and password.";
         }
     }
 

@@ -29,7 +29,7 @@ if ($aksi == 'hapus') {
                 header("Location: ../../App/User/cart.php");
                 exit();
             } else {
-                echo "Gagal menghapus data.";
+                echo "Failed to delete data.";
             }
         } else {
             echo "ID tidak valid.";

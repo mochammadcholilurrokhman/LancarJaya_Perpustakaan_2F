@@ -55,7 +55,7 @@ if ($aksi == 'tambah') {
         header("Location: ../../App/Admin/katalog.php");
         exit();
     } else {
-        echo "Gagal menambahkan data.";
+        echo "Failed to add data.";
     }
 } elseif ($aksi == 'ubah') {
     if (isset($_POST['id'])) {
@@ -64,7 +64,7 @@ if ($aksi == 'tambah') {
             header("Location: ../../App/Admin/katalog.php");
             exit();
         } else {
-            echo "Gagal mengubah data.";
+            echo "Failed to change data..";
         }
     } else {
         echo "ID tidak valid.";
@@ -76,7 +76,7 @@ if ($aksi == 'tambah') {
             header("Location: ../../App/Admin/katalog.php");
             exit();
         } else {
-            echo "Gagal menghapus data.";
+            echo "Failed to delete data.";
         }
     } else {
         echo "ID tidak valid.";
@@ -89,7 +89,7 @@ elseif ($aksi == 'hapusnotif') {
             header("Location: ../../App/Admin/notif.php");
             exit();
         } else {
-            echo "Gagal menghapus data.";
+            echo "Failed to delete data.";
         }
     } else {
         echo "ID tidak valid.";

@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_buku'])) {
                         $resultInsertHistory = mysqli_query($conn, $insertHistoryQuery);
                         if ($resultInsertHistory) {
                             // Simpan informasi peminjaman dalam variabel sesi
-                            $_SESSION['new_borrow'] = "Peminjaman berhasil dilakukan.";
+                            $_SESSION['new_borrow'] = "The loan was successful.";
 
                             header("Location: ../../App/User/cart.php");
                             exit();

@@ -65,10 +65,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         if (isset($_POST["simpan_pengaturan"]) && $_POST["simpan_pengaturan"] == "tambah") {
             tambahPengaturanDenda($dendaPerHari, $batasBuku, $batasHari);
-            $notification = 'Pengaturan Denda berhasil ditambahkan.';
+            $notification = 'Fine Settings added successfully.';
         } else {
             updatePengaturanDenda($dendaPerHari, $batasBuku, $batasHari);
-            $notification = 'Pengaturan Denda berhasil diperbarui.';
+            $notification = 'Fines Settings updated successfully.';
         }
 
         $pengaturan = getPengaturanDenda();

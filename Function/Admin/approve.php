@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($result) {
             // Set a session variable with the success message
-            $_SESSION['success_message'] = "Peminjaman berhasil di-approve.";
+            $_SESSION['success_message'] = "The loan has been successfully approved.";
             header('Location: ../../App/Admin/notif.php');  
         } else {
             echo "Error: " . mysqli_error($koneksi);
