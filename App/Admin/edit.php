@@ -128,8 +128,8 @@ class EditBukuForm
                             
                             <label for="status">Status:</label>
                                 <select id="status_buku" name="status_buku" required>
-                                    <option value="available" <?php echo ($this->dataBuku['status_buku'] == 'Available') ? 'selected' : ''; ?>>Available</option>
-                                    <option value="unavailable" <?php echo ($this->dataBuku['status_buku'] == 'Borrowed') ? 'selected' : ''; ?>>Borrowed</option>
+                                    <option value="Available" <?php echo ($this->dataBuku['status_buku'] == 'Available') ? 'selected' : ''; ?>>Available</option>
+                                    <option value="Borrowed" <?php echo ($this->dataBuku['status_buku'] == 'Borrowed') ? 'selected' : ''; ?>>Borrowed</option>
                                 </select>
                             <br><br>
                             <button type="submit">Update</button>
