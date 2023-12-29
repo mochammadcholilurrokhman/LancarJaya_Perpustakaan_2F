@@ -58,7 +58,7 @@
     </div>
 
     <div class="features">
-      <div class="feature-container"><a href="../public/katalog.php">Katalog</a></div>
+      <div class="feature-container"><a href="../public/katalog.php">Catalog</a></div>
       <div class="feature-container"><a href="../public/repository.php">Repository</a></div>
       <div class="feature-container"><a href="../public/rules.php">Rules</a></div>
     </div>

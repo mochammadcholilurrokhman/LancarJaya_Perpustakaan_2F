@@ -53,8 +53,12 @@
             border-radius: 8px;
             cursor: pointer;
             font-size: 18px;
-            width: 100%;
+            width: 49%;
             display: inline-block;
+        }
+
+        button.back {
+            background-color: #A5D7E8;
         }
 
         button:hover {
@@ -93,15 +97,13 @@
 
         <form method="post" action="cek_updatepassword.php">
             <label for="username">Username:</label>
-            <input type="text" name="username" required>
-
-            <label for="password">Password Lama:</label>
-            <input type="password" name="password" required>
+            <input type="number" name="username" required>
 
             <label for="new_password">Password Baru:</label>
             <input type="password" name="new_password" required>
 
             <button type="submit" value="submit">Submit</button>
+            <a href="login.php"><button class="back" type="button">Back</button></a>
         </form>
     </div>
 

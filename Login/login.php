@@ -106,7 +106,7 @@
 
         <form method="post" action="cek_login.php">
             <label for="username">Username:</label>
-            <input type="text" name="username" required>
+            <input type="number" name="username" required>
 
             <label for="password">Password:</label>
             <input type="password" name="password" required>
