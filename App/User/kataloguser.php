@@ -125,7 +125,7 @@
 
             <div class="isi">
                 <form method="GET" action="">
-                    <input type="text" name="search" class="search-box" placeholder="Enter the Book Title" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+                    <input type="text" name="search" class="search-box" placeholder="Enter the Book Title.." value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
                     <button type="submit" class="search-button">Search</button>
                 </form>
 
