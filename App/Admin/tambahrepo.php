@@ -116,8 +116,7 @@ class RepositoryFormHandler
 
                         <label for="status_repo">Status Repository:</label>
                         <select name="status_repo" required>
-                        <option value="Available">Available</option>
-                        <option value="Borrowed">Borrowed</option>
+                        <option value="Unvailable">Unvailable</option>
                         </select>
                         <br><br>
 
