@@ -100,7 +100,7 @@ class FormHandler
                     include('../sidebaradmin.php');
                     ?>
                     <div class="isi">
-                        <h3>Form Tambah Data Buku</h3>
+                        <h3>Form to add book data</h3>
                         <form action="../../Function/Admin/proses.php?aksi=tambah" method="post">
                             <label for="judul">Book Title :</label>
                             <input type="text" name="judul_buku" required><br>
@@ -122,7 +122,7 @@ class FormHandler
                             <input type="file" id="image" name="image">
                             <br><br>
                             
-                            <button type="submit" class="tambah">Tambah Data</button>
+                            <button type="submit" class="tambah">Add Data</button>
                         </form>
                     </div>
                 </div>

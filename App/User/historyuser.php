@@ -95,9 +95,9 @@
                 <?php if (!empty($userData)) : ?>
                     <div class="history-container">
                         <div class="user-info">
-                            <p><strong>Nama Peminjam:</strong> <?= $userData['nama_user']; ?></p>
-                            <p><strong>ID Anggota:</strong> <?= $userData['id_user']; ?></p>
-                            <p><strong>Posisi:</strong> <?= $userData['posisi']; ?></p>
+                            <p><strong>Borrower Name:</strong> <?= $userData['nama_user']; ?></p>
+                            <p><strong>ID Member:</strong> <?= $userData['id_user']; ?></p>
+                            <p><strong>Position:</strong> <?= $userData['posisi']; ?></p>
                         </div>
                     </div>
                 <?php endif; ?>
@@ -106,14 +106,14 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>ID Peminjaman</th>
-                                <th>Tanggal Peminjaman</th>
-                                <th>Tanggal Pengembalian</th>
-                                <th>Tanggal Batas Pengembalian</th>
+                               <th>Loan ID</th>
+                                <th>Date of Borrowing</th>
+                                <th>Return Date</th>
+                                <th>Return Deadline</th>
                                 <th>Status</th>
-                                <th>Denda</th>
-                                <th>Judul Buku</th>
-                                <th>Pengarang</th>
+                                <th>Fine</th>
+                                <th>Book Title</th>
+                                <th>Author</th>
                             </tr>
                         </thead>
                         <tbody>

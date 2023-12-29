@@ -145,7 +145,7 @@
                 <th>Loan Date</th>
                 <th>Return Date</th>
                 <th>Status</th>
-                <th>Actioon</th>
+                <th>Action</th>
             </tr>
     </thead>    
     <tbody>   

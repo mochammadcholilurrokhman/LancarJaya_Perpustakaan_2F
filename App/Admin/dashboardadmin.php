@@ -44,7 +44,7 @@
                     <div class="bg-white md:p-2 p-6 rounded-lg border border-gray-200 mb-4 lg:mb-0 shadow-md lg:w-[35%] mx-auto">
                         <div class="flex justify-center items-center space-x-5 h-full">
                             <div>
-                                <p class="text-sm font-bold mb-2">Total Koleksi</p>
+                                <p class="text-sm font-bold mb-2">Total Collections</p>
                                 <h2 class="text-4xl font-bold text-gray-600"><?php echo $total_collection;?></h2>
                             </div>
                               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="h-50 md:h-20 w-38">
@@ -55,7 +55,7 @@
                     <div class="bg-white md:p-2 p-6 rounded-lg border border-gray-200 mb-4 lg:mb-0 shadow-md lg:w-[35%] mx-auto">
                         <div class="flex justify-center items-center space-x-5 h-full">
                             <div>
-                                <p class="text-sm font-bold mb-2">Total Buku</p>
+                                <p class="text-sm font-bold mb-2">Total Books</p>
                                 <h2 class="text-4xl font-bold text-gray-600"><?php echo $total_books;?></h2>
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="h-50 md:h-20 w-38">
@@ -69,7 +69,7 @@
                     <div class="bg-white md:p-2 p-6 rounded-lg border border-gray-200 mb-4 lg:mb-0 shadow-md lg:w-[35%] mx-auto">
                         <div class="flex justify-center items-center space-x-5 h-full">
                             <div>
-                                <p class="text-sm font-bold mb-2">Total Jurnal</p>
+                                <p class="text-sm font-bold mb-2">Total Journal</p>
                                 <h2 class="text-4xl font-bold text-gray-600"><?php echo $total_repo;?></h2>
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 20 20" class="h-50 md:h-20 w-38">
@@ -80,7 +80,7 @@
                    <div class="bg-white md:p-2 p-6 rounded-lg border border-gray-200 mb-4 lg:mb-0 shadow-md lg:w-[35%] mx-auto">    
                         <div class="flex justify-center items-center space-x-5 h-full">
                     <div>
-                                <p class="text-sm font-bold mb-2">Total Anggota</p>
+                                <p class="text-sm font-bold mb-2">Total Member</p>
                                 <h2 class="text-4xl font-bold text-gray-600"><?php echo $total_anggota;?></h2>
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" class="h-50 md:h-20 w-38">

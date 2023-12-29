@@ -138,7 +138,7 @@
                                 <td><?php echo $databuku['status_buku']; ?></td>
                                 <td>
                                     <a href="detailsbuku.php?id=<?php echo $databuku['id_buku']; ?>" class="details-btn">Details</a>
-                                    <a href="edit.php?id=<?php echo $databuku['id_buku']; ?>" class="edit-btn">Edit</a>
+                                    <a href="edit.php?id=<?php echo $databuku['id_buku']; ?>" class="edit-btn">Update</a>
                                     <a href="#" onclick="confirmDelete(<?php echo $databuku['id_buku']; ?>)" class="delete-btn">Delete</a>                                </td>
                             </tr>
 

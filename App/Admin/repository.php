@@ -154,7 +154,7 @@
                                 <td><?php echo $dataRepo['Kata_Kunci']; ?></td>
                                 <td>
                                    <a href="detailsrepo.php?id=<?php echo $dataRepo['id_repo']; ?>" class="details-btn">Details</a>
-                                    <a href="editrepo.php?id=<?php echo $dataRepo['id_repo']; ?>" class="edit-btn">Edit</a>
+                                    <a href="editrepo.php?id=<?php echo $dataRepo['id_repo']; ?>" class="edit-btn">Update</a>
                                     <a href="#" onclick="confirmDelete(<?php echo $dataRepo['id_repo']; ?>)" class="delete-btn">Delete</a></td>
                                 </td>
                             </tr>

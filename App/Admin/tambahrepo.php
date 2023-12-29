@@ -100,15 +100,15 @@ class RepositoryFormHandler
                 include('../sidebaradmin.php');
                 ?>
                 <div class="isi">
-                    <h3>Form Tambah Data Buku</h3>
+                    <h3>Form Tambah Add Repo</h3>
                     <form action="../../Function/Admin/prosesrepo.php?aksi=tambah" method="post">
-                        <label for="Judul_repo">Judul Repository:</label>
+                        <label for="Judul_repo">Repository Title</label>
                         <input type="text" name="Judul_repo" required><br>
 
-                        <label for="pengarang">Pengarang:</label>
+                        <label for="pengarang">Author:</label>
                         <input type="text" name="pengarang" required><br>
 
-                        <label for="tahun_terbit">Tahun Terbit:</label>
+                        <label for="tahun_terbit">Year Publication:</label>
                         <input type="text" name="tahun_terbit" required><br>
 
                         <label for="Kata_Kunci">Key Words</label>
@@ -117,7 +117,7 @@ class RepositoryFormHandler
                         <label for="status_repo">Status Repo:</label>
                         <input type="text" name="status_repo" required><br>
 
-                        <button type="submit" class="tambah">Tambah Data</button>
+                        <button type="submit" class="tambah">Add data</button>
                     </form>
                 </div>
             </div>
