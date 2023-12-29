@@ -116,8 +116,8 @@ class FormHandler
 
                             <label for="status_buku">Book Status :</label>
                             <select name="status_buku" required>
-                            <option value="available">Available</option>
-                            <option value="unavailable">Unavailable</option>
+                            <option value="Available">Available</option>
+                            <option value="Borrowed">Borrowed</option>
                             </select>
                             <br><br>
 
