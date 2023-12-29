@@ -80,7 +80,7 @@ require_once('../../Config/Connection.php');
                 if (isset($_SESSION['username'])) {
                     echo $_SESSION['username'];
                     $imageUrl = '../../assets/img/user1.png';
-                    echo '<a href="../../Login/logout.php" onclick="return confirm(\'Apakah anda yakin ingin keluar ?\')"><img class="user" src="' . $imageUrl . '" alt="User"></a>';
+                    echo '<a href="../../Login/logout.php" onclick="return confirm(\'Are you sure you want to leave ?\')"><img class="user" src="' . $imageUrl . '" alt="User"></a>';
                     if ($_SESSION['posisi'] === 'Admin') {
                         echo '<a href="notif.php" id=""bellIcon><img class="user" src="../../assets/img/bell.png" alt="Bell"></a>';
                     } else {
