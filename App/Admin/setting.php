@@ -141,15 +141,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <br><br><br><br>
                 <form action="" method="POST">
                     <label for="denda_perhari">Charge / Day (Rp):</label>
-                    <input type="number" step="" name="denda_perhari" id="denda_perhari" value="" required>
+                    <input type="number" step="" name="denda_perhari" id="denda_perhari" value="<?= $pengaturan['denda_perhari'] ?>" required>
                     <br><br>
 
                     <label for="batas_buku">Limited Book to Borrow:</label>
-                    <input type="number" name="batas_buku" id="batas_buku" value="" required>
+                    <input type="number" name="batas_buku" id="batas_buku" value="<?= $pengaturan['batas_buku'] ?>" required>
                     <br><br>
 
                     <label for="batas_hari">Limited Day to Borrow:</label>
-                    <input type="number" name="batas_hari" id="batas_hari" value="" required>
+                    <input type="number" name="batas_hari" id="batas_hari" value="<?= $pengaturan['batas_hari'] ?>" required>
                     <br><br>
 
                     <button type="submit" name="simpan_pengaturan" value="tambah">Update</button>
