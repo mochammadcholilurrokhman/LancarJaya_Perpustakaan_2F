@@ -122,7 +122,7 @@ class EditRepoForm
 
                             <label for="status_repo">Status:</label>
                             <select id="status_repo" name="status_repo" required>
-                                <option value="Unvailable" <?php echo ($this->dataRepo['status_repo'] == 'Unvailable') ? 'selected' : ''; ?>>Unvailable</option>
+                                <option value="Available" <?php echo ($this->dataRepo['status_repo'] == 'Available') ? 'selected' : ''; ?>>Available</option>
                             </select>
                             <br><br>
 
