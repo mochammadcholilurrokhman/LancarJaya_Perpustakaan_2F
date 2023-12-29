@@ -66,7 +66,8 @@
                     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12h-9.5m7.5 3l3-3l-3-3m-5-2V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5a2 2 0 0 0 2-2v-1"/>
                 </svg>
                 </div>
-                <a href="../../Login/logout.php">Logout</a>
+                     <div role="button" tabindex="0" class="text-blue-900" onclick="confirmLogout()">Logout
+                     </div>
             </div>
 
             <div class="grid place-items-center ml-auto justify-self-end">
@@ -75,6 +76,14 @@
     </div>
     </nav>
     </div>
+    <script>
+    function confirmLogout() {
+        var confirmLogout = confirm("Are you sure you want to logout?");
+        if (confirmLogout) {
+            window.location.href = "../../Login/logout.php";
+        }
+    }
+</script>
 </body>
 
 </html>
