@@ -122,8 +122,8 @@ class EditRepoForm
 
                             <label for="status_repo">Status:</label>
                             <select id="status_repo" name="status_repo" required>
-                                <option value="option1" <?php echo ($this->dataRepo['status_repo'] == 'Available') ? 'selected' : ''; ?>>Available</option>
-                                <option value="option2" <?php echo ($this->dataRepo['status_repo'] == 'Borrowed') ? 'selected' : ''; ?>>Borrowed</option>
+                                <option value="Available" <?php echo ($this->dataRepo['status_repo'] == 'Available') ? 'selected' : ''; ?>>Available</option>
+                                <option value="Borrowed" <?php echo ($this->dataRepo['status_repo'] == 'Borrowed') ? 'selected' : ''; ?>>Borrowed</option>
                             </select>
                             <br><br>
 
