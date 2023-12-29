@@ -121,7 +121,11 @@ class EditRepoForm
                             <input type="text" id="Kata_Kunci" name="Kata_Kunci" value="<?php echo $this->dataRepo['Kata_Kunci']; ?>" required>
 
                             <label for="status_repo">Status:</label>
-                            <input type="text" id="status_repo" name="status_repo" value="<?php echo $this->dataRepo['status_repo']; ?>" required>
+                            <select id="status_repo" name="status_repo" required>
+                                <option value="option1" <?php echo ($this->dataRepo['status_repo'] == 'option1') ? 'selected' : ''; ?>>Option 1</option>
+                                <option value="option2" <?php echo ($this->dataRepo['status_repo'] == 'option2') ? 'selected' : ''; ?>>Option 2</option>
+                            </select>
+                            <br><br>
 
                             <button type="submit">Update</button>
                         </form>

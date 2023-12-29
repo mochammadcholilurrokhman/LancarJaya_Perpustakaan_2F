@@ -127,7 +127,10 @@ class EditBukuForm
                             <textarea name="deskripsi" required><?php echo $this->dataBuku['deskripsi']; ?></textarea><br>
                             
                             <label for="status">Status:</label>
-                            <input type="text" id="status_buku" name="status_buku" value="<?php echo $this->dataBuku['status_buku']; ?>" required>
+                                <select id="status_buku" name="status_buku" required>
+                                    <option value="available" <?php echo ($this->dataBuku['status_buku'] == 'Available') ? 'selected' : ''; ?>>Available</option>
+                                    <option value="unavailable" <?php echo ($this->dataBuku['status_buku'] == 'Borrowed') ? 'selected' : ''; ?>>Borrowed</option>
+                                </select>
                             <br><br>
                             <button type="submit">Update</button>
                         </form>
