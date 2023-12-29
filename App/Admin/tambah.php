@@ -115,8 +115,12 @@ class FormHandler
                             <textarea name="deskripsi" required></textarea><br>
 
                             <label for="status_buku">Book Status :</label>
-                            <input type="text" name="status_buku" required><br>
-                            <br>
+                            <select name="status_buku" required>
+                            <option value="available">Available</option>
+                            <option value="unavailable">Unavailable</option>
+                            </select>
+                            <br><br>
+
 
                             <label for="image">Upload Cover (Gambar):</label>
                             <input type="file" id="image" name="image">

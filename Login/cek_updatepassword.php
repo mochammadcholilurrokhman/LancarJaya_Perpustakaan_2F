@@ -4,16 +4,14 @@ require_once '../Config/Connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the keys exist in the $_POST array
-    if (isset($_POST["username"], $_POST["password"], $_POST["new_password"])) {
+    if (isset($_POST["username"], $_POST["new_password"])) {
         $username = $_POST["username"];
-        $password = $_POST["password"];
         $newPassword = $_POST["new_password"];
 
-        // Validate and sanitize the username and password (you can add more validation)
+        // Validate and sanitize the username (you can add more validation)
         $username = filter_var($username, FILTER_SANITIZE_STRING);
-        $password = filter_var($password, FILTER_SANITIZE_STRING);
 
-        $query = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
+        $query = "SELECT * FROM user WHERE username = '$username'";
         $result = mysqli_query($conn, $query);
 
         if ($result && mysqli_num_rows($result) > 0) {
@@ -24,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             echo "Password reset successfully. You can now <a href='login.php'>login</a> with your new password.";
         } else {
-            echo "Invalid username or password.";
+            echo "Invalid username.";
         }
     } else {
         echo "Invalid request parameters.";

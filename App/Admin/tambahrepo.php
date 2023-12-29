@@ -114,8 +114,12 @@ class RepositoryFormHandler
                         <label for="Kata_Kunci">Key Words</label>
                         <input type="text" name="Kata_Kunci" required><br>
 
-                        <label for="status_repo">Status Repo:</label>
-                        <input type="text" name="status_repo" required><br>
+                        <label for="status_repo">Status Repository:</label>
+                        <select name="status_repo" required>
+                        <option value="available">Available</option>
+                        <option value="unavailable">Unavailable</option>
+                        </select>
+                        <br><br>
 
                         <button type="submit" class="tambah">Add data</button>
                     </form>
